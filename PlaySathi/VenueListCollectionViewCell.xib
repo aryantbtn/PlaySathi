@@ -62,6 +62,9 @@
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="306" height="172"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="venueListDistance" destination="6Ku-6T-EJ1" id="QxX-5f-DaH"/>
                 <outlet property="venueListImage" destination="DwC-mp-SZe" id="9MZ-zY-tHS"/>
