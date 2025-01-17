@@ -9,9 +9,15 @@ import UIKit
 
 class VenueListCollectionViewCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    static let identifier = String(describing: VenueListCollectionViewCell.self)
+    @IBOutlet var venueListImage: UIImageView!
+    
+    @IBOutlet var venueListDistance: UILabel!
+    @IBOutlet var venueListName: UILabel!
+    
+    func updateFunc(with indexPath: IndexPath){
+        venueListImage.image = UIImage(named: ScreenData.venueData[indexPath.row].imageUrl)
+        venueListName.text = ScreenData.venueData[indexPath.row].name
+        venueListDistance.text = "Distance ~ " + ScreenData.venueData[indexPath.row].distanceInKm.formatted() + " kms"
     }
-
 }
