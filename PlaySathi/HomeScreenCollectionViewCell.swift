@@ -17,13 +17,11 @@ class HomeScreenCollectionViewCell: UICollectionViewCell {
 
     
     func dispaly (with indexPath: IndexPath){
-        Label1.text = """
-        Start
-        Your
-        Game Now.
-        """
+        Label1.text = "Start Your Game"
+        
         
         Label2.text = "Connect with players nearby and schedule your match"
-        BannerImage.image = UIImage(named: "Unknown")
+
+        BannerImage.image = UIImage(named: "Unknown 1")
     }
 }

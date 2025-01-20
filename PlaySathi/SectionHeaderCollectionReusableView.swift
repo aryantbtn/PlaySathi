@@ -43,7 +43,7 @@ class SectionHeaderCollectionReusableView: UICollectionReusableView {
         
         button.topAnchor.constraint(equalTo: topAnchor),
         button.bottomAnchor.constraint(equalTo: bottomAnchor),
-        button.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 300),
+        button.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 350),
         button.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }

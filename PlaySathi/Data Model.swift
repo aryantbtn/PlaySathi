@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct User {
     let id: Int //UUID
@@ -126,4 +127,15 @@ struct ElitePoints {
     func totalPoints() -> Int {
         return user.elitePoints
     }
+}
+
+struct CreateGame {
+    var title: String
+    var segmentedControll: UISegmentedControl
+    
+    var imgae: String
+    var venue: String
+    var date: String
+    var time:String
+    var Player: String
 }
