@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct User {
     let id: Int //UUID
@@ -126,4 +127,12 @@ struct ElitePoints {
     func totalPoints() -> Int {
         return user.elitePoints
     }
+}
+
+
+struct playerInfo {
+    var playerImage: String
+    var playerName: String
+    var description: String
+//    var usage: String
 }

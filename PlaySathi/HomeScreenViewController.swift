@@ -13,7 +13,7 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
-        self.tabBarController?.isTabBarHidden = true
+//        self.tabBarController?.isTabBarHidden = true
         
         // Do any additional setup after loading the view.
     }
@@ -167,5 +167,4 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         return headerView
         
     }
-    
 }
