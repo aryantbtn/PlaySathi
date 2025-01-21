@@ -9,6 +9,9 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
 
+    
+    var selectedIndexPath: IndexPath?
+    
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,8 +176,17 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let gameEntry = ScreenData.sectionHeaderNames[indexPath.section]
-        performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+        if indexPath.section == 0 {
+            let gameEntry = ScreenData.sectionHeaderNames[indexPath.section]
+            performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+        }
+        else if indexPath.section == 2{
+            
+            let storyboard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
+            let destVC = storyboard.instantiateViewController(withIdentifier: "venueId2") as! VenueDetailViewController
+            destVC.indexPathForVenueDetail = indexPath
+            self.navigationController?.pushViewController(destVC, animated: true)
+        }
     }
 @objc func venueButtonTapped() {
     let storyBoard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
@@ -184,7 +196,11 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     }
     
-    
-    
-    
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Good"{
+            let dVC = segue.destination as! VenueDetailViewController
+            dVC.indexPathForVenueDetail = selectedIndexPath!
+        }
+    }
 }
