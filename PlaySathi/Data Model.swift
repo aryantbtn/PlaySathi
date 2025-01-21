@@ -73,6 +73,13 @@ class ScreenData{
         "Nearby Players",
         "Venue Near Me"
     ]
+    
+    
+    static var sectionHeadersForVenueDetails:[String] = [
+        "",
+        "Venue Description",
+        "Amenities"
+        ]
 }
 
 
@@ -85,15 +92,8 @@ struct Venue {
     var distanceInKm: Double
     var location: String
     var availableCourts: Int
-   // var amenities: [Facility]
+    }
 
-//    enum Facility: String {
-//        case parking = "Parking"
-//        case changingRooms = "Changing Rooms"
-//        case cafeteria = "Cafeteria"
-//        case shower = "Shower"
-//    }
-}
 
 
 struct Match: Identifiable {
@@ -139,3 +139,9 @@ struct CreateGame {
     var time:String
     var Player: String
 }
+
+var amenities = [
+    "Parking",
+"Changing Rooms",
+"Cafeteria",
+"Shower"]
