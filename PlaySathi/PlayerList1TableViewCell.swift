@@ -28,11 +28,11 @@ class PlayerList1TableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func upadateCell(with player: playerInfo) {
+    func upadateCell(with indexPath: IndexPath) {
         print ("hello update")
-        playerImageView.image = UIImage(named: player.playerImage)
-        playerNameLabel.text = player.playerName
-        playerDescription.text = player.description
+        playerImageView.image = UIImage(named: players[indexPath.row].profilePicture)
+        playerNameLabel.text = players[indexPath.row].name
+        playerDescription.text = "Distance ~ " + players[indexPath.row].location.formatted() + " kms" + " | \(players[indexPath.row].elitePoints) EP"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
