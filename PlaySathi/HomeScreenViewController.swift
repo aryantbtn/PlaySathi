@@ -14,6 +14,7 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         registerCells()
         self.tabBarController?.isTabBarHidden = false
+//        self.tabBarController?.isTabBarHidden = true
         
         // Do any additional setup after loading the view.
     }
@@ -184,7 +185,5 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     }
     
-    
-    
-    
+
 }

@@ -24,13 +24,8 @@ struct User {
     }
 }
 class ScreenData{
+    
     static var userData: [User] = [
-        User(id: 4, name: "Alok Kumar", profilePicture: "images4", elitePoints: 2, skillLevel: .advanced, location: 3.2),
-        User(id: 5, name: "Umesh Gaur", profilePicture: "images1", elitePoints: 1, skillLevel: .beginner, location: 4),
-        User(id: 6, name: "Rishabh Rathore", profilePicture: "images2", elitePoints: 1, skillLevel: .beginner, location: 7.4),
-        User(id: 7, name: "Rohit Dixit", profilePicture: "images3", elitePoints: 1, skillLevel: .beginner, location: 9),
-        User(id: 8, name: "Ankit Mishra", profilePicture: "image", elitePoints: 1, skillLevel: .beginner, location: 10.7),
-        User(id: 9, name: "Piyush Maurya", profilePicture: "images5", elitePoints: 2, skillLevel: .advanced, location: 20),
         User(id: 10, name: "Amitabh", profilePicture: "images6", elitePoints: 2, skillLevel: .advanced, location: 25),
         User(id: 11, name: "Shubham", profilePicture: "images7", elitePoints: 2, skillLevel: .advanced, location: 30),
         User(id: 12, name: "Shivam", profilePicture: "images8", elitePoints: 2, skillLevel: .advanced, location: 35),
@@ -38,6 +33,12 @@ class ScreenData{
         User(id: 14, name: "Vishal", profilePicture: "images10", elitePoints: 2, skillLevel: .advanced, location: 45),
         User(id: 15, name: "Jatin", profilePicture: "images11", elitePoints: 2, skillLevel: .advanced, location: 50),
         User(id: 16, name: "Amit", profilePicture: "images12", elitePoints: 2, skillLevel: .advanced, location: 55),
+        User(id: 4, name: "Alok Kumar", profilePicture: "images4", elitePoints: 2, skillLevel: .advanced, location: 3.2),
+        User(id: 5, name: "Umesh Gaur", profilePicture: "images1", elitePoints: 1, skillLevel: .beginner, location: 4),
+        User(id: 6, name: "Rishabh Rathore", profilePicture: "images2", elitePoints: 1, skillLevel: .beginner, location: 7.4),
+        User(id: 7, name: "Rohit Dixit", profilePicture: "images3", elitePoints: 1, skillLevel: .beginner, location: 9),
+        User(id: 8, name: "Ankit Mishra", profilePicture: "Image", elitePoints: 1, skillLevel: .beginner, location: 10.7),
+        User(id: 9, name: "Piyush Maurya", profilePicture: "images5", elitePoints: 2, skillLevel: .advanced, location: 20),
         User(id: 17, name: "Rohit", profilePicture: "images13", elitePoints: 2, skillLevel: .advanced, location: 60),
         User(id: 18, name: "Shubham", profilePicture: "images14", elitePoints: 2, skillLevel: .advanced, location: 65),
         User(id: 19, name: "Amit", profilePicture: "images15", elitePoints: 2, skillLevel: .advanced, location: 70),
@@ -128,7 +129,6 @@ struct ElitePoints {
         return user.elitePoints
     }
 }
-
 struct CreateGame {
     var title: String
     var segmentedControll: UISegmentedControl
@@ -139,3 +139,5 @@ struct CreateGame {
     var time:String
     var Player: String
 }
+
+var players = ScreenData.userData
