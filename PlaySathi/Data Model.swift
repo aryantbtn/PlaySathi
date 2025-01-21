@@ -143,7 +143,7 @@ struct CreateGame {
 
 var amenities = [
     "Parking",
-"Changing Rooms",
+"Rooms",
 "Cafeteria",
 "Shower"]
 
