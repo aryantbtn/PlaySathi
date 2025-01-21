@@ -20,19 +20,19 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Players"
-                navigationItem.searchController = searchController
+        navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
-                searchController.obscuresBackgroundDuringPresentation = false
-                searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
         
-                
-                // Configure Table View
-                tableView.delegate = self
-                tableView.dataSource = self
-                
-                // Segmented Control
-                playerListSegmetedControl.addTarget(self, action:
-                #selector(segmentValueChanged(_:)), for: .valueChanged)
+//        Configure Table View
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.isHidden = false
+        
+//        Segmented Control
+        playerListSegmetedControl.addTarget(self, action:
+        #selector(segmentValueChanged(_:)), for: .valueChanged)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,9 +67,7 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK:- Search Bar Function
     
     func updateSearchResults(for searchController: UISearchController) {
-        
-            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-//                searchPlayer = players.filter { $0.playerName.lowercased().contains(searchText.lowercased()) }
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
                 searchPlayer = players.filter {$0.name.lowercased().contains(searchText.lowercased())}
                 searching = true
             } else {
@@ -82,16 +80,14 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func segmentValueChanged(_ sender: UISegmentedControl) {
             switch sender.selectedSegmentIndex {
             case 0:
-                return 
+                return
             case 1:
                 // Sort by Distance (Example)
-                //players.sort { $0.description < $1.description }
                 players.sort { user1, user2 in
                     user1.location < user2.location
                 }
             case 2:
                 // Sort by EP (Example)
-                //players.sort { $0.description.split(separator: "|")[1] < $1.description.split(separator: "|")[1] }
                 players.sort { user1, user2 in
                     user1.elitePoints < user2.elitePoints
                 }
