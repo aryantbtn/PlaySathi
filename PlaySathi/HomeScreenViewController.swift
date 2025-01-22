@@ -165,6 +165,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case 1:
             headerView.headerLabel.text = ScreenData.sectionHeaderNames[1]
             headerView.button.setTitle("See All", for: .normal)
+            headerView.button.addTarget(self, action: #selector(playerButtonTapped), for: .touchUpInside)
         case 2:
             headerView.headerLabel.text = ScreenData.sectionHeaderNames[2]
             headerView.button.setTitle("See All", for: .normal)
@@ -197,7 +198,13 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         self.navigationController?.pushViewController(venueVC, animated: true)
     }
     }
-    
+    @objc func playerButtonTapped() {
+        let storyBoard = UIStoryboard(name: "tabAryan", bundle: nil)
+        
+        if let playerVC = storyBoard.instantiateViewController(withIdentifier: "playerId") as? PlayerList1ViewController {
+            self.navigationController?.pushViewController(playerVC, animated: true)
+        }
+        }
 
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

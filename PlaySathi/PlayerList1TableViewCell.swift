@@ -31,6 +31,7 @@ class PlayerList1TableViewCell: UITableViewCell {
     func upadateCell(with indexPath: IndexPath) {
         print ("hello update")
         playerImageView.image = UIImage(named: players[indexPath.row].profilePicture)
+        playerImageView.layer.cornerRadius = playerImageView.bounds.width / 2
         playerNameLabel.text = players[indexPath.row].name
         playerDescription.text = "Distance ~ " + players[indexPath.row].location.formatted() + " kms" + " | \(players[indexPath.row].elitePoints) EP"
     }
