@@ -73,6 +73,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VenueCollectionViewCell.identifier, for: indexPath) as! VenueCollectionViewCell
             cell.update(with:indexPath)
             cell.layer.cornerRadius = 8
+            cell.clipsToBounds = true
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeScreenCollectionViewCell.identifier, for: indexPath) as! HomeScreenCollectionViewCell
