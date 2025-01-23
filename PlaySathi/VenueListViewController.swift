@@ -165,9 +165,10 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
         print("Filtering by Favorites")
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let Entry = ScreenData.venueData[indexPath.section]
+        let entry = ScreenData.venueData[indexPath.section]
         selectedIndexPath = indexPath
-        performSegue(withIdentifier: "Good", sender: Entry)
+        newCreatedGame.venue = entry
+        performSegue(withIdentifier: "Good", sender: entry)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Good"{

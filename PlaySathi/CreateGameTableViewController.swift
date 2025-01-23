@@ -9,6 +9,8 @@ import UIKit
 
 class CreateGameTableViewController: UITableViewController {
     
+    
+    
     @IBOutlet weak var date: UIDatePicker!
     @IBOutlet weak var venueName: UILabel!
     @IBOutlet weak var endTime: UIDatePicker!
@@ -18,6 +20,7 @@ class CreateGameTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Create Game"
+        venueName.text = newCreatedGame.venue.name
         navigationItem.largeTitleDisplayMode = .never
 
     }
@@ -48,7 +51,6 @@ class CreateGameTableViewController: UITableViewController {
             return 4
         }
         }
-    
     
     }
 
