@@ -25,12 +25,13 @@ class HomeScreenViewController: UIViewController {
         let firstNib = UINib(nibName: HomeScreenCollectionViewCell.identifier, bundle: nil)
         let secondNib = UINib(nibName: PlayerCollectionViewCell.identifier, bundle: nil)
        let thirdNib = UINib(nibName: VenueCollectionViewCell.identifier, bundle: nil)
+        let fourthNib = UINib(nibName: GameEntryCollectionViewCell.identifier, bundle: nil)
                 
         
         collectionView.register(firstNib, forCellWithReuseIdentifier: HomeScreenCollectionViewCell.identifier)
         collectionView.register(secondNib, forCellWithReuseIdentifier: PlayerCollectionViewCell.identifier)
         collectionView.register(thirdNib, forCellWithReuseIdentifier: VenueCollectionViewCell.identifier)
-        
+        collectionView.register(fourthNib, forCellWithReuseIdentifier: GameEntryCollectionViewCell.identifier)
         collectionView.register(SectionHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeaderCollectionReusableView")
         
         collectionView.setCollectionViewLayout(generateLayout(), animated: true)
@@ -41,7 +42,8 @@ class HomeScreenViewController: UIViewController {
 extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        ScreenData.sectionHeaderNames.count
+        //ScreenData.sectionHeaderNames.count
+        return 4
     }
     
     
@@ -50,9 +52,11 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case 0:
             1
         case 1:
-            ScreenData.userData.count
+            1
         case 2:
             ScreenData.venueData.count
+        case 3:
+            ScreenData.userData.count
         default : 0
         }
     }
@@ -64,7 +68,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             cell.dispaly(with:indexPath)
             cell.layer.cornerRadius = 8
             return cell
-        case 1:
+        case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerCollectionViewCell.identifier, for: indexPath) as! PlayerCollectionViewCell
             cell.setup(with:indexPath)
             cell.layer.cornerRadius = 8
@@ -72,6 +76,12 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VenueCollectionViewCell.identifier, for: indexPath) as! VenueCollectionViewCell
             cell.update(with:indexPath)
+            cell.layer.cornerRadius = 8
+            cell.clipsToBounds = true
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
+            cell.d(with:indexPath)
             cell.layer.cornerRadius = 8
             cell.clipsToBounds = true
             return cell
@@ -93,10 +103,12 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             switch sectionIndex{
             case 0:
                 section =  self.generateSection1Layout()
-            case 1:
+            case 3:
                 section = self.generateSection2Layout()
             case 2:
                 section = self.generateSection3Layout()
+            case 1:
+                section = self.generateSection4Layout()
                 
             default : print("Wrong Section")
                 return nil
@@ -157,12 +169,28 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         section.boundarySupplementaryItems = [header]
         return section
     }
+    func generateSection4Layout()->NSCollectionLayoutSection{
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(356), heightDimension: .absolute(130))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:8, bottom: 8, trailing: 0)
+        group.interItemSpacing = .fixed(2)
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(44))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader,
+                                                                 alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        return section
+    }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeaderCollectionReusableView", for: indexPath) as! SectionHeaderCollectionReusableView
         headerView.headerLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         switch indexPath.section {
-        case 1:
+        case 3:
             headerView.headerLabel.text = ScreenData.sectionHeaderNames[1]
             headerView.button.setTitle("See All", for: .normal)
             headerView.button.addTarget(self, action: #selector(playerButtonTapped), for: .touchUpInside)
@@ -214,6 +242,6 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         }
     }
 
-
+  
 
 }

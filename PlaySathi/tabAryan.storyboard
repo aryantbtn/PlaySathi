@@ -74,7 +74,7 @@
                                             <outlet property="playerDescription" destination="I0a-im-5QJ" id="5FK-vi-fAq"/>
                                             <outlet property="playerImageView" destination="Ddr-AN-Upa" id="7ZG-s4-XZM"/>
                                             <outlet property="playerNameLabel" destination="6zJ-mg-QQy" id="Uyk-S8-8qn"/>
-                                            <segue destination="fSi-dF-02t" kind="show" id="oOW-SD-1yZ"/>
+                                            <segue destination="fSi-dF-02t" kind="show" identifier="" id="oOW-SD-1yZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -264,7 +264,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nYm-Gk-Tzv"/>
+        <segue reference="oOW-SD-1yZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.forward" catalog="system" width="97" height="128"/>
