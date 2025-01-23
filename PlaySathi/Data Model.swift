@@ -48,23 +48,23 @@ class ScreenData{
     ]
     
     static var venueData: [Venue] = [
-        Venue(id: 1, name: "Say No To Stress", imageUrl: "v13", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4),
-        Venue(id: 2, name: "Say Sports Academy", imageUrl: "v7", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4),
-        Venue(id: 3, name: "CrowdFit Academy", imageUrl: "v8", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4),
-        Venue(id: 4, name: "Piyush Verma", imageUrl: "v9", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4),
-        Venue(id: 5, name: "Mathura Academy", imageUrl: "v10", rating: 5, distanceInKm: 2, location: "Mathura", availableCourts: 3),
-        Venue(id: 6, name: "Gurugram Academy", imageUrl: "v14", rating: 4.0, distanceInKm: 10, location: "Gurugram", availableCourts: 2),
-        Venue(id: 7, name: "Delhi Academy", imageUrl: "v12", rating: 4.0, distanceInKm: 15, location: "Delhi", availableCourts: 1),
-        Venue(id: 8, name: "Pune Academy", imageUrl: "v6", rating: 4.0, distanceInKm: 20, location: "Pune", availableCourts: 0),
-        Venue(id: 9, name: "Mumbai Academy", imageUrl: "v4", rating: 4.0, distanceInKm: 30, location: "Mumbai", availableCourts: 0),
-        Venue(id: 10, name: "Kolkata Academy", imageUrl: "v3", rating: 4.0, distanceInKm: 40, location: "Kolkata", availableCourts: 0),
-        Venue(id: 11, name: "Bengaluru Academy", imageUrl: "v11", rating: 4.0, distanceInKm: 50, location: "Bengaluru", availableCourts: 0),
-        Venue(id: 12, name: "Chennai Academy", imageUrl: "v2", rating: 4.0, distanceInKm: 60, location: "Chennai", availableCourts: 0),
-        Venue(id: 13, name: "Hyderabad Academy", imageUrl: "v5", rating: 4.0, distanceInKm: 70, location: "Hyderabad", availableCourts: 0),
-        Venue(id: 14, name: "Coimbatore Academy", imageUrl: "v1", rating: 4.0, distanceInKm: 80, location: "Coimbatore", availableCourts: 0),
-        Venue(id: 15, name: "Trichy Academy", imageUrl: "v15", rating: 4.0, distanceInKm: 90, location: "Trichy", availableCourts: 0),
-        Venue(id: 16, name: "Madurai Academy", imageUrl: "v16", rating: 4.0, distanceInKm: 100, location: "Madurai", availableCourts: 0),
-        Venue(id: 17, name: "Thiruvallur Academy", imageUrl: "v17", rating: 4.0, distanceInKm: 110, location: "Thiruvallur", availableCourts: 0),
+        Venue(id: 1, name: "Say No To Stress", imageUrl: "v13", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 230),
+        Venue(id: 2, name: "Say Sports Academy", imageUrl: "v7", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 156),
+        Venue(id: 3, name: "CrowdFit Academy", imageUrl: "v8", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 300),
+        Venue(id: 4, name: "Piyush Verma", imageUrl: "v9", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 400),
+        Venue(id: 5, name: "Mathura Academy", imageUrl: "v10", rating: 5, distanceInKm: 2, location: "Mathura", availableCourts: 3, price: 340),
+        Venue(id: 6, name: "Gurugram Academy", imageUrl: "v14", rating: 4.0, distanceInKm: 10, location: "Gurugram", availableCourts: 2, price: 321),
+        Venue(id: 7, name: "Delhi Academy", imageUrl: "v12", rating: 4.0, distanceInKm: 15, location: "Delhi", availableCourts: 1, price: 344),
+        Venue(id: 8, name: "Pune Academy", imageUrl: "v6", rating: 4.0, distanceInKm: 20, location: "Pune", availableCourts: 0, price: 200),
+        Venue(id: 9, name: "Mumbai Academy", imageUrl: "v4", rating: 4.0, distanceInKm: 30, location: "Mumbai", availableCourts: 0, price: 222),
+        Venue(id: 10, name: "Kolkata Academy", imageUrl: "v3", rating: 4.0, distanceInKm: 40, location: "Kolkata", availableCourts: 0, price: 100),
+        Venue(id: 11, name: "Bengaluru Academy", imageUrl: "v11", rating: 4.0, distanceInKm: 50, location: "Bengaluru", availableCourts: 0, price: 400),
+        Venue(id: 12, name: "Chennai Academy", imageUrl: "v2", rating: 4.0, distanceInKm: 60, location: "Chennai", availableCourts: 0, price: 500),
+        Venue(id: 13, name: "Hyderabad Academy", imageUrl: "v5", rating: 4.0, distanceInKm: 70, location: "Hyderabad", availableCourts: 0, price: 200),
+        Venue(id: 14, name: "Coimbatore Academy", imageUrl: "v1", rating: 4.0, distanceInKm: 80, location: "Coimbatore", availableCourts: 0, price: 150),
+        Venue(id: 15, name: "Trichy Academy", imageUrl: "v15", rating: 4.0, distanceInKm: 90, location: "Trichy", availableCourts: 0, price: 300),
+        Venue(id: 16, name: "Madurai Academy", imageUrl: "v16", rating: 4.0, distanceInKm: 100, location: "Madurai", availableCourts: 0, price: 350),
+        Venue(id: 17, name: "Thiruvallur Academy", imageUrl: "v17", rating: 4.0, distanceInKm: 110, location: "Thiruvallur", availableCourts: 0, price: 400),
         
     ]
     
@@ -93,6 +93,7 @@ struct Venue {
     var distanceInKm: Double
     var location: String
     var availableCourts: Int
+    var price : Int
     }
 
 
@@ -149,3 +150,10 @@ var amenities = [
 
 var players = ScreenData.userData
 
+
+struct Game {
+    var gameTitle: String
+    var venue:Venue
+}
+
+var newCreatedGame = Game(gameTitle: "This", venue: Venue(id: 65, name: "Wankhede Stadium", imageUrl: "random", rating: 9, distanceInKm: 9.9, location: "feefe", availableCourts: 9, price: 200))

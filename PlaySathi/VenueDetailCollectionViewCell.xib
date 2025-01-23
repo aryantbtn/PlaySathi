@@ -30,9 +30,9 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAe-GH-uOc">
-                        <rect key="frame" x="10" y="211" width="320" height="39"/>
+                        <rect key="frame" x="10" y="211" width="287" height="39"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="320" id="27A-Zw-LiI"/>
+                            <constraint firstAttribute="width" constant="287" id="27A-Zw-LiI"/>
                             <constraint firstAttribute="height" constant="39" id="Fcf-Sj-44g"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -40,13 +40,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0O-fd-DIs">
-                        <rect key="frame" x="11" y="244" width="325" height="21"/>
+                        <rect key="frame" x="11" y="244" width="286" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="PFA-xr-QaX"/>
-                            <constraint firstAttribute="width" constant="325" id="kt1-Kf-Ncv"/>
+                            <constraint firstAttribute="width" constant="286" id="kt1-Kf-Ncv"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" systemColor="systemGrayColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DY-6Z-9IZ">
+                        <rect key="frame" x="322.66666666666669" y="228" width="41.333333333333314" height="20.333333333333343"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -59,12 +65,16 @@
                 <constraint firstAttribute="trailing" secondItem="yaD-d8-dnA" secondAttribute="trailing" id="Ylz-C9-qmP"/>
                 <constraint firstItem="yaD-d8-dnA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bBS-XX-EFT"/>
                 <constraint firstItem="yaD-d8-dnA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bru-NS-lMu"/>
+                <constraint firstItem="1DY-6Z-9IZ" firstAttribute="top" secondItem="OAe-GH-uOc" secondAttribute="bottom" constant="-22" id="eCl-to-foB"/>
+                <constraint firstAttribute="trailing" secondItem="1DY-6Z-9IZ" secondAttribute="trailing" constant="10" id="h2g-U1-8Hm"/>
                 <constraint firstItem="n0O-fd-DIs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="11" id="kK2-AQ-M5B"/>
+                <constraint firstItem="1DY-6Z-9IZ" firstAttribute="top" secondItem="yaD-d8-dnA" secondAttribute="bottom" constant="22" id="rEx-cg-d2G"/>
             </constraints>
             <connections>
                 <outlet property="ImageLabel" destination="yaD-d8-dnA" id="nuQ-si-9wd"/>
                 <outlet property="distanceLabel" destination="n0O-fd-DIs" id="37Z-hF-Z3t"/>
                 <outlet property="nameLabel" destination="OAe-GH-uOc" id="tOc-Pu-6EY"/>
+                <outlet property="venuePrice" destination="1DY-6Z-9IZ" id="Lh0-Mu-EcR"/>
             </connections>
             <point key="canvasLocation" x="39.694656488549619" y="19.366197183098592"/>
         </collectionViewCell>

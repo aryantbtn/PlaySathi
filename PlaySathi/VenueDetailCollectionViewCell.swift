@@ -12,7 +12,7 @@ class VenueDetailCollectionViewCell: UICollectionViewCell {
     //static let identifier = String(describing: VenueDetailCollectionViewCell.self)
 
     @IBOutlet var ImageLabel: UIImageView!
-    
+    @IBOutlet var venuePrice: UILabel!
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     
@@ -22,6 +22,7 @@ class VenueDetailCollectionViewCell: UICollectionViewCell {
         ImageLabel.image =  UIImage(named: ScreenData.venueData[indexPath.row].imageUrl)
     nameLabel.text = ScreenData.venueData[indexPath.row].name
         distanceLabel.text = "Distance ~ " + ScreenData.venueData[indexPath.row].distanceInKm.formatted() + " kms"
+        venuePrice.text = "Price ~ " + ScreenData.venueData[indexPath.row].price.formatted() + "Rs."
         
     }
 }
