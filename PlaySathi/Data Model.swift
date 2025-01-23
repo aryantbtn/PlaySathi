@@ -72,7 +72,8 @@ class ScreenData{
     static var sectionHeaderNames:[String] = [
         "",
         "Nearby Players",
-        "Venue Near Me"
+        "Venue Near Me",
+        "Requests"
     ]
     
     

@@ -52,11 +52,11 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case 0:
             1
         case 1:
-            1
+            ScreenData.userData.count
         case 2:
             ScreenData.venueData.count
         case 3:
-            ScreenData.userData.count
+            1
         default : 0
         }
     }
@@ -68,7 +68,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             cell.dispaly(with:indexPath)
             cell.layer.cornerRadius = 8
             return cell
-        case 3:
+        case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerCollectionViewCell.identifier, for: indexPath) as! PlayerCollectionViewCell
             cell.setup(with:indexPath)
             cell.layer.cornerRadius = 8
@@ -79,7 +79,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             cell.layer.cornerRadius = 8
             cell.clipsToBounds = true
             return cell
-        case 1:
+        case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
             cell.d(with:indexPath)
             cell.layer.cornerRadius = 8
@@ -103,11 +103,11 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             switch sectionIndex{
             case 0:
                 section =  self.generateSection1Layout()
-            case 3:
+            case 1:
                 section = self.generateSection2Layout()
             case 2:
                 section = self.generateSection3Layout()
-            case 1:
+            case 3:
                 section = self.generateSection4Layout()
                 
             default : print("Wrong Section")
@@ -190,7 +190,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeaderCollectionReusableView", for: indexPath) as! SectionHeaderCollectionReusableView
         headerView.headerLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         switch indexPath.section {
-        case 3:
+        case 1:
             headerView.headerLabel.text = ScreenData.sectionHeaderNames[1]
             headerView.button.setTitle("See All", for: .normal)
             headerView.button.addTarget(self, action: #selector(playerButtonTapped), for: .touchUpInside)
@@ -198,6 +198,10 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             headerView.headerLabel.text = ScreenData.sectionHeaderNames[2]
             headerView.button.setTitle("See All", for: .normal)
             headerView.button.addTarget(self, action: #selector(venueButtonTapped), for: .touchUpInside)
+        case 3:
+            headerView.headerLabel.text = ScreenData.sectionHeaderNames[3]
+            headerView.button.setTitle("See All", for: .normal)
+            
         default:
             print("fsg")
         }
