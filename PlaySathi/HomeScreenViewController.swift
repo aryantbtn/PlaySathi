@@ -247,9 +247,6 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     @IBAction func unwibd(segue:UIStoryboardSegue){
-//        if ScreenData.venueBooked {
-//            ScreenData.sections += 1
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
