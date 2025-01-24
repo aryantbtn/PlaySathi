@@ -101,10 +101,12 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("********")
         let destination = players[indexPath.row]
-        
+//        print(selecteddIndexPath)
         selecteddIndexPath = indexPath
-//        print(selecteddIndexPath!)
+        print(selecteddIndexPath)
+
         performSegue(withIdentifier: "segue1", sender: (Any).self)
     }
     
