@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-LU-loK">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="143" width="393" height="675"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5iZ-to-dk6">
                                     <size key="itemSize" width="128" height="128"/>
@@ -40,18 +40,56 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MuW-n7-46p" customClass="CardView" customModule="PlaySathi" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="103" width="383" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFm-7W-FbF">
+                                        <rect key="frame" x="343.66666666666669" y="6" width="37.333333333333314" height="28"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.up.chevron.down" catalog="system" buttonSize="mini"/>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="􀊫 Type Venue Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bry-8g-4hk">
+                                        <rect key="frame" x="10" y="5" width="289.66666666666669" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfW-Iz-s74">
+                                        <rect key="frame" x="309.66666666666669" y="9" width="32" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="bry-8g-4hk" firstAttribute="leading" secondItem="MuW-n7-46p" secondAttribute="leading" constant="10" id="1mU-8C-oIJ"/>
+                                    <constraint firstItem="vFm-7W-FbF" firstAttribute="leading" secondItem="JfW-Iz-s74" secondAttribute="trailing" constant="2" id="2vF-Wy-41q"/>
+                                    <constraint firstItem="JfW-Iz-s74" firstAttribute="top" secondItem="MuW-n7-46p" secondAttribute="top" constant="9" id="7o3-De-8ih"/>
+                                    <constraint firstItem="vFm-7W-FbF" firstAttribute="top" secondItem="MuW-n7-46p" secondAttribute="top" constant="6" id="GxP-Ez-neW"/>
+                                    <constraint firstAttribute="width" constant="383" id="egt-NU-U8g"/>
+                                    <constraint firstAttribute="bottom" secondItem="bry-8g-4hk" secondAttribute="bottom" constant="5" id="p6h-74-5nw"/>
+                                    <constraint firstItem="JfW-Iz-s74" firstAttribute="leading" secondItem="bry-8g-4hk" secondAttribute="trailing" constant="10" id="pPx-3m-rnw"/>
+                                    <constraint firstAttribute="height" constant="40" id="qrM-uS-cmo"/>
+                                    <constraint firstItem="bry-8g-4hk" firstAttribute="top" secondItem="MuW-n7-46p" secondAttribute="top" constant="5" id="ynA-3h-URk"/>
+                                    <constraint firstAttribute="trailing" secondItem="vFm-7W-FbF" secondAttribute="trailing" constant="2" id="zaI-5E-S60"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1Da-LU-loK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="TWL-MF-upO"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1Da-LU-loK" secondAttribute="trailing" id="TrU-s2-PVI"/>
-                            <constraint firstItem="1Da-LU-loK" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kwc-pV-2hI"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1Da-LU-loK" secondAttribute="bottom" id="t59-3y-wUA"/>
+                            <constraint firstItem="1Da-LU-loK" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="0Ld-KI-bdo"/>
+                            <constraint firstItem="MuW-n7-46p" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="2FU-J6-GFY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MuW-n7-46p" secondAttribute="trailing" constant="10" id="LUi-Ye-5ML"/>
+                            <constraint firstItem="1Da-LU-loK" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="OGA-HN-JfD"/>
+                            <constraint firstItem="1Da-LU-loK" firstAttribute="top" secondItem="MuW-n7-46p" secondAttribute="bottom" id="UwY-WK-zT2"/>
+                            <constraint firstItem="1Da-LU-loK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rAa-m7-MOB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Venue" id="K6R-UT-2lH"/>
                     <connections>
+                        <outlet property="sortingButton" destination="vFm-7W-FbF" id="sHp-oe-HFY"/>
+                        <outlet property="sortingTitle" destination="JfW-Iz-s74" id="hqP-e7-lMO"/>
                         <outlet property="venueCollectionView" destination="1Da-LU-loK" id="ej0-4J-WA8"/>
                     </connections>
                 </viewController>
@@ -703,6 +741,7 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="chevron.up.chevron.down" catalog="system" width="109" height="128"/>
         <image name="clock" catalog="system" width="128" height="123"/>
         <image name="location" catalog="system" width="128" height="119"/>
         <image name="phone" catalog="system" width="128" height="115"/>
