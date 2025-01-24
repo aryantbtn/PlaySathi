@@ -38,6 +38,7 @@ class HomeScreenViewController: UIViewController {
         collectionView.delegate = self
     }
 }
+
 extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -196,7 +197,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     
     if let venueVC = storyBoard.instantiateViewController(withIdentifier: "venueId") as? VenueListViewController {
         self.navigationController?.pushViewController(venueVC, animated: true)
-    }
+        }
     }
     @objc func playerButtonTapped() {
         let storyBoard = UIStoryboard(name: "tabAryan", bundle: nil)
@@ -204,7 +205,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         if let playerVC = storyBoard.instantiateViewController(withIdentifier: "playerId") as? PlayerList1ViewController {
             self.navigationController?.pushViewController(playerVC, animated: true)
         }
-        }
+    }
 
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -213,7 +214,4 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             dVC.indexPathForVenueDetail = selectedIndexPath!
         }
     }
-
-
-
 }

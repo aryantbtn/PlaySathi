@@ -176,7 +176,3 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
         }
     }
 }
-
-   
-
-
