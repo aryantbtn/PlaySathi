@@ -26,12 +26,14 @@ class HomeScreenViewController: UIViewController {
         let secondNib = UINib(nibName: PlayerCollectionViewCell.identifier, bundle: nil)
        let thirdNib = UINib(nibName: VenueCollectionViewCell.identifier, bundle: nil)
         let fourthNib = UINib(nibName: GameEntryCollectionViewCell.identifier, bundle: nil)
+        let fifthNib = UINib(nibName: PlayerSelectionCollectionViewCell.identifier, bundle: nil)
                 
         
         collectionView.register(firstNib, forCellWithReuseIdentifier: HomeScreenCollectionViewCell.identifier)
         collectionView.register(secondNib, forCellWithReuseIdentifier: PlayerCollectionViewCell.identifier)
         collectionView.register(thirdNib, forCellWithReuseIdentifier: VenueCollectionViewCell.identifier)
         collectionView.register(fourthNib, forCellWithReuseIdentifier: GameEntryCollectionViewCell.identifier)
+        collectionView.register(fifthNib, forCellWithReuseIdentifier: PlayerSelectionCollectionViewCell.identifier)
         collectionView.register(SectionHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeaderCollectionReusableView")
         
         collectionView.setCollectionViewLayout(generateLayout(), animated: true)
@@ -43,7 +45,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         //ScreenData.sectionHeaderNames.count
-        return 4
+        return 5
     }
     
     
@@ -56,6 +58,8 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case 2:
             ScreenData.venueData.count
         case 3:
+            1
+        case 4:
             1
         default : 0
         }
@@ -77,13 +81,19 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VenueCollectionViewCell.identifier, for: indexPath) as! VenueCollectionViewCell
             cell.update(with:indexPath)
             cell.layer.cornerRadius = 8
-            cell.clipsToBounds = true
+//            cell.clipsToBounds = true
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
             cell.d(with:indexPath)
             cell.layer.cornerRadius = 8
-            cell.clipsToBounds = true
+//            cell.clipsToBounds = true
+            return cell
+        case 4:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
+            cell.playerDetails(with:indexPath)
+            cell.layer.cornerRadius = 8
+//            cell.clipsToBounds = true
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeScreenCollectionViewCell.identifier, for: indexPath) as! HomeScreenCollectionViewCell
@@ -109,6 +119,8 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                 section = self.generateSection3Layout()
             case 3:
                 section = self.generateSection4Layout()
+            case 4:
+                section = self.generateSection5Layout()
                 
             default : print("Wrong Section")
                 return nil
@@ -172,10 +184,26 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     func generateSection4Layout()->NSCollectionLayoutSection{
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(356), heightDimension: .absolute(130))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(130))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
-        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:8, bottom: 8, trailing: 0)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:8, bottom: 8, trailing: 8)
+        group.interItemSpacing = .fixed(2)
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(44))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader,
+                                                                 alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        return section
+    }
+    func generateSection5Layout()->NSCollectionLayoutSection{
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(130))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:8, bottom: 8, trailing: 8)
         group.interItemSpacing = .fixed(2)
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
@@ -200,6 +228,9 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             headerView.button.addTarget(self, action: #selector(venueButtonTapped), for: .touchUpInside)
         case 3:
             headerView.headerLabel.text = ScreenData.sectionHeaderNames[3]
+            headerView.button.setTitle("See All", for: .normal)
+        case 4:
+            headerView.headerLabel.text = ScreenData.sectionHeaderNames[4]
             headerView.button.setTitle("See All", for: .normal)
             
         default:
