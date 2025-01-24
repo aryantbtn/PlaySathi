@@ -43,7 +43,7 @@ class HomeScreenViewController: UIViewController {
 extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        3
+        section
     }
     
     
@@ -83,7 +83,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
             cell.d(with:indexPath)
             cell.layer.cornerRadius = 8
-            cell.clipsToBounds = true
+           
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeScreenCollectionViewCell.identifier, for: indexPath) as! HomeScreenCollectionViewCell
@@ -172,10 +172,10 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     func generateSection4Layout()->NSCollectionLayoutSection{
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(356), heightDimension: .absolute(130))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(130))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
-        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:8, bottom: 8, trailing: 0)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:8, bottom: 8, trailing: 8)
         group.interItemSpacing = .fixed(2)
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
@@ -247,8 +247,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     @IBAction func unwibd(segue:UIStoryboardSegue){
-//        if ScreenData.venueBooked {
-//            ScreenData.sections += 1
+section += 1
 //        }
     }
     

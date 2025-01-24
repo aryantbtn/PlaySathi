@@ -59,7 +59,7 @@
             </objects>
             <point key="canvasLocation" x="1286.2595419847328" y="13.380281690140846"/>
         </scene>
-        <!--Venue Detail View Controller-->
+        <!--Details-->
         <scene sceneID="JmZ-Iv-Yvh">
             <objects>
                 <viewController storyboardIdentifier="venueId2" id="NT3-zd-N2q" customClass="VenueDetailViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
@@ -97,7 +97,7 @@
                             <constraint firstItem="Kds-cA-q0C" firstAttribute="bottom" secondItem="qce-tJ-v4b" secondAttribute="bottom" id="g4q-gi-bs1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UTU-Xo-mvx">
+                    <navigationItem key="navigationItem" title="Details" id="UTU-Xo-mvx">
                         <barButtonItem key="rightBarButtonItem" title="Book" id="TSs-Mc-F2A">
                             <connections>
                                 <segue destination="YuW-32-41L" kind="show" id="PaT-uI-6GK"/>
@@ -112,7 +112,7 @@
             </objects>
             <point key="canvasLocation" x="2053" y="13"/>
         </scene>
-        <!--Slot Table View Controller-->
+        <!--Book Slots-->
         <scene sceneID="Tx1-Sj-pYh">
             <objects>
                 <tableViewController id="YuW-32-41L" customClass="SlotTableViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
@@ -377,7 +377,7 @@
                             <outlet property="delegate" destination="YuW-32-41L" id="GAG-gJ-lwQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="mzC-NI-j2A">
+                    <navigationItem key="navigationItem" title="Book Slots" id="mzC-NI-j2A">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="44p-gK-Ban">
                             <connections>
                                 <segue destination="bLo-Dr-ayu" kind="show" id="6wl-ng-kdj"/>
@@ -397,7 +397,7 @@
             </objects>
             <point key="canvasLocation" x="2809.9236641221373" y="-2.1126760563380285"/>
         </scene>
-        <!--Venue Final Detail Table View Controller-->
+        <!--Payment-->
         <scene sceneID="EEG-OK-3ts">
             <objects>
                 <tableViewController id="bLo-Dr-ayu" customClass="VenueFinalDetailTableViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
@@ -668,7 +668,7 @@
                             <outlet property="delegate" destination="bLo-Dr-ayu" id="vUp-eh-SU7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="GdC-np-Vdv">
+                    <navigationItem key="navigationItem" title="Payment" id="GdC-np-Vdv">
                         <barButtonItem key="rightBarButtonItem" title="Confirm" id="4TV-ib-rbE">
                             <connections>
                                 <segue destination="Iw3-NT-Ug1" kind="unwind" unwindAction="unwibdWithSegue:" id="WR4-CB-GJ0"/>

@@ -73,7 +73,8 @@ class ScreenData{
     static var sectionHeaderNames:[String] = [
         "",
         "Nearby Players",
-        "Venue Near Me"
+        "Venue Near Me",
+        "Matches"
     ]
     
     
@@ -85,7 +86,7 @@ class ScreenData{
 }
 
 
-
+var section = 3
 
 struct Venue {
     let id: Int //UUID
