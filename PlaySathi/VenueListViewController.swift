@@ -148,6 +148,7 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         // Reload your table/collection view with filteredVenues
         print(filteredVenues) // For testing
+        
     }
     
     // Filter functions

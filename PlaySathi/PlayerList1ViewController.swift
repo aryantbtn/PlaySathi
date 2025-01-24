@@ -81,7 +81,9 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func segmentValueChanged(_ sender: UISegmentedControl) {
             switch sender.selectedSegmentIndex {
             case 0:
-                return
+                players.sort { user1, user2 in
+                    user1.name < user2.name
+                }
             case 1:
                 // Sort by Distance (Example)
                 players.sort { user1, user2 in
