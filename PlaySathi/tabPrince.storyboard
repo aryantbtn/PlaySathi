@@ -69,7 +69,7 @@
         <scene sceneID="l6q-P7-d5T">
             <objects>
 
-                <tableViewController storyboardIdentifier="CreateGame" id="S6c-lL-Z3p" customClass="CreateGameTableViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+               
 
                 <tableViewController storyboardIdentifier="createGame" id="S6c-lL-Z3p" customClass="CreateGameTableViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
 
