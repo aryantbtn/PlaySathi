@@ -20,12 +20,11 @@ class PlayerList1TableViewCell: UITableViewCell {
     @IBOutlet weak var playerDescription: UILabel!
     
     
-    @IBOutlet weak var chevronButton: UIButton!
+//    @IBOutlet weak var chevronButton: UIButton!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func upadateCell(with indexPath: IndexPath) {
@@ -38,15 +37,14 @@ class PlayerList1TableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
-    
+    /* Player Cell Chevron
     @IBAction func chevronAction(_ sender: UIButton) {
         if chevronButton.isSelected {
             print("Chevron is tapped")
         }
     }
+     */
     
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
+    
     @IBOutlet weak var playerListSegmetedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     let searchController = UISearchController()
@@ -16,7 +17,9 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
     var searching = false
     
 //    players = ScreenData.userData
-
+    var selecteddIndexPath: IndexPath?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Players"
@@ -46,8 +49,6 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
         else {
             return players.count
         }
-//        print(players.count)
-//        return players.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,7 +61,6 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
 //        let player = players[indexPath.row]
         cell.upadateCell(with: indexPath)
         cell.showsReorderControl = true
-        print(players)
         return cell
     }
     
@@ -97,4 +97,19 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
             }
             tableView.reloadData()
         }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destination = players[indexPath.row]
+        
+        selecteddIndexPath = indexPath
+//        print(selecteddIndexPath!)
+        performSegue(withIdentifier: "segue1", sender: (Any).self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue1" {
+            let destinationVC = segue.destination as! PlayerProfileTableViewController
+            destinationVC.indexPathForPlayerProfile = selecteddIndexPath!
+        }
+    }
 }

@@ -142,10 +142,12 @@ class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, U
         }
         return headerView
     }
+
     
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let Entry = ScreenData.venueData[indexPath.section]
 //        selectedIndexPath = indexPath
 //        performSegue(withIdentifier: "Slot", sender: Entry)
 //    }
+
 }

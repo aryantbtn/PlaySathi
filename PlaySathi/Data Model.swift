@@ -23,6 +23,70 @@ enum SkillLevel: String {
         case intermediate = "Intermediate"
         case advanced = "Advanced"
 }
+
+class ScreenData{
+    
+    static var userData: [User] = [
+        User(id: 10, name: "Amitabh", profilePicture: "images6", elitePoints: 400, skillLevel: .advanced, distance: 25),
+        User(id: 11, name: "Shubham", profilePicture: "images7", elitePoints: 500, skillLevel: .advanced, distance: 30),
+        User(id: 12, name: "Shivam", profilePicture: "images8", elitePoints: 600, skillLevel: .advanced, distance: 35),
+        User(id: 13, name: "Kunal", profilePicture: "images9", elitePoints: 529, skillLevel: .advanced, distance: 40),
+        User(id: 14, name: "Vishal", profilePicture: "images10", elitePoints: 438, skillLevel: .advanced, distance: 45),
+        User(id: 15, name: "Jatin", profilePicture: "images11", elitePoints: 502, skillLevel: .advanced, distance: 50),
+        User(id: 16, name: "Amit", profilePicture: "images12", elitePoints: 488, skillLevel: .advanced, distance: 55),
+        User(id: 4, name: "Alok Kumar", profilePicture: "images4", elitePoints: 633, skillLevel: .advanced, distance: 3.2),
+        User(id: 5, name: "Umesh Gaur", profilePicture: "images1", elitePoints: 442, skillLevel: .beginner, distance: 4),
+        User(id: 6, name: "Rishabh Rathore", profilePicture: "images2", elitePoints: 400, skillLevel: .beginner, distance: 7.4),
+        User(id: 7, name: "Rohit Dixit", profilePicture: "images3", elitePoints: 492, skillLevel: .beginner, distance: 9),
+        User(id: 8, name: "Ankit Mishra", profilePicture: "Image", elitePoints: 594, skillLevel: .beginner, distance: 10.7),
+        User(id: 9, name: "Piyush Maurya", profilePicture: "images5", elitePoints: 644, skillLevel: .advanced, distance: 20),
+        User(id: 17, name: "Rohit", profilePicture: "images13", elitePoints: 465, skillLevel: .advanced, distance: 60),
+        User(id: 18, name: "Shubham", profilePicture: "images14", elitePoints: 443, skillLevel: .advanced, distance: 65),
+        User(id: 19, name: "Amit", profilePicture: "images15", elitePoints: 562, skillLevel: .advanced, distance: 70),
+        User(id: 20, name: "Amit", profilePicture: "images16", elitePoints: 442, skillLevel: .advanced, distance: 75),
+        User(id: 21, name: "Amit", profilePicture: "images17", elitePoints: 452, skillLevel: .advanced, distance: 80),
+        User(id: 22, name: "Amit", profilePicture: "images18", elitePoints: 462, skillLevel: .advanced, distance: 85),
+    ]
+    
+    static var venueData: [Venue] = [
+        Venue(id: 1, name: "Say No To Stress", imageUrl: "v13", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 230),
+        Venue(id: 2, name: "Say Sports Academy", imageUrl: "v7", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 500),
+        Venue(id: 3, name: "CrowdFit Academy", imageUrl: "v8", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 200),
+        Venue(id: 4, name: "Piyush Verma", imageUrl: "v9", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 300),
+        Venue(id: 5, name: "Mathura Academy", imageUrl: "v10", rating: 5, distanceInKm: 2, location: "Mathura", availableCourts: 3, price: 300),
+        Venue(id: 6, name: "Gurugram Academy", imageUrl: "v14", rating: 4.0, distanceInKm: 10, location: "Gurugram", availableCourts: 2, price: 300),
+        Venue(id: 7, name: "Delhi Academy", imageUrl: "v12", rating: 4.0, distanceInKm: 15, location: "Delhi", availableCourts: 1, price: 200),
+        Venue(id: 8, name: "Pune Academy", imageUrl: "v6", rating: 4.0, distanceInKm: 20, location: "Pune", availableCourts: 0, price: 260),
+        Venue(id: 9, name: "Mumbai Academy", imageUrl: "v4", rating: 4.0, distanceInKm: 30, location: "Mumbai", availableCourts: 0, price: 321),
+        Venue(id: 10, name: "Kolkata Academy", imageUrl: "v3", rating: 4.0, distanceInKm: 40, location: "Kolkata", availableCourts: 0, price: 345),
+        Venue(id: 11, name: "Bengaluru Academy", imageUrl: "v11", rating: 4.0, distanceInKm: 50, location: "Bengaluru", availableCourts: 0, price: 543),
+        Venue(id: 12, name: "Chennai Academy", imageUrl: "v2", rating: 4.0, distanceInKm: 60, location: "Chennai", availableCourts: 0, price: 230),
+        Venue(id: 13, name: "Hyderabad Academy", imageUrl: "v5", rating: 4.0, distanceInKm: 70, location: "Hyderabad", availableCourts: 0, price: 432),
+        Venue(id: 14, name: "Coimbatore Academy", imageUrl: "v1", rating: 4.0, distanceInKm: 80, location: "Coimbatore", availableCourts: 0, price: 230),
+        Venue(id: 15, name: "Trichy Academy", imageUrl: "v15", rating: 4.0, distanceInKm: 90, location: "Trichy", availableCourts: 0, price: 430),
+        Venue(id: 16, name: "Madurai Academy", imageUrl: "v16", rating: 4.0, distanceInKm: 100, location: "Madurai", availableCourts: 0, price: 320),
+        Venue(id: 17, name: "Thiruvallur Academy", imageUrl: "v17", rating: 4.0, distanceInKm: 110, location: "Thiruvallur", availableCourts: 0, price: 320),
+        
+    ]
+    
+    
+    static var sectionHeaderNames:[String] = [
+        "",
+        "Nearby Players",
+        "Venue Near Me"
+    ]
+    
+    
+    static var sectionHeadersForVenueDetails:[String] = [
+        "",
+        "Venue Description",
+        "Amenities"
+        ]
+}
+
+
+
+
 struct Venue {
     let id: Int //UUID
     var name: String
@@ -41,62 +105,7 @@ struct Venue {
     "Shower"
     ]
 
-class ScreenData{
-    static var venueBooked:Bool  = false
-    static var sections : Int = 3
-    static var userData: [User] = [
-        User(id: 10, name: "Amitabh", profilePicture: "images6", elitePoints: 2, skillLevel: .advanced, distance: 25),
-        User(id: 11, name: "Shubham", profilePicture: "images7", elitePoints: 2, skillLevel: .advanced, distance: 30),
-        User(id: 12, name: "Shivam", profilePicture: "images8", elitePoints: 2, skillLevel: .advanced, distance: 35),
-        User(id: 13, name: "Kunal", profilePicture: "images9", elitePoints: 2, skillLevel: .advanced, distance: 40),
-        User(id: 14, name: "Vishal", profilePicture: "images10", elitePoints: 2, skillLevel: .advanced, distance: 45),
-        User(id: 15, name: "Jatin", profilePicture: "images11", elitePoints: 2, skillLevel: .advanced, distance: 50),
-        User(id: 16, name: "Amit", profilePicture: "images12", elitePoints: 2, skillLevel: .advanced, distance: 55),
-        User(id: 4, name: "Alok Kumar", profilePicture: "images4", elitePoints: 2, skillLevel: .advanced, distance: 3.2),
-        User(id: 5, name: "Umesh Gaur", profilePicture: "images1", elitePoints: 1, skillLevel: .beginner, distance: 4),
-        User(id: 6, name: "Rishabh Rathore", profilePicture: "images2", elitePoints: 1, skillLevel: .beginner, distance: 7.4),
-        User(id: 7, name: "Rohit Dixit", profilePicture: "images3", elitePoints: 1, skillLevel: .beginner, distance: 9),
-        User(id: 8, name: "Ankit Mishra", profilePicture: "Image", elitePoints: 1, skillLevel: .beginner, distance: 10.7),
-        User(id: 9, name: "Piyush Maurya", profilePicture: "images5", elitePoints: 2, skillLevel: .advanced, distance: 20),
-        User(id: 17, name: "Rohit", profilePicture: "images13", elitePoints: 2, skillLevel: .advanced, distance: 60),
-        User(id: 18, name: "Shubham", profilePicture: "images14", elitePoints: 2, skillLevel: .advanced, distance: 65),
-        User(id: 19, name: "Amit", profilePicture: "images15", elitePoints: 2, skillLevel: .advanced, distance: 70),
-        User(id: 20, name: "Amit", profilePicture: "images16", elitePoints: 2, skillLevel: .advanced, distance: 75),
-        User(id: 21, name: "Amit", profilePicture: "images17", elitePoints: 2, skillLevel: .advanced, distance: 80),
-        User(id: 22, name: "Amit", profilePicture: "images18", elitePoints: 2, skillLevel: .advanced, distance: 85),
-    ]
-    static var venueData: [Venue] = [
-        Venue(id: 1, name: "Say No To Stress", imageUrl: "v13", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 230),
-        Venue(id: 2, name: "Say Sports Academy", imageUrl: "v7", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 156),
-        Venue(id: 3, name: "CrowdFit Academy", imageUrl: "v8", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 300),
-        Venue(id: 4, name: "Piyush Verma", imageUrl: "v9", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 400),
-        Venue(id: 5, name: "Mathura Academy", imageUrl: "v10", rating: 5, distanceInKm: 2, location: "Mathura", availableCourts: 3, price: 340),
-        Venue(id: 6, name: "Gurugram Academy", imageUrl: "v14", rating: 4.0, distanceInKm: 10, location: "Gurugram", availableCourts: 2, price: 321),
-        Venue(id: 7, name: "Delhi Academy", imageUrl: "v12", rating: 4.0, distanceInKm: 15, location: "Delhi", availableCourts: 1, price: 344),
-        Venue(id: 8, name: "Pune Academy", imageUrl: "v6", rating: 4.0, distanceInKm: 20, location: "Pune", availableCourts: 0, price: 200),
-        Venue(id: 9, name: "Mumbai Academy", imageUrl: "v4", rating: 4.0, distanceInKm: 30, location: "Mumbai", availableCourts: 0, price: 222),
-        Venue(id: 10, name: "Kolkata Academy", imageUrl: "v3", rating: 4.0, distanceInKm: 40, location: "Kolkata", availableCourts: 0, price: 100),
-        Venue(id: 11, name: "Bengaluru Academy", imageUrl: "v11", rating: 4.0, distanceInKm: 50, location: "Bengaluru", availableCourts: 0, price: 400),
-        Venue(id: 12, name: "Chennai Academy", imageUrl: "v2", rating: 4.0, distanceInKm: 60, location: "Chennai", availableCourts: 0, price: 500),
-        Venue(id: 13, name: "Hyderabad Academy", imageUrl: "v5", rating: 4.0, distanceInKm: 70, location: "Hyderabad", availableCourts: 0, price: 200),
-        Venue(id: 14, name: "Coimbatore Academy", imageUrl: "v1", rating: 4.0, distanceInKm: 80, location: "Coimbatore", availableCourts: 0, price: 150),
-        Venue(id: 15, name: "Trichy Academy", imageUrl: "v15", rating: 4.0, distanceInKm: 90, location: "Trichy", availableCourts: 0, price: 300),
-        Venue(id: 16, name: "Madurai Academy", imageUrl: "v16", rating: 4.0, distanceInKm: 100, location: "Madurai", availableCourts: 0, price: 350),
-        Venue(id: 17, name: "Thiruvallur Academy", imageUrl: "v17", rating: 4.0, distanceInKm: 110, location: "Thiruvallur", availableCourts: 0, price: 400),
-        
-    ]
-    static var sectionHeaderNames:[String] = [
-        "",
-        "Nearby Players",
-        "Venue Near Me",
-        "Requests"
-    ]
-    static var sectionHeadersForVenueDetails:[String] = [
-        "",
-        "Venue Description",
-        "Amenities"
-        ]
-}
+
 
 struct CreateGame {
     var title: String
