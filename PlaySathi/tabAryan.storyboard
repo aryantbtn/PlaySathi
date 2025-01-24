@@ -12,11 +12,11 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="playerId" id="Y6W-OH-hqX" customClass="PlayerList1ViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PYC-sd-aDr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PYC-sd-aDr">
                                 <rect key="frame" x="0.0" y="151" width="393" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -97,7 +97,6 @@
                             <constraint firstItem="pr1-AV-0TH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="FkM-fD-0Sy"/>
                             <constraint firstItem="PYC-sd-aDr" firstAttribute="top" secondItem="pr1-AV-0TH" secondAttribute="bottom" constant="52" id="XkE-5i-T3o"/>
                             <constraint firstItem="pr1-AV-0TH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="lje-Pc-bV2"/>
-                            <constraint firstItem="PYC-sd-aDr" firstAttribute="top" secondItem="pr1-AV-0TH" secondAttribute="bottom" constant="8" id="pLk-Yy-O5s"/>
                             <constraint firstItem="PYC-sd-aDr" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="stl-At-D30"/>
                         </constraints>
                     </view>
@@ -105,7 +104,6 @@
                     <connections>
                         <outlet property="playerListSegmetedControl" destination="pr1-AV-0TH" id="0Ha-R4-wmO"/>
                         <outlet property="tableView" destination="PYC-sd-aDr" id="zo7-Q7-Dbr"/>
-                        <segue destination="fSi-dF-02t" kind="show" identifier="segue1" id="eye-5s-tyd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -115,7 +113,7 @@
         <!--Player Profile Table View Controller-->
         <scene sceneID="s6u-DH-Lke">
             <objects>
-                <tableViewController id="fSi-dF-02t" customClass="PlayerProfileTableViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="playerId2" id="fSi-dF-02t" customClass="PlayerProfileTableViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="bhj-Iv-aKk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,9 +276,6 @@
             <point key="canvasLocation" x="2738.1679389312976" y="3.5211267605633805"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="oOW-SD-1yZ"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.forward" catalog="system" width="97" height="128"/>
         <image name="medal" catalog="system" width="121" height="128"/>
