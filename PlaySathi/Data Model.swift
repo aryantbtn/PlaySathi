@@ -8,45 +8,63 @@
 import Foundation
 import UIKit
 
+
 struct User {
     let id: Int //UUID
     var name: String
     var profilePicture: String
     var elitePoints: Int
     var skillLevel: SkillLevel
-    var location: Double
+    var distance: Double
     
-
-    enum SkillLevel: String {
+}
+enum SkillLevel: String {
         case beginner = "Beginner"
         case intermediate = "Intermediate"
         case advanced = "Advanced"
-    }
 }
-class ScreenData{
-    
-    static var userData: [User] = [
-        User(id: 10, name: "Amitabh", profilePicture: "images6", elitePoints: 2, skillLevel: .advanced, location: 25),
-        User(id: 11, name: "Shubham", profilePicture: "images7", elitePoints: 2, skillLevel: .advanced, location: 30),
-        User(id: 12, name: "Shivam", profilePicture: "images8", elitePoints: 2, skillLevel: .advanced, location: 35),
-        User(id: 13, name: "Kunal", profilePicture: "images9", elitePoints: 2, skillLevel: .advanced, location: 40),
-        User(id: 14, name: "Vishal", profilePicture: "images10", elitePoints: 2, skillLevel: .advanced, location: 45),
-        User(id: 15, name: "Jatin", profilePicture: "images11", elitePoints: 2, skillLevel: .advanced, location: 50),
-        User(id: 16, name: "Amit", profilePicture: "images12", elitePoints: 2, skillLevel: .advanced, location: 55),
-        User(id: 4, name: "Alok Kumar", profilePicture: "images4", elitePoints: 2, skillLevel: .advanced, location: 3.2),
-        User(id: 5, name: "Umesh Gaur", profilePicture: "images1", elitePoints: 1, skillLevel: .beginner, location: 4),
-        User(id: 6, name: "Rishabh Rathore", profilePicture: "images2", elitePoints: 1, skillLevel: .beginner, location: 7.4),
-        User(id: 7, name: "Rohit Dixit", profilePicture: "images3", elitePoints: 1, skillLevel: .beginner, location: 9),
-        User(id: 8, name: "Ankit Mishra", profilePicture: "Image", elitePoints: 1, skillLevel: .beginner, location: 10.7),
-        User(id: 9, name: "Piyush Maurya", profilePicture: "images5", elitePoints: 2, skillLevel: .advanced, location: 20),
-        User(id: 17, name: "Rohit", profilePicture: "images13", elitePoints: 2, skillLevel: .advanced, location: 60),
-        User(id: 18, name: "Shubham", profilePicture: "images14", elitePoints: 2, skillLevel: .advanced, location: 65),
-        User(id: 19, name: "Amit", profilePicture: "images15", elitePoints: 2, skillLevel: .advanced, location: 70),
-        User(id: 20, name: "Amit", profilePicture: "images16", elitePoints: 2, skillLevel: .advanced, location: 75),
-        User(id: 21, name: "Amit", profilePicture: "images17", elitePoints: 2, skillLevel: .advanced, location: 80),
-        User(id: 22, name: "Amit", profilePicture: "images18", elitePoints: 2, skillLevel: .advanced, location: 85),
+struct Venue {
+    let id: Int //UUID
+    var name: String
+    var imageUrl: String
+    var rating: Double
+    var distanceInKm: Double
+    var location: String
+    var availableCourts: Int
+    var price : Int
+}
+
+    var amenities = [
+    "Parking",
+    "Rooms",
+    "Cafeteria",
+    "Shower"
     ]
-    
+
+class ScreenData{
+    static var venueBooked:Bool  = false
+    static var sections : Int = 3
+    static var userData: [User] = [
+        User(id: 10, name: "Amitabh", profilePicture: "images6", elitePoints: 2, skillLevel: .advanced, distance: 25),
+        User(id: 11, name: "Shubham", profilePicture: "images7", elitePoints: 2, skillLevel: .advanced, distance: 30),
+        User(id: 12, name: "Shivam", profilePicture: "images8", elitePoints: 2, skillLevel: .advanced, distance: 35),
+        User(id: 13, name: "Kunal", profilePicture: "images9", elitePoints: 2, skillLevel: .advanced, distance: 40),
+        User(id: 14, name: "Vishal", profilePicture: "images10", elitePoints: 2, skillLevel: .advanced, distance: 45),
+        User(id: 15, name: "Jatin", profilePicture: "images11", elitePoints: 2, skillLevel: .advanced, distance: 50),
+        User(id: 16, name: "Amit", profilePicture: "images12", elitePoints: 2, skillLevel: .advanced, distance: 55),
+        User(id: 4, name: "Alok Kumar", profilePicture: "images4", elitePoints: 2, skillLevel: .advanced, distance: 3.2),
+        User(id: 5, name: "Umesh Gaur", profilePicture: "images1", elitePoints: 1, skillLevel: .beginner, distance: 4),
+        User(id: 6, name: "Rishabh Rathore", profilePicture: "images2", elitePoints: 1, skillLevel: .beginner, distance: 7.4),
+        User(id: 7, name: "Rohit Dixit", profilePicture: "images3", elitePoints: 1, skillLevel: .beginner, distance: 9),
+        User(id: 8, name: "Ankit Mishra", profilePicture: "Image", elitePoints: 1, skillLevel: .beginner, distance: 10.7),
+        User(id: 9, name: "Piyush Maurya", profilePicture: "images5", elitePoints: 2, skillLevel: .advanced, distance: 20),
+        User(id: 17, name: "Rohit", profilePicture: "images13", elitePoints: 2, skillLevel: .advanced, distance: 60),
+        User(id: 18, name: "Shubham", profilePicture: "images14", elitePoints: 2, skillLevel: .advanced, distance: 65),
+        User(id: 19, name: "Amit", profilePicture: "images15", elitePoints: 2, skillLevel: .advanced, distance: 70),
+        User(id: 20, name: "Amit", profilePicture: "images16", elitePoints: 2, skillLevel: .advanced, distance: 75),
+        User(id: 21, name: "Amit", profilePicture: "images17", elitePoints: 2, skillLevel: .advanced, distance: 80),
+        User(id: 22, name: "Amit", profilePicture: "images18", elitePoints: 2, skillLevel: .advanced, distance: 85),
+    ]
     static var venueData: [Venue] = [
         Venue(id: 1, name: "Say No To Stress", imageUrl: "v13", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 230),
         Venue(id: 2, name: "Say Sports Academy", imageUrl: "v7", rating: 4.0, distanceInKm: 5, location: "Noida", availableCourts: 4, price: 156),
@@ -67,16 +85,12 @@ class ScreenData{
         Venue(id: 17, name: "Thiruvallur Academy", imageUrl: "v17", rating: 4.0, distanceInKm: 110, location: "Thiruvallur", availableCourts: 0, price: 400),
         
     ]
-    
-    
     static var sectionHeaderNames:[String] = [
         "",
         "Nearby Players",
         "Venue Near Me",
         "Requests"
     ]
-    
-    
     static var sectionHeadersForVenueDetails:[String] = [
         "",
         "Venue Description",
@@ -84,53 +98,6 @@ class ScreenData{
         ]
 }
 
-
-
-struct Venue {
-    let id: Int //UUID
-    var name: String
-    var imageUrl: String
-    var rating: Double
-    var distanceInKm: Double
-    var location: String
-    var availableCourts: Int
-    var price : Int
-    }
-
-
-
-struct Match: Identifiable {
-    let id: UUID
-    var players: [User]
-    var venue: Venue
-    var scheduledTime: Date
-    var status: MatchStatus
-    var stats: MatchStats?
-
-    enum MatchStatus: String {
-        case upcoming = "Upcoming"
-        case completed = "Completed"
-        case cancelled = "Cancelled"
-    }
-}
-
-
-struct MatchStats {
-    var winner: User
-    var score: String
-    var matchDuration: TimeInterval
-}
-
-
-struct ElitePoints {
-    let user: User
-    var pointsEarned: Int
-    var pointsUsed: Int
-
-    func totalPoints() -> Int {
-        return user.elitePoints
-    }
-}
 struct CreateGame {
     var title: String
     var segmentedControll: UISegmentedControl
@@ -142,19 +109,11 @@ struct CreateGame {
     var Player: String
 }
 
-
-var amenities = [
-    "Parking",
-"Rooms",
-"Cafeteria",
-"Shower"]
-
 var players = ScreenData.userData
-
-
 struct Game {
     var gameTitle: String
     var venue:Venue
 }
-
 var newCreatedGame = Game(gameTitle: "This", venue: Venue(id: 65, name: "Wankhede Stadium", imageUrl: "random", rating: 9, distanceInKm: 9.9, location: "feefe", availableCourts: 9, price: 200))
+var valu: Bool = false
+

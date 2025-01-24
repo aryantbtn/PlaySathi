@@ -21,7 +21,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         playerImage.image = UIImage(named: ScreenData.userData[indexPath.row].profilePicture)
         playerImage.layer.cornerRadius = playerImage.bounds.width/2
         playerName.text = ScreenData.userData[indexPath.row].name
-        playerDistance.text = "Distance ~ " + ScreenData.userData[indexPath.row].location.formatted() + " kms"
+        playerDistance.text = "Distance ~ " + ScreenData.userData[indexPath.row].distance.formatted() + " kms"
         playerEP.text = " | " +  ScreenData.userData[indexPath.row].elitePoints.formatted() + " EP"
     }
 }

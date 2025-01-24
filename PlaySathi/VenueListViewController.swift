@@ -13,6 +13,7 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
+        self.tabBarController?.isTabBarHidden = true
         venueCollectionView.setCollectionViewLayout(generateLayout(), animated: true)
         venueCollectionView.dataSource = self
         venueCollectionView.delegate = self

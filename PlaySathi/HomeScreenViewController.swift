@@ -16,7 +16,7 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
-        self.tabBarController?.isTabBarHidden = false
+        self.tabBarController?.isTabBarHidden = true
 //        self.tabBarController?.isTabBarHidden = true
         
         // Do any additional setup after loading the view.
@@ -42,8 +42,7 @@ class HomeScreenViewController: UIViewController {
 extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        //ScreenData.sectionHeaderNames.count
-        return 4
+        ScreenData.sections + 1
     }
     
     
@@ -245,7 +244,15 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             dVC.indexPathForVenueDetail = selectedIndexPath!
         }
     }
-
+    @IBAction func unwibd(segue:UIStoryboardSegue){
+//        if ScreenData.venueBooked {
+//            ScreenData.sections += 1
+//        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
   
 
 }

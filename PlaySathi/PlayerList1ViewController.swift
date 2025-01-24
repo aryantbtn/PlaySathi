@@ -24,6 +24,7 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
         navigationItem.hidesSearchBarWhenScrolling = true
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
+        self.tabBarController?.isTabBarHidden = true
         
 //        Configure Table View
         tableView.delegate = self
@@ -84,7 +85,7 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
             case 1:
                 // Sort by Distance (Example)
                 players.sort { user1, user2 in
-                    user1.location < user2.location
+                    user1.distance < user2.distance
                 }
             case 2:
                 // Sort by EP (Example)

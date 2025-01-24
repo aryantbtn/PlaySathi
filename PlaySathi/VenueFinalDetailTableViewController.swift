@@ -36,16 +36,7 @@ var createGameTableViewController: CreateGameTableViewController?
     }
 
 
-//    @IBAction func goToCreateGame(_ sender: Any) {
-//            let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
-//        let venueVC = storyBoard.instantiateViewController(identifier: "CreateGame") as! CreateGameTableViewController
-//        
-//        self.navigationController?.pushViewController(venueVC, animated: true)
-//        
-//        if let venueVC = storyBoard.instantiateViewController(withIdentifier: "CreateGame") as? CreateGameTableViewController {
-//                self.navigationController?.pushViewController(venueVC, animated: true)
-//            createGameTableViewController?.venueName.text = "Say No To Stress"
-//            }
+    
     
     }
         

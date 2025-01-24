@@ -33,7 +33,7 @@ class PlayerList1TableViewCell: UITableViewCell {
         playerImageView.image = UIImage(named: players[indexPath.row].profilePicture)
         playerImageView.layer.cornerRadius = playerImageView.bounds.width / 2
         playerNameLabel.text = players[indexPath.row].name
-        playerDescription.text = "Distance ~ " + players[indexPath.row].location.formatted() + " kms" + " | \(players[indexPath.row].elitePoints) EP"
+        playerDescription.text = "Distance ~ " + players[indexPath.row].distance.formatted() + " kms" + " | \(players[indexPath.row].elitePoints) EP"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
