@@ -74,7 +74,8 @@ class ScreenData{
         "",
         "Nearby Players",
         "Venue Near Me",
-        "Matches"
+        "Matches",
+        "Request Sent"
     ]
     
     
