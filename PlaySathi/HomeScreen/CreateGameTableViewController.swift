@@ -33,6 +33,12 @@ class CreateGameTableViewController: UITableViewController {
             self.navigationController?.pushViewController(venueVC, animated: true)
         }
     }
+    @IBAction func selectPlayer(_ sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "tabAryan", bundle: nil)
+        if let playerVC = storyBoard.instantiateViewController(withIdentifier: "playerId") as? PlayerList1ViewController {
+            self.navigationController?.pushViewController(playerVC, animated: true)
+        }
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2

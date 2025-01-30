@@ -185,19 +185,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="YS4-Tr-jWb">
-                                                    <rect key="frame" x="205" y="4.6666666666666679" width="178" height="34.333333333333329"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34.329999999999998" id="FYj-3f-YVd"/>
-                                                        <constraint firstAttribute="width" constant="178" id="MBI-he-KsS"/>
-                                                    </constraints>
-                                                </datePicker>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUd-nB-tYK">
+                                                    <rect key="frame" x="316" y="11.333333333333336" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="lEP-fu-Mjd" firstAttribute="leading" secondItem="PCy-q1-pkJ" secondAttribute="leadingMargin" constant="10" id="AM9-S5-h7U"/>
                                                 <constraint firstItem="lEP-fu-Mjd" firstAttribute="centerY" secondItem="LCq-t3-zN5" secondAttribute="centerY" id="Hf9-VV-hq9"/>
-                                                <constraint firstAttribute="trailing" secondItem="YS4-Tr-jWb" secondAttribute="trailing" constant="10" id="M8t-rP-YZr"/>
-                                                <constraint firstItem="YS4-Tr-jWb" firstAttribute="centerY" secondItem="LCq-t3-zN5" secondAttribute="centerY" id="SqK-GJ-mF8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RUd-nB-tYK" secondAttribute="trailing" constant="15" id="RZi-mc-fhh"/>
+                                                <constraint firstItem="RUd-nB-tYK" firstAttribute="centerY" secondItem="PCy-q1-pkJ" secondAttribute="centerY" id="Sj8-e2-TSR"/>
                                                 <constraint firstItem="LCq-t3-zN5" firstAttribute="leading" secondItem="lEP-fu-Mjd" secondAttribute="trailing" constant="10" id="nE3-DR-nbM"/>
                                                 <constraint firstItem="lEP-fu-Mjd" firstAttribute="centerY" secondItem="PCy-q1-pkJ" secondAttribute="centerY" id="uiy-n5-5oK"/>
                                             </constraints>
@@ -216,34 +215,24 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="xgV-Cj-xHl">
-                                                    <rect key="frame" x="280" y="4" width="103" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="Sbm-Vu-Q5A"/>
-                                                        <constraint firstAttribute="width" constant="103" id="uMG-qi-Gba"/>
-                                                    </constraints>
-                                                </datePicker>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UPV-ek-caR">
-                                                    <rect key="frame" x="167" y="4" width="103" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="103" id="Wwy-Bn-hxa"/>
-                                                        <constraint firstAttribute="height" constant="36" id="hUO-O0-um8"/>
-                                                    </constraints>
-                                                </datePicker>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OTF-R8-UCW">
                                                     <rect key="frame" x="30" y="12.333333333333332" width="19.666666666666671" height="19"/>
                                                     <color key="tintColor" systemColor="systemGrayColor"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-Kb-P39">
+                                                    <rect key="frame" x="316" y="11.333333333333336" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="xgV-Cj-xHl" secondAttribute="trailing" constant="10" id="FY1-gI-ep9"/>
-                                                <constraint firstItem="xgV-Cj-xHl" firstAttribute="leading" secondItem="UPV-ek-caR" secondAttribute="trailing" constant="10" id="GMU-iB-lX9"/>
-                                                <constraint firstItem="UPV-ek-caR" firstAttribute="centerY" secondItem="oIh-fG-ziz" secondAttribute="centerY" id="ILW-yL-Z0U"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="i9H-Kb-P39" secondAttribute="trailing" constant="15" id="Ccv-cP-QJO"/>
                                                 <constraint firstItem="OTF-R8-UCW" firstAttribute="centerY" secondItem="VGm-Pz-RYM" secondAttribute="centerY" id="ONg-vC-a4K"/>
                                                 <constraint firstItem="oIh-fG-ziz" firstAttribute="leading" secondItem="OTF-R8-UCW" secondAttribute="trailing" constant="10" id="TRe-6n-5Oo"/>
                                                 <constraint firstItem="oIh-fG-ziz" firstAttribute="centerY" secondItem="OTF-R8-UCW" secondAttribute="centerY" id="j7v-Ge-7G0"/>
-                                                <constraint firstItem="xgV-Cj-xHl" firstAttribute="centerY" secondItem="UPV-ek-caR" secondAttribute="centerY" id="tj0-K8-X7H"/>
                                                 <constraint firstItem="OTF-R8-UCW" firstAttribute="leading" secondItem="VGm-Pz-RYM" secondAttribute="leadingMargin" constant="10" id="v9M-zR-qGC"/>
+                                                <constraint firstItem="i9H-Kb-P39" firstAttribute="centerY" secondItem="VGm-Pz-RYM" secondAttribute="centerY" id="xbQ-Od-6IZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -270,6 +259,9 @@
                                                     <rect key="frame" x="333.33333333333331" y="4.6666666666666679" width="39.666666666666686" height="34.333333333333329"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" title=""/>
+                                                    <connections>
+                                                        <action selector="selectPlayer:" destination="S6c-lL-Z3p" eventType="touchUpInside" id="jd1-9C-Jm4"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0gi-Cs-KzP">
                                                     <rect key="frame" x="30" y="13.333333333333334" width="22" height="21.333333333333314"/>
@@ -299,10 +291,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" id="4jk-Zx-JIy"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="date" destination="YS4-Tr-jWb" id="hKf-DC-SH5"/>
-                        <outlet property="endTime" destination="xgV-Cj-xHl" id="7QW-61-lBM"/>
                         <outlet property="playerName" destination="c1i-PN-aD4" id="Hrq-HC-CjN"/>
-                        <outlet property="startTime" destination="UPV-ek-caR" id="U6X-BA-AgT"/>
                         <outlet property="venueName" destination="Tse-kT-1pb" id="4En-nd-bFa"/>
                     </connections>
                 </tableViewController>
