@@ -116,7 +116,7 @@ class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, U
     }
     func generateSection3Layout()->NSCollectionLayoutSection{
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(120)), subitem: item, count: 1)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(225)), subitem: item, count: 1)
         group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:0, bottom: 8, trailing: 0)
         group.interItemSpacing = .fixed(8)
         let section = NSCollectionLayoutSection(group: group)

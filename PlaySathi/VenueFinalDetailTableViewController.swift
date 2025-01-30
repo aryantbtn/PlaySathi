@@ -34,12 +34,4 @@ var createGameTableViewController: CreateGameTableViewController?
             return 1
         }
     }
-
-
-    
-    
-    }
-        
-        
-    
-
+}
