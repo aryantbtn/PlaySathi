@@ -8,6 +8,9 @@
 import UIKit
 
 class VenueFinalDetailTableViewController: UITableViewController {
+    
+    var instance2 = Singleton.navigate
+    
 var createGameTableViewController: CreateGameTableViewController?
     
     override func viewDidLoad() {
@@ -36,6 +39,17 @@ var createGameTableViewController: CreateGameTableViewController?
     }
 
 
+    @IBAction func cancelButtonTap(_ sender: Any) {
+        if instance2.check == "isdp"{
+            let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     
     }

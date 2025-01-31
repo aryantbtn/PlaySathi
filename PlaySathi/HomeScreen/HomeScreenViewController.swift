@@ -9,6 +9,7 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
 
+    var instance3 = Singleton.navigate
     
     var selectedIndexPath: IndexPath?
     
@@ -233,6 +234,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         }
         else if indexPath.section == 2{
+            instance3.check = "ios"
             let storyboard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
             let destVC = storyboard.instantiateViewController(withIdentifier: "venueId2") as! VenueDetailViewController
             destVC.indexPathForVenueDetail = indexPath
@@ -246,6 +248,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         }
     }
 @objc func venueButtonTapped() {
+    instance3.check = "ios"
     let storyBoard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
     if let venueVC = storyBoard.instantiateViewController(withIdentifier: "venueId") as? VenueListViewController {
         self.navigationController?.pushViewController(venueVC, animated: true)

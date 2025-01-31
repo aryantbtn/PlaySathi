@@ -288,7 +288,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="25l-Aq-5Qe">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="4jk-Zx-JIy"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="4jk-Zx-JIy">
+                            <connections>
+                                <segue destination="4xV-ii-IQM" kind="show" id="1mX-tV-lvh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="playerName" destination="c1i-PN-aD4" id="Hrq-HC-CjN"/>
@@ -298,6 +302,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iF1-xD-QSw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2113.740458015267" y="26.760563380281692"/>
+        </scene>
+        <!--Create Game Final Table View Controller-->
+        <scene sceneID="JnF-1v-Qrf">
+            <objects>
+                <tableViewController id="4xV-ii-IQM" customClass="CreateGameFinalTableViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="dsB-LG-YrR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xsA-CJ-ild">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xsA-CJ-ild" id="yB0-VJ-KG3">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4xV-ii-IQM" id="rjf-1a-0qV"/>
+                            <outlet property="delegate" destination="4xV-ii-IQM" id="L2Z-Ec-zvA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="AS7-ZM-8Ep"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idC-KU-rb7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2879" y="27"/>
         </scene>
         <!--Item-->
         <scene sceneID="byB-hd-Hne">

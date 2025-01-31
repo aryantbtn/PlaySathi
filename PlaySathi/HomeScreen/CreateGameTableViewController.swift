@@ -9,6 +9,7 @@ import UIKit
 
 class CreateGameTableViewController: UITableViewController {
     
+    var instance = Singleton.navigate
     
     
     @IBOutlet weak var date: UIDatePicker!
@@ -27,10 +28,12 @@ class CreateGameTableViewController: UITableViewController {
 
     
     @IBAction func goToVenue(_ sender: UIButton) {
+        instance.check = "isdp"
         let storyBoard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
         
         if let venueVC = storyBoard.instantiateViewController(withIdentifier: "venueId") as? VenueListViewController {
             self.navigationController?.pushViewController(venueVC, animated: true)
+            
         }
     }
     @IBAction func selectPlayer(_ sender: UIButton) {

@@ -128,3 +128,8 @@ struct Game {
 var newCreatedGame = Game(gameTitle: "This", venue: Venue(id: 65, name: "", imageUrl: "random", rating: 9, distanceInKm: 9.9, location: "feefe", availableCourts: 9, price: 200))
 var valu: Bool = false
 
+
+class Singleton{
+    static let navigate = Singleton()
+    var check : String?
+}

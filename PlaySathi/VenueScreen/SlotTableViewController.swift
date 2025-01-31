@@ -78,5 +78,8 @@ class SlotTableViewController: UITableViewController {
         timeSlot3.textAlignment = .center
     }
    
-
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        
+    }
+    
 }
