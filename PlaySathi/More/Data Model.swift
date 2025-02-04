@@ -51,7 +51,7 @@ struct SlotBookings {
 }
 
 
-struct GameCreation {
+struct Game {
     var title:String
     var type : TypeofGame
     var player : User
@@ -62,13 +62,6 @@ enum TypeofGame: String {
     case singles
     case doubles
 }
-
-
-struct Match{
-    var id : UUID
-    var game : GameCreation
-}
-
 
 class ScreenNavigation{
     static let navigate = ScreenNavigation()
