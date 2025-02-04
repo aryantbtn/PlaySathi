@@ -8,7 +8,9 @@
 import UIKit
 
 class VenueFinalDetailTableViewController: UITableViewController {
-var createGameTableViewController: CreateGameTableViewController?
+    
+    var instance2 = ScreenNavigation.navigate
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,4 +36,40 @@ var createGameTableViewController: CreateGameTableViewController?
             return 1
         }
     }
+
 }
+
+    
+
+
+    @IBAction func confirmButtonTap(_ sender: Any) {
+        if instance2.check == "isdp"{
+            let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
+
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
+          
+           
+            
+            
+        }
+        else{
+            let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    
+    
+        
+        
+    
+
+

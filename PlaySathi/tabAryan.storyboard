@@ -269,7 +269,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="0zb-fr-LHd">
-                        <barButtonItem key="rightBarButtonItem" title="Invite" id="2uk-V7-SkI"/>
+                        <barButtonItem key="rightBarButtonItem" title="Invite" id="2uk-V7-SkI">
+                            <connections>
+                                <action selector="inviteButtonTapped:" destination="fSi-dF-02t" id="Ugu-G1-BBg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="elitePoints" destination="hrK-Bc-rFP" id="R2p-D0-Lhn"/>

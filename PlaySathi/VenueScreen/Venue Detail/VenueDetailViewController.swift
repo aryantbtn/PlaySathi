@@ -134,9 +134,9 @@ class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, U
         headerView.headerLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         switch indexPath.section {
         case 1:
-            headerView.headerLabel.text = ScreenData.sectionHeadersForVenueDetails[1]
+            headerView.headerLabel.text = DataController.sectionHeadersForVenueDetails[1]
         case 2:
-            headerView.headerLabel.text = ScreenData.sectionHeadersForVenueDetails[2]
+            headerView.headerLabel.text = DataController.sectionHeadersForVenueDetails[2]
         default:
             print("fsg")
         }

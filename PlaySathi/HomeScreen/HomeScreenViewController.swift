@@ -9,6 +9,7 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
 
+    var instance3 = ScreenNavigation.navigate
     
     var selectedIndexPath: IndexPath?
     
@@ -25,6 +26,7 @@ class HomeScreenViewController: UIViewController {
        let thirdNib = UINib(nibName: VenueCollectionViewCell.identifier, bundle: nil)
         let fourthNib = UINib(nibName: GameEntryCollectionViewCell.identifier, bundle: nil)
         let fifthNib = UINib(nibName: PlayerSelectionCollectionViewCell.identifier, bundle: nil)
+        let sixthNib = UINib(nibName: GameCardCollectionViewCell.identifier, bundle: nil)
                 
         
         collectionView.register(firstNib, forCellWithReuseIdentifier: HomeScreenCollectionViewCell.identifier)
@@ -32,6 +34,7 @@ class HomeScreenViewController: UIViewController {
         collectionView.register(thirdNib, forCellWithReuseIdentifier: VenueCollectionViewCell.identifier)
         collectionView.register(fourthNib, forCellWithReuseIdentifier: GameEntryCollectionViewCell.identifier)
         collectionView.register(fifthNib, forCellWithReuseIdentifier: PlayerSelectionCollectionViewCell.identifier)
+        collectionView.register(sixthNib, forCellWithReuseIdentifier: GameCardCollectionViewCell.identifier)
         collectionView.register(SectionHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeaderCollectionReusableView")
         
         collectionView.setCollectionViewLayout(generateLayout(), animated: true)
@@ -42,19 +45,21 @@ class HomeScreenViewController: UIViewController {
 
 extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        5
+        6
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
             1
         case 1:
-            ScreenData.userData.count
+            DataController.userData.count
         case 2:
-            ScreenData.venueData.count
+            DataController.venueData.count
         case 3:
             1
         case 4:
+            1
+        case 5 :
             1
         default : 0
         }
@@ -93,6 +98,12 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             cell.layer.cornerRadius = 8
             return cell
             
+        case 5:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCardCollectionViewCell.identifier, for: indexPath) as! GameCardCollectionViewCell
+            cell.game(with:indexPath)
+            cell.layer.cornerRadius = 8
+            return cell
+            
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeScreenCollectionViewCell.identifier, for: indexPath) as! HomeScreenCollectionViewCell
             cell.dispaly(with:indexPath)
@@ -115,6 +126,9 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                 section = self.generateSection4Layout()
             case 4:
                 section = self.generateSection5Layout()
+                
+            case 5:
+                section = self.generateSection6Layout()
             default : print("Wrong Section")
                 return nil
             }
@@ -188,6 +202,22 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     func generateSection5Layout()->NSCollectionLayoutSection{
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(120))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:8, bottom: 8, trailing: 8)
+        group.interItemSpacing = .fixed(2)
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(44))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader,
+                                                                 alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        return section
+    }
+    func generateSection6Layout()->NSCollectionLayoutSection{
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
@@ -207,19 +237,23 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         headerView.headerLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         switch indexPath.section {
         case 1:
-            headerView.headerLabel.text = ScreenData.sectionHeaderNames[1]
+            headerView.headerLabel.text = DataController.sectionHeaderNames[1]
             headerView.button.setTitle("See All", for: .normal)
             headerView.button.addTarget(self, action: #selector(playerButtonTapped), for: .touchUpInside)
         case 2:
-            headerView.headerLabel.text = ScreenData.sectionHeaderNames[2]
+            headerView.headerLabel.text = DataController.sectionHeaderNames[2]
             headerView.button.setTitle("See All", for: .normal)
             headerView.button.addTarget(self, action: #selector(venueButtonTapped), for: .touchUpInside)
         case 3:
-            headerView.headerLabel.text = ScreenData.sectionHeaderNames[3]
+            headerView.headerLabel.text = DataController.sectionHeaderNames[3]
             headerView.button.setTitle("See All", for: .normal)
             
         case 4:
-            headerView.headerLabel.text = ScreenData.sectionHeaderNames[4]
+            headerView.headerLabel.text = DataController.sectionHeaderNames[4]
+            headerView.button.setTitle("See All", for: .normal)
+        
+        case 5:
+            headerView.headerLabel.text = DataController.sectionHeaderNames[5]
             headerView.button.setTitle("See All", for: .normal)
         default:
             print("fsg")
@@ -229,16 +263,18 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            let gameEntry = ScreenData.sectionHeaderNames[indexPath.section]
+            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
             performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         }
         else if indexPath.section == 2{
+            instance3.check = "ios"
             let storyboard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
             let destVC = storyboard.instantiateViewController(withIdentifier: "venueId2") as! VenueDetailViewController
             destVC.indexPathForVenueDetail = indexPath
             self.navigationController?.pushViewController(destVC, animated: true)
         }
         else if indexPath.section == 1{
+            instance3.check = "players"
             let storyboard = UIStoryboard(name: "tabAryan", bundle: nil)
             let destVC = storyboard.instantiateViewController(withIdentifier: "playerId2") as! PlayerProfileTableViewController
             destVC.indexPathForPlayerProfile = indexPath
@@ -246,12 +282,14 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         }
     }
 @objc func venueButtonTapped() {
+    instance3.check = "ios"
     let storyBoard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
     if let venueVC = storyBoard.instantiateViewController(withIdentifier: "venueId") as? VenueListViewController {
         self.navigationController?.pushViewController(venueVC, animated: true)
         }
     }
     @objc func playerButtonTapped() {
+        instance3.check = "players"
         let storyBoard = UIStoryboard(name: "tabAryan", bundle: nil)
         
         if let playerVC = storyBoard.instantiateViewController(withIdentifier: "playerId") as? PlayerList1ViewController {
@@ -267,7 +305,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     @IBAction func unwibd(segue:UIStoryboardSegue){
-   section += 1
+   
     }
     
     override func viewWillAppear(_ animated: Bool) {

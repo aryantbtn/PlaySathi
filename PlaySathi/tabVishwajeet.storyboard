@@ -291,7 +291,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playing Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t6-AA-G0v">
-                                                    <rect key="frame" x="30" y="11.333333333333343" width="105" height="21"/>
+                                                    <rect key="frame" x="30" y="11.333333333333336" width="105" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -418,6 +418,7 @@
                     <navigationItem key="navigationItem" title="Book Slots" id="mzC-NI-j2A">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="44p-gK-Ban">
                             <connections>
+                                <action selector="nextButtonTapped:" destination="YuW-32-41L" id="Err-Go-nvx"/>
                                 <segue destination="bLo-Dr-ayu" kind="show" id="6wl-ng-kdj"/>
                             </connections>
                         </barButtonItem>
@@ -709,13 +710,12 @@
                     <navigationItem key="navigationItem" title="Payment" id="GdC-np-Vdv">
                         <barButtonItem key="rightBarButtonItem" title="Confirm" id="4TV-ib-rbE">
                             <connections>
-                                <segue destination="Iw3-NT-Ug1" kind="unwind" unwindAction="unwibdWithSegue:" id="WR4-CB-GJ0"/>
+                                <action selector="confirmButtonTap:" destination="bLo-Dr-ayu" id="V3Q-AY-ZB7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wsf-on-LJ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Iw3-NT-Ug1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3712" y="13"/>
         </scene>

@@ -9,6 +9,9 @@ import UIKit
 
 class PlayerProfileTableViewController: UITableViewController {
 
+    
+    var  instance4 = ScreenNavigation.navigate
+    
     @IBOutlet weak var elitePoints: UILabel!
     @IBOutlet weak var winRate: UILabel!
     @IBOutlet weak var matchPlayed: UILabel!
@@ -36,17 +39,38 @@ class PlayerProfileTableViewController: UITableViewController {
     }
     
     func display (with indexPath : IndexPath){
-        playerProfileImage.image = UIImage(named: players[indexPath.row].profilePicture)
+        playerProfileImage.image = UIImage(named: DataController.userData[indexPath.row].profilePicture)
         playerProfileImage.layer.cornerRadius = playerProfileImage.bounds.width / 2
-        playerProfileName.text = players[indexPath.row].name
+        playerProfileName.text = DataController.userData[indexPath.row].name
         
     }
     
 
     @IBAction func goToCreatGame(_ sender: Any) {
-        print("hij")
         let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func inviteButtonTapped(_ sender: Any) {
+        if instance4.check == "players1"{
+            let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
+
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
+            
+        
+            
+        }
+        else{
+            let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
+          
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
+
+        }
+    }
+    
 }
