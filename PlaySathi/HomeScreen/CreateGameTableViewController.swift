@@ -9,21 +9,15 @@ import UIKit
 
 class CreateGameTableViewController: UITableViewController {
     
-    var instance = Singleton.navigate
+    var instance = ScreenNavigation.navigate
     
-    
-    @IBOutlet weak var date: UIDatePicker!
     @IBOutlet weak var venueName: UILabel!
-    @IBOutlet weak var endTime: UIDatePicker!
-    @IBOutlet weak var startTime: UIDatePicker!
     @IBOutlet weak var playerName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Create Game"
-        venueName.text = newCreatedGame.venue.name
         navigationItem.largeTitleDisplayMode = .never
-
     }
 
     
@@ -33,10 +27,10 @@ class CreateGameTableViewController: UITableViewController {
         
         if let venueVC = storyBoard.instantiateViewController(withIdentifier: "venueId") as? VenueListViewController {
             self.navigationController?.pushViewController(venueVC, animated: true)
-            
         }
     }
     @IBAction func selectPlayer(_ sender: UIButton) {
+        instance.check = "players1"
         let storyBoard = UIStoryboard(name: "tabAryan", bundle: nil)
         if let playerVC = storyBoard.instantiateViewController(withIdentifier: "playerId") as? PlayerList1ViewController {
             self.navigationController?.pushViewController(playerVC, animated: true)
@@ -56,7 +50,6 @@ class CreateGameTableViewController: UITableViewController {
         }
 
         }
-    
 
 
     }

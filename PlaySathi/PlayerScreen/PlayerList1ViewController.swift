@@ -47,7 +47,7 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
             return searchPlayer.count
         }
         else {
-            return players.count
+            return DataController.userData.count
         }
     }
     
@@ -69,7 +69,7 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
     
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-                searchPlayer = players.filter {$0.name.lowercased().contains(searchText.lowercased())}
+                searchPlayer = DataController.userData.filter {$0.name.lowercased().contains(searchText.lowercased())}
                 searching = true
             } else {
                 searching = false
@@ -81,17 +81,17 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func segmentValueChanged(_ sender: UISegmentedControl) {
             switch sender.selectedSegmentIndex {
             case 0:
-                players.sort { user1, user2 in
+                DataController.userData.sort { user1, user2 in
                     user1.name < user2.name
                 }
             case 1:
                 // Sort by Distance (Example)
-                players.sort { user1, user2 in
+                DataController.userData.sort { user1, user2 in
                     user1.distance < user2.distance
                 }
             case 2:
                 // Sort by EP (Example)
-                players.sort { user1, user2 in
+                DataController.userData.sort { user1, user2 in
                     user1.elitePoints < user2.elitePoints
                 }
             default:
@@ -102,7 +102,7 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("********")
-        let destination = players[indexPath.row]
+        let destination = DataController.userData[indexPath.row]
 //        print(selecteddIndexPath)
         selecteddIndexPath = indexPath
         print(selecteddIndexPath)

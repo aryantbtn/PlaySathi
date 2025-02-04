@@ -18,8 +18,8 @@ class VenueCollectionViewCell: UICollectionViewCell {
     
     
     func update(with indexPath: IndexPath){
-        venueImage.image = UIImage(named: ScreenData.venueData[indexPath.row].imageUrl)
-        venueName.text = ScreenData.venueData[indexPath.row].name
-        venueDistance.text = "Distance ~ " + ScreenData.venueData[indexPath.row].distanceInKm.formatted() + " kms"
+        venueImage.image = UIImage(named: DataController.venueData[indexPath.row].imageUrl)
+        venueName.text = DataController.venueData[indexPath.row].name
+        venueDistance.text = "Distance ~ " + DataController.venueData[indexPath.row].distanceInKm.formatted() + " kms"
     }
 }

@@ -710,7 +710,7 @@
                     <navigationItem key="navigationItem" title="Payment" id="GdC-np-Vdv">
                         <barButtonItem key="rightBarButtonItem" title="Confirm" id="4TV-ib-rbE">
                             <connections>
-                                <action selector="cancelButtonTap:" destination="bLo-Dr-ayu" id="V3Q-AY-ZB7"/>
+                                <action selector="confirmButtonTap:" destination="bLo-Dr-ayu" id="V3Q-AY-ZB7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

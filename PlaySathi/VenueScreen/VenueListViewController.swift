@@ -41,7 +41,7 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        ScreenData.venueData.count
+        DataController.venueData.count
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -87,9 +87,8 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let entry = ScreenData.venueData[indexPath.section]
+        let entry = DataController.venueData[indexPath.section]
         selectedIndexPath = indexPath
-        newCreatedGame.venue = entry
         performSegue(withIdentifier: "Good", sender: entry)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

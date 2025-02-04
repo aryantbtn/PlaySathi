@@ -19,10 +19,10 @@ class VenueDetailCollectionViewCell: UICollectionViewCell {
     
     
     func display(with indexPath: IndexPath){
-        ImageLabel.image =  UIImage(named: ScreenData.venueData[indexPath.row].imageUrl)
-    nameLabel.text = ScreenData.venueData[indexPath.row].name
-        distanceLabel.text = "Distance ~ " + ScreenData.venueData[indexPath.row].distanceInKm.formatted() + " kms"
-        venuePrice.text = "Price ~ " + ScreenData.venueData[indexPath.row].price.formatted() + "Rs."
+        ImageLabel.image =  UIImage(named: DataController.venueData[indexPath.row].imageUrl)
+    nameLabel.text = DataController.venueData[indexPath.row].name
+        distanceLabel.text = "Distance ~ " + DataController.venueData[indexPath.row].distanceInKm.formatted() + " kms"
+        venuePrice.text = "Price ~ " + DataController.venueData[indexPath.row].price.formatted() + "Rs."
         
     }
 }

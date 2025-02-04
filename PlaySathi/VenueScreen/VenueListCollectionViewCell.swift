@@ -16,8 +16,8 @@ class VenueListCollectionViewCell: UICollectionViewCell {
     @IBOutlet var venueListName: UILabel!
     
     func updateFunc(with indexPath: IndexPath){
-        venueListImage.image = UIImage(named: ScreenData.venueData[indexPath.row].imageUrl)
-        venueListName.text = ScreenData.venueData[indexPath.row].name
-        venueListDistance.text = "Distance ~ " + ScreenData.venueData[indexPath.row].distanceInKm.formatted() + " kms"
+        venueListImage.image = UIImage(named: DataController.venueData[indexPath.row].imageUrl)
+        venueListName.text = DataController.venueData[indexPath.row].name
+        venueListDistance.text = "Distance ~ " + DataController.venueData[indexPath.row].distanceInKm.formatted() + " kms"
     }
 }
