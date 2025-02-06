@@ -44,13 +44,6 @@ struct Venue {
 var homeScreenSections: Int = 3
 
 
-struct SlotBookings {
-    var preferedDate : String
-    var startTime : String
-    var numberofPlayingHours : Int
-}
-
-
 struct Game {
     var title:String
     var type : TypeofGame

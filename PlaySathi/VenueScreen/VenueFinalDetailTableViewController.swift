@@ -56,6 +56,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
         else{
             let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
+            homeScreenSections += 1 
             self.navigationController?.popViewController(animated: true)
             self.navigationController?.popViewController(animated: true)
             self.navigationController?.popViewController(animated: true)
