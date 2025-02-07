@@ -67,16 +67,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image 7" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-3c-7Lg">
-                                <rect key="frame" x="291" y="6" width="85" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 7" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-3c-7Lg">
+                                <rect key="frame" x="291" y="5" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="f0O-EG-Zdu"/>
+                                    <constraint firstAttribute="height" constant="60" id="hTl-JT-EH9"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2bd-3c-7Lg" firstAttribute="leading" secondItem="Wzf-aw-MIe" secondAttribute="trailing" constant="15" id="0IU-fs-oiZ"/>
                             <constraint firstItem="7ma-JJ-Qcx" firstAttribute="leading" secondItem="T9d-Fd-oKt" secondAttribute="leading" constant="15" id="3Lz-E2-pqA"/>
                             <constraint firstItem="y1O-kD-yBc" firstAttribute="centerY" secondItem="9S8-n7-b42" secondAttribute="centerY" id="8lZ-Pb-vfm"/>
                             <constraint firstItem="9S8-n7-b42" firstAttribute="top" secondItem="9Dj-Yo-vkC" secondAttribute="bottom" constant="2" id="AsF-v9-LQS"/>
+                            <constraint firstItem="2bd-3c-7Lg" firstAttribute="top" secondItem="T9d-Fd-oKt" secondAttribute="top" constant="5" id="CqT-kV-tvv"/>
                             <constraint firstItem="y1O-kD-yBc" firstAttribute="leading" secondItem="9S8-n7-b42" secondAttribute="trailing" constant="5" id="DN1-X4-kRa"/>
                             <constraint firstItem="Wzf-aw-MIe" firstAttribute="centerY" secondItem="9Dj-Yo-vkC" secondAttribute="centerY" id="DXM-hv-gEd"/>
                             <constraint firstItem="9S8-n7-b42" firstAttribute="leading" secondItem="T9d-Fd-oKt" secondAttribute="leading" constant="10" id="MPb-y4-tYE"/>
@@ -109,7 +114,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
