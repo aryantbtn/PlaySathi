@@ -34,7 +34,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <segue destination="S6c-lL-Z3p" kind="show" identifier="GameEntry" id="cZj-QV-DrW"/>
+                                            <segue destination="S6c-lL-Z3p" kind="show" identifier="GameEntry" id="w1v-Eb-wne"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1312.2137404580153" y="27.464788732394368"/>
+            <point key="canvasLocation" x="1192" y="27"/>
         </scene>
         <!--Create Game Table View Controller-->
         <scene sceneID="l6q-P7-d5T">
@@ -960,6 +960,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lig-At-V83" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="449.61832061068702" y="787.32394366197184"/>
+        </scene>
+        <!--Player Request View Controller-->
+        <scene sceneID="h6v-6C-X6k">
+            <objects>
+                <viewController storyboardIdentifier="requestId" id="xFS-ZZ-lgJ" customClass="PlayerRequestViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W7p-1q-3x5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oEF-cy-YPM">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ets-ik-i16">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AAy-Wp-NfZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AFb-Dx-bNt">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bLn-Hy-xWd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oEF-cy-YPM" firstAttribute="leading" secondItem="bLn-Hy-xWd" secondAttribute="leading" id="3Un-0X-I6B"/>
+                            <constraint firstItem="bLn-Hy-xWd" firstAttribute="bottom" secondItem="oEF-cy-YPM" secondAttribute="bottom" id="Agt-U3-0Kg"/>
+                            <constraint firstItem="oEF-cy-YPM" firstAttribute="top" secondItem="bLn-Hy-xWd" secondAttribute="top" id="gmA-mm-jON"/>
+                            <constraint firstItem="bLn-Hy-xWd" firstAttribute="trailing" secondItem="oEF-cy-YPM" secondAttribute="trailing" id="iul-d9-7fi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CT4-ou-j99"/>
+                    <connections>
+                        <outlet property="cv" destination="oEF-cy-YPM" id="PDm-aC-WYb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hBQ-vp-gNd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298" y="787"/>
+        </scene>
+        <!--Venue Selection Card View Controller-->
+        <scene sceneID="fWt-Ad-Wbt">
+            <objects>
+                <viewController id="ax1-Z5-8vm" customClass="VenueSelectionCardViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E2A-fO-JIH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qr9-lE-uNd">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2ZD-94-mCq">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yh1-nK-Sva">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nAM-T2-pgk">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Yt3-d0-LhB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yt3-d0-LhB" firstAttribute="bottom" secondItem="Qr9-lE-uNd" secondAttribute="bottom" id="1tK-KY-1a3"/>
+                            <constraint firstItem="Yt3-d0-LhB" firstAttribute="trailing" secondItem="Qr9-lE-uNd" secondAttribute="trailing" id="6Zv-hR-BiQ"/>
+                            <constraint firstItem="Qr9-lE-uNd" firstAttribute="leading" secondItem="Yt3-d0-LhB" secondAttribute="leading" id="KcE-F1-cmn"/>
+                            <constraint firstItem="Qr9-lE-uNd" firstAttribute="top" secondItem="Yt3-d0-LhB" secondAttribute="top" id="PRC-y5-0c6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cView" destination="Qr9-lE-uNd" id="T00-LL-eRv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDp-2w-AeX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2201" y="787"/>
         </scene>
     </scenes>
     <resources>

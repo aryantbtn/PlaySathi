@@ -304,10 +304,12 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case 3:
             headerView.headerLabel.text = DataController.sectionHeaderNames[3]
             headerView.button.setTitle("See All", for: .normal)
+            headerView.button.addTarget(self, action: #selector(requestSeeAllButtonTapped), for: .touchUpInside)
             
         case 4:
             headerView.headerLabel.text = DataController.sectionHeaderNames[4]
             headerView.button.setTitle("See All", for: .normal)
+            headerView.button.addTarget(self, action: #selector(venueSelectionCardSeeAllButtonTapped), for: .touchUpInside)
         
         case 5:
             headerView.headerLabel.text = DataController.sectionHeaderNames[5]
@@ -353,6 +355,21 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             self.navigationController?.pushViewController(playerVC, animated: true)
         }
     }
+    @objc func requestSeeAllButtonTapped() {
+        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    
+    
+    @objc func venueSelectionCardSeeAllButtonTapped() {
+        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "vscard") as? VenueSelectionCardViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Good"{
