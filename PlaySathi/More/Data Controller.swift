@@ -58,9 +58,9 @@ class DataController{
         "",
         "Nearby Players",
         "Venue Near Me",
-        "Matches",
-        "Request Sent",
-        "Matches"
+        "🏸Court Locked",
+        "📨Challenge Sent",
+        "⏳Waiting for Opponent"
     ]
     
     

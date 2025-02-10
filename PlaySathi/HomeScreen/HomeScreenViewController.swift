@@ -27,6 +27,7 @@ class HomeScreenViewController: UIViewController {
         let fourthNib = UINib(nibName: GameEntryCollectionViewCell.identifier, bundle: nil)
         let fifthNib = UINib(nibName: PlayerSelectionCollectionViewCell.identifier, bundle: nil)
         let sixthNib = UINib(nibName: GameCardCollectionViewCell.identifier, bundle: nil)
+        let seventhNib = UINib(nibName: MatchesCollectionViewCell.identifier, bundle: nil)
                 
         
         collectionView.register(firstNib, forCellWithReuseIdentifier: HomeScreenCollectionViewCell.identifier)
@@ -35,6 +36,7 @@ class HomeScreenViewController: UIViewController {
         collectionView.register(fourthNib, forCellWithReuseIdentifier: GameEntryCollectionViewCell.identifier)
         collectionView.register(fifthNib, forCellWithReuseIdentifier: PlayerSelectionCollectionViewCell.identifier)
         collectionView.register(sixthNib, forCellWithReuseIdentifier: GameCardCollectionViewCell.identifier)
+        collectionView.register(seventhNib, forCellWithReuseIdentifier: MatchesCollectionViewCell.identifier)
         collectionView.register(SectionHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeaderCollectionReusableView")
         
         collectionView.setCollectionViewLayout(generateLayout(), animated: true)
@@ -61,6 +63,8 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             1
         case 5 :
             1
+//        case 6:
+//            1
         default : 0
         }
     }
@@ -141,6 +145,11 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                 cell.layer.cornerRadius = 8
                 return cell
             }
+//        case 6 :
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatchesCollectionViewCell.identifier, for: indexPath) as! MatchesCollectionViewCell
+//            cell.dispaly3(with: indexPath)
+//            cell.layer.cornerRadius = 8
+//            return cell
             
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeScreenCollectionViewCell.identifier, for: indexPath) as! HomeScreenCollectionViewCell
@@ -186,6 +195,8 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                 } else {
                     section = self.generateSection4Layout()
                 }
+//            case 6:
+//                section = self.generateSection7Layout()
             default : print("Wrong Section")
                 return nil
             }
@@ -273,6 +284,22 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         return section
     }
     func generateSection6Layout()->NSCollectionLayoutSection{
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:8, bottom: 8, trailing: 8)
+        group.interItemSpacing = .fixed(2)
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(44))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader,
+                                                                 alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        return section
+    }
+    func generateSection7Layout()->NSCollectionLayoutSection{
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
