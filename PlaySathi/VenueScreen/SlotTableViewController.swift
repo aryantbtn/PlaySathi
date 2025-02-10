@@ -12,6 +12,9 @@ class SlotTableViewController: UITableViewController {
     var indexPathForSlotSection : IndexPath?
     
     @IBOutlet var venueNameInSlotSection: UILabel!
+    
+    @IBOutlet var date: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dispaly()
@@ -43,12 +46,14 @@ class SlotTableViewController: UITableViewController {
     }
     func dispaly(){
         venueNameInSlotSection.text = DataController.venueData[indexPathForSlotSection!.row].name
+        
     }
    
     @IBAction func goToFinal(_ sender: Any) {
         let storyboard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "final") as! VenueFinalDetailTableViewController
         vc.indexPathForVenueFinal = indexPathForSlotSection
+       // vc.dayInFinal.text = date.date.formatted()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

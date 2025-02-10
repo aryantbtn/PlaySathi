@@ -255,7 +255,7 @@
                                                     <buttonConfiguration key="configuration" style="plain" title="5PM-7PM"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3du-XT-NUr">
-                                                    <rect key="frame" x="145" y="9" width="102.33333333333331" height="35"/>
+                                                    <rect key="frame" x="145.66666666666666" y="9" width="102.33333333333334" height="35"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="4PM-6PM"/>
                                                 </button>
@@ -323,6 +323,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="date" destination="XN2-hm-8RV" id="9dJ-ot-CJF"/>
                         <outlet property="venueNameInSlotSection" destination="h2r-dl-Tod" id="e0i-dF-iQq"/>
                     </connections>
                 </tableViewController>
@@ -609,6 +610,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="courtNumberInFinal" destination="PwR-DC-c3C" id="VPD-KA-YOP"/>
+                        <outlet property="dayInFinal" destination="bfQ-Pt-dpM" id="HSe-wM-Gpi"/>
+                        <outlet property="monthInFinal" destination="10l-d9-MyW" id="530-q8-xnR"/>
+                        <outlet property="priceInFinal" destination="gYU-o5-faH" id="sai-1q-mJq"/>
+                        <outlet property="timeInFinal" destination="cBT-VP-5Gg" id="bnk-NV-7mt"/>
                         <outlet property="venueNameInFinal" destination="jfm-eq-JoL" id="ARb-Ii-UDt"/>
                     </connections>
                 </tableViewController>

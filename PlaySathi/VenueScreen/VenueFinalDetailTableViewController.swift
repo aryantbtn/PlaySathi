@@ -13,6 +13,11 @@ class VenueFinalDetailTableViewController: UITableViewController {
     var indexPathForVenueFinal : IndexPath!
     
     @IBOutlet var venueNameInFinal: UILabel!
+    @IBOutlet var courtNumberInFinal: UILabel!
+    @IBOutlet var monthInFinal: UILabel!
+    @IBOutlet var dayInFinal: UILabel!
+    @IBOutlet var timeInFinal: UILabel!
+    @IBOutlet var priceInFinal: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         update()
@@ -41,6 +46,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
     
     func update (){
         venueNameInFinal.text = DataController.venueData[indexPathForVenueFinal.row].name
+        priceInFinal.text = DataController.venueData[indexPathForVenueFinal.row].price.formatted()
     }
     
     
@@ -50,7 +56,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
         if instance2.check == "isdp"{
             let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
-            vc.venueName.text = DataController.venueData[indexPathForVenueFinal.row].name
+//            vc.venueName.text = DataController.venueData[indexPathForVenueFinal.row].name
             let targetVC = (navigationController?.viewControllers[1])!
             self.navigationController?.popToViewController(targetVC, animated: true)
             
