@@ -41,14 +41,7 @@ struct Venue {
     
 }
 
-var homeScreenSections: Int = 3
-
-
-struct SlotBookings {
-    var preferedDate : String
-    var startTime : String
-    var numberofPlayingHours : Int
-}
+var homeScreenSections: [String] = ["cg","venue","player"]
 
 
 struct Game {

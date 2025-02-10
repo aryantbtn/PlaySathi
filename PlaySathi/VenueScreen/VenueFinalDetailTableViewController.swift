@@ -46,6 +46,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
         if instance2.check == "isdp"{
             let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
+
             
             self.navigationController?.popViewController(animated: true)
             self.navigationController?.popViewController(animated: true)
@@ -53,16 +54,42 @@ class VenueFinalDetailTableViewController: UITableViewController {
             self.navigationController?.popViewController(animated: true)
             
             
+
+
+            let targetVC = (navigationController?.viewControllers[1])!
+            self.navigationController?.popToViewController(targetVC, animated: true)
+          
+           
+
             
             
         }
         else{
+            if homeScreenSections.count == 3 {
+                homeScreenSections.insert("venuee", at: 1)
+            }
+            else if homeScreenSections.count == 4 {
+                if homeScreenSections.contains("venuee"){
+                    
+                } else {
+                    homeScreenSections.insert("venuee",at:2)
+                }
+            }
+             else if homeScreenSections.count == 5{
+                 if homeScreenSections.contains("venuee"){
+                     
+                 } else {
+                     homeScreenSections.insert("venuee",at:3)
+                 }
+                }
+            else {
+                
+            }
             let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
-            self.navigationController?.popViewController(animated: true)
-            self.navigationController?.popViewController(animated: true)
-            self.navigationController?.popViewController(animated: true)
-            self.navigationController?.popViewController(animated: true)
+            
+            self.navigationController?.popToRootViewController(animated: true)
+            
         }
     }
     

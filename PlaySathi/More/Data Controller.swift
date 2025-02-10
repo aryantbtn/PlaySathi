@@ -26,7 +26,7 @@ class DataController{
         User(id: UUID(), name: "Piyush Maurya", profilePicture: "images5", elitePoints: 644, skillLevel: .advanced, distance: 23.4, location: "Faes"),
         User(id: UUID(), name: "Rohit", profilePicture: "images13", elitePoints: 465, skillLevel: .advanced, distance: 25.9, location: "ERF"),
         User(id: UUID(), name: "Shubham", profilePicture: "images14", elitePoints: 443, skillLevel: .advanced, distance: 27.5, location: "FDs"),
-        User(id: UUID(), name: "Amit", profilePicture: "images15", elitePoints: 562, skillLevel: .advanced, distance: 30, location: "FG"),
+        User(id: UUID(), name: "Rajiv Singh", profilePicture: "images15", elitePoints: 562, skillLevel: .advanced, distance: 30, location: "FG"),
         User(id: UUID(), name: "Amit", profilePicture: "images16", elitePoints: 442, skillLevel: .advanced, distance: 35, location: "SFD"),
         User(id: UUID(), name: "Amit", profilePicture: "images17", elitePoints: 452, skillLevel: .advanced, distance: 38.9, location: "FS"),
         User(id: UUID(), name: "Amit", profilePicture: "images18", elitePoints: 462, skillLevel: .advanced, distance: 40, location: "SF"),
