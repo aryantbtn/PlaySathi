@@ -15,18 +15,18 @@ class VenueFinalDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 3
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         switch section {
-            case 0:
+        case 0:
             return 2
         case 1:
             return 4
@@ -36,23 +36,23 @@ class VenueFinalDetailTableViewController: UITableViewController {
             return 1
         }
     }
-
-}
-
     
-
-
+    
+    
+    
+    
+    
     @IBAction func confirmButtonTap(_ sender: Any) {
         if instance2.check == "isdp"{
             let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
-
+            
             self.navigationController?.popViewController(animated: true)
             self.navigationController?.popViewController(animated: true)
             self.navigationController?.popViewController(animated: true)
             self.navigationController?.popViewController(animated: true)
-          
-           
+            
+            
             
             
         }
@@ -67,7 +67,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
     }
     
     
-    
+}
         
         
     
