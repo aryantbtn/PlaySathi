@@ -50,7 +50,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
         if instance2.check == "isdp"{
             let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
-
+            vc.venueName.text = DataController.venueData[indexPathForVenueFinal.row].name
             let targetVC = (navigationController?.viewControllers[1])!
             self.navigationController?.popToViewController(targetVC, animated: true)
             

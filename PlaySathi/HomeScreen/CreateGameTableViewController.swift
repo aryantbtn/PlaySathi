@@ -11,6 +11,7 @@ class CreateGameTableViewController: UITableViewController {
     
     var instance = ScreenNavigation.navigate
     
+    
     @IBOutlet weak var venueName: UILabel!
     @IBOutlet weak var playerName: UILabel!
     
@@ -18,8 +19,8 @@ class CreateGameTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationItem.title = "Create Game"
         navigationItem.largeTitleDisplayMode = .never
+        
     }
-
     
     @IBAction func goToVenue(_ sender: UIButton) {
         instance.check = "isdp"
