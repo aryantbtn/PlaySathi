@@ -10,7 +10,6 @@ import UIKit
 class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, UICollectionViewDelegate{
     
     var indexPathForVenueDetail : IndexPath = IndexPath()
-    var selectedIndexPath: IndexPath?
     
     @IBOutlet var venueCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -116,8 +115,8 @@ class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, U
     }
     func generateSection3Layout()->NSCollectionLayoutSection{
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(225)), subitem: item, count: 1)
-        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:0, bottom: 8, trailing: 0)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(45)), subitem: item, count: 1)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading:0, bottom: 8, trailing: 0)
         group.interItemSpacing = .fixed(8)
         let section = NSCollectionLayoutSection(group: group)
 //        section.orthogonalScrollingBehavior = .groupPaging
@@ -144,10 +143,13 @@ class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, U
     }
 
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let Entry = ScreenData.venueData[indexPath.section]
-//        selectedIndexPath = indexPath
-//        performSegue(withIdentifier: "Slot", sender: Entry)
-//    }
+    @IBAction func goToSlot(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "slotVC") as! SlotTableViewController
+        vc.indexPathForSlotSection = indexPathForVenueDetail
 
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
 }
