@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NNx-P2-rxS" customClass="AvailableTimeSlotCollectionViewCell" customModule="PlaySathi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="92" height="32"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="92" height="32"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pod-Xe-Vey">
+                        <rect key="frame" x="0.0" y="0.0" width="92" height="32"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Court 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5O-Cm-wiK">
+                                <rect key="frame" x="18.666666666666671" y="5.6666666666666679" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="92" id="k93-2o-dAU"/>
+                            <constraint firstItem="R5O-Cm-wiK" firstAttribute="centerX" secondItem="pod-Xe-Vey" secondAttribute="centerX" id="l2b-hG-4QE"/>
+                            <constraint firstAttribute="height" constant="32" id="wfE-S4-LzR"/>
+                            <constraint firstItem="R5O-Cm-wiK" firstAttribute="centerY" secondItem="pod-Xe-Vey" secondAttribute="centerY" id="zfu-OF-WdH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="Xgx-oQ-APW"/>
+            <constraints>
+                <constraint firstItem="pod-Xe-Vey" firstAttribute="leading" secondItem="NNx-P2-rxS" secondAttribute="leading" id="DhK-E8-2sx"/>
+                <constraint firstAttribute="trailing" secondItem="pod-Xe-Vey" secondAttribute="trailing" id="NQO-w5-AC2"/>
+                <constraint firstAttribute="bottom" secondItem="pod-Xe-Vey" secondAttribute="bottom" id="alj-14-NpU"/>
+                <constraint firstItem="pod-Xe-Vey" firstAttribute="top" secondItem="NNx-P2-rxS" secondAttribute="top" id="avz-N7-yIu"/>
+            </constraints>
+            <size key="customSize" width="439" height="72"/>
+            <connections>
+                <outlet property="courtLabel" destination="R5O-Cm-wiK" id="jNh-Ak-09e"/>
+                <outlet property="timeSlotLabel" destination="R5O-Cm-wiK" id="a4l-a3-7VE"/>
+            </connections>
+            <point key="canvasLocation" x="435.1145038167939" y="27.464788732394368"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
