@@ -33,12 +33,12 @@ struct Venue {
     var rating: Double
     var distanceInKm: Double
     var location: String
-    var numberOfCourts: Int
+    var numberOfCourts: [String]
     var price : Int
     var amenities: [String]
     var openingTime : String
     var closingTime : String
-    
+    var timeSlots: [String]
 }
 
 var homeScreenSections: [String] = ["cg","venue","player"]

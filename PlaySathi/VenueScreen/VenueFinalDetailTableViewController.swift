@@ -11,11 +11,12 @@ class VenueFinalDetailTableViewController: UITableViewController {
     
     var instance2 = ScreenNavigation.navigate
     var indexPathForVenueFinal : IndexPath!
+    var selectedDay : String = ""
     
     @IBOutlet var venueNameInFinal: UILabel!
     @IBOutlet var courtNumberInFinal: UILabel!
-    @IBOutlet var monthInFinal: UILabel!
-    @IBOutlet var dayInFinal: UILabel!
+ 
+    @IBOutlet var dateInFinal: UILabel!
     @IBOutlet var timeInFinal: UILabel!
     @IBOutlet var priceInFinal: UILabel!
     override func viewDidLoad() {
@@ -36,7 +37,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
         case 0:
             return 2
         case 1:
-            return 4
+            return 3
         case 2:
             return 2
         default:
@@ -47,6 +48,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
     func update (){
         venueNameInFinal.text = DataController.venueData[indexPathForVenueFinal.row].name
         priceInFinal.text = DataController.venueData[indexPathForVenueFinal.row].price.formatted()
+        dateInFinal.text = selectedDay
     }
     
     
@@ -56,7 +58,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
         if instance2.check == "isdp"{
             let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
-//            vc.venueName.text = DataController.venueData[indexPathForVenueFinal.row].name
+            // DataController.venueData[indexPathForVenueFinal.row].name
             let targetVC = (navigationController?.viewControllers[1])!
             self.navigationController?.popToViewController(targetVC, animated: true)
             

@@ -12,13 +12,16 @@ class CreateGameTableViewController: UITableViewController {
     var instance = ScreenNavigation.navigate
     
     
-    @IBOutlet weak var venueName: UILabel!
+    @IBOutlet weak var venueName: UILabel! 
     @IBOutlet weak var playerName: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Create Game"
         navigationItem.largeTitleDisplayMode = .never
+        
         
     }
     
@@ -51,7 +54,9 @@ class CreateGameTableViewController: UITableViewController {
         }
 
         }
-
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     }
 
