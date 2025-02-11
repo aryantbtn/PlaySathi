@@ -14,5 +14,3 @@
 </p>
 
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=aryantbtn&show_icons=true&locale=en&layout=compact" alt="aryantbtn" /></p>
-
-<p>&nbsp;<img align="left" src="https://github-readme-stats.vercel.app/api?username=aryantbtn&show_icons=true&locale=en" alt="aryantbtn" /></p>
