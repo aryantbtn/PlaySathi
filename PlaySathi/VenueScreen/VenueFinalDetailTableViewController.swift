@@ -91,6 +91,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
 //            }
             let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
+            vc.selectedIndexPath = indexPathForVenueFinal
             
             self.navigationController?.popToRootViewController(animated: true)
             

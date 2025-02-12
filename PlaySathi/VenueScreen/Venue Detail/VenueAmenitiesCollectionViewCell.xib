@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="402" height="23"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSV-M3-11b">
-                                <rect key="frame" x="50" y="1" width="58" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="50" y="0.99999999999999911" width="45.666666666666657" height="15.666666666666664"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -53,6 +53,7 @@
             </constraints>
             <size key="customSize" width="402" height="23"/>
             <connections>
+                <outlet property="imageView" destination="R8r-o0-ltW" id="kX8-Qt-Kp9"/>
                 <outlet property="l1" destination="lSV-M3-11b" id="Jpv-0W-JpI"/>
             </connections>
             <point key="canvasLocation" x="-56.488549618320612" y="-329.92957746478874"/>

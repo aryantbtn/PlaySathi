@@ -104,6 +104,10 @@
                 <constraint firstAttribute="bottom" secondItem="cJ2-je-9nT" secondAttribute="bottom" id="rcm-oT-zlb"/>
             </constraints>
             <size key="customSize" width="356" height="104"/>
+            <connections>
+                <outlet property="dateAndTime" destination="G43-e4-Uar" id="SHC-m2-3jr"/>
+                <outlet property="venueName" destination="VsR-92-mml" id="VL0-5u-Zzu"/>
+            </connections>
             <point key="canvasLocation" x="138.93129770992365" y="-10.563380281690142"/>
         </collectionViewCell>
     </objects>

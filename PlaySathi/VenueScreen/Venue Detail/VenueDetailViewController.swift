@@ -29,7 +29,7 @@ class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, U
         case 1:
             1
         case 2:
-            1
+            DataController.venueData[indexPathForVenueDetail.row].amenities.count
         default : 0
         }
     }
@@ -51,7 +51,7 @@ class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, U
               return cell
         case 2 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VenueAmenitiesCollectionViewCell", for: indexPath) as! VenueAmenitiesCollectionViewCell
-            cell.assignData(with : indexPath)
+            cell.assignData(with : indexPathForVenueDetail,aminity:indexPath)
               cell.layer.cornerRadius = 8
               return cell
         default:
@@ -115,7 +115,7 @@ class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, U
     }
     func generateSection3Layout()->NSCollectionLayoutSection{
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(45)), subitem: item, count: 1)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30)), subitem: item, count: 1)
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading:0, bottom: 8, trailing: 0)
         group.interItemSpacing = .fixed(8)
         let section = NSCollectionLayoutSection(group: group)

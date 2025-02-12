@@ -10,7 +10,6 @@ import UIKit
 class HomeScreenViewController: UIViewController {
 
     var instance3 = ScreenNavigation.navigate
-    
     var selectedIndexPath: IndexPath?
     
     @IBOutlet weak var collectionView: UICollectionView!
