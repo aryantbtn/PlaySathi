@@ -60,3 +60,17 @@ class ScreenNavigation{
     static let navigate = ScreenNavigation()
     var check : String?
 }
+
+
+enum TypeOfSection {
+    case player
+    case venue
+    case createGame
+    case inviteSent
+    //case requestReceived
+    case gameCreated
+    case venueBooked
+    case matches
+}
+
+var listOfSections:[TypeOfSection] = [.createGame,.player,.venue]

@@ -38,26 +38,9 @@ class CreateGameFinalTableViewController: UITableViewController {
     }
 
     @IBAction func createGameConfirmTapped(_ sender: Any) {
-        if homeScreenSections.count == 3 {
-            homeScreenSections.insert("create", at: 1)
-        }
-        else if homeScreenSections.count == 4 {
-            if homeScreenSections.contains("create"){
-                
-            } else {
-                homeScreenSections.insert("create",at:2)
-            }
-        }
-         else if homeScreenSections.count == 5{
-             if homeScreenSections.contains("create"){
-                 
-             } else {
-                 homeScreenSections.insert("create",at:3)
-             }
-            }
-        else {
-            
-        }
+        listOfSections.insert(.gameCreated, at: 1)
+        DataController.headers[.gameCreated] = "Created Game"
+        
         let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
         self.navigationController?.popToRootViewController(animated: true)

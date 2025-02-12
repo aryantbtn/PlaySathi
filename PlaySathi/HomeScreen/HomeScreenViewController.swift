@@ -61,159 +61,96 @@ class HomeScreenViewController: UIViewController {
 
 extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        homeScreenSections.count
+        listOfSections.count
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            1
-        case 1:
+        switch listOfSections[section] {
+        
+        case .player:
             DataController.userData.count
-        case 2:
+        case .venue:
             DataController.venueData.count
-        case 3:
+        case .createGame:
             1
-        case 4:
+        case .venueBooked:
             1
-        case 5 :
+        case .inviteSent:
             1
-//        case 6:
-//            1
-        default : 0
+        case .gameCreated:
+            1
+        case .matches:
+            1
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.section {
-        case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeScreenCollectionViewCell.identifier, for: indexPath) as! HomeScreenCollectionViewCell
-            cell.dispaly(with:indexPath)
-            cell.layer.cornerRadius = 8
-            return cell
-            
-        case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerCollectionViewCell.identifier, for: indexPath) as! PlayerCollectionViewCell
-            cell.setup(with:indexPath)
-            cell.layer.cornerRadius = 8
-            return cell
-            
-        case 2:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VenueCollectionViewCell.identifier, for: indexPath) as! VenueCollectionViewCell
-            cell.update(with:indexPath)
-            cell.layer.cornerRadius = 8
-            cell.clipsToBounds = true
-            return cell
-            
-        case 3:
-            if homeScreenSections[1] == "create"{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCardCollectionViewCell.identifier, for: indexPath) as! GameCardCollectionViewCell
-                cell.game(with:indexPath)
-                cell.layer.cornerRadius = 8
-                return cell
-            } else if homeScreenSections[1] == "playerss"{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
-                cell.disp(with:indexPath)
-                cell.layer.cornerRadius = 8
-                return cell
-                
-            } else  {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
-                cell.d(with:indexPath)
-                cell.layer.cornerRadius = 8
-                return cell
-            }
-            
-        case 4:
-            if homeScreenSections[2] == "create"{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCardCollectionViewCell.identifier, for: indexPath) as! GameCardCollectionViewCell
-                cell.game(with:indexPath)
-                cell.layer.cornerRadius = 8
-                return cell
-            } else if homeScreenSections[2] == "playerss"{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
-                cell.disp(with:indexPath)
-                cell.layer.cornerRadius = 8
-                return cell
-                
-            } else  {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
-                cell.d(with:indexPath)
-                cell.layer.cornerRadius = 8
-                return cell
-            }
-        case 5:
-            if homeScreenSections[3] == "create"{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCardCollectionViewCell.identifier, for: indexPath) as! GameCardCollectionViewCell
-                cell.game(with:indexPath)
-                cell.layer.cornerRadius = 8
-                return cell
-            } else if homeScreenSections[3] == "playerss"{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
-                cell.disp(with:indexPath)
-                cell.layer.cornerRadius = 8
-                return cell
-                
-            } else  {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
-                cell.d(with:indexPath)
-                cell.layer.cornerRadius = 8
-                return cell
-            }
-//        case 6 :
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatchesCollectionViewCell.identifier, for: indexPath) as! MatchesCollectionViewCell
-//            cell.dispaly3(with: indexPath)
-//            cell.layer.cornerRadius = 8
-//            return cell
-            
-        default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeScreenCollectionViewCell.identifier, for: indexPath) as! HomeScreenCollectionViewCell
-            cell.dispaly(with:indexPath)
-            cell.layer.cornerRadius = 8
-            return cell
-        }
         
+        switch listOfSections[indexPath.section]{
+            
+        case .player:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerCollectionViewCell.identifier, for: indexPath) as! PlayerCollectionViewCell
+                        cell.setup(with:indexPath)
+                        cell.layer.cornerRadius = 8
+                        return cell
+        case .venue:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VenueCollectionViewCell.identifier, for: indexPath) as! VenueCollectionViewCell
+                        cell.update(with:indexPath)
+                        cell.layer.cornerRadius = 8
+                        cell.clipsToBounds = true
+                        return cell
+        case .createGame:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeScreenCollectionViewCell.identifier, for: indexPath) as! HomeScreenCollectionViewCell
+                       cell.dispaly(with:indexPath)
+                       cell.layer.cornerRadius = 8
+                       return cell
+       
+        case .venueBooked:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
+                            cell.d(with:indexPath)
+                            cell.layer.cornerRadius = 8
+                            return cell
+        case .inviteSent:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
+                            cell.disp(with:indexPath)
+                            cell.layer.cornerRadius = 8
+                            return cell
+        case .gameCreated:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCardCollectionViewCell.identifier, for: indexPath) as! GameCardCollectionViewCell
+                            cell.game(with:indexPath)
+                            cell.layer.cornerRadius = 8
+                            return cell
+        case .matches:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatchesCollectionViewCell.identifier, for: indexPath) as! MatchesCollectionViewCell
+                       cell.dispaly3(with: indexPath)
+                       cell.layer.cornerRadius = 8
+                       return cell
+        }
+
+        
+
     }
     
     func generateLayout()->UICollectionViewLayout{
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex,enviroment)->NSCollectionLayoutSection? in let section:NSCollectionLayoutSection
-            switch sectionIndex{
-            case 0:
-                section =  self.generateSection1Layout()
-            case 1:
-                section = self.generateSection2Layout()
-            case 2:
-                section = self.generateSection3Layout()
-            case 3:
-                if homeScreenSections[1] == "create"{
-                    section = self.generateSection6Layout()
-                }else if homeScreenSections[1] == "playerss"{
-                    section = self.generateSection5Layout()
-                } else {
-                    section = self.generateSection4Layout()
-                }
-            case 4:
-                if homeScreenSections[2] == "create"{
-                    section = self.generateSection6Layout()
-                }else if homeScreenSections[2] == "playerss"{
-                    section = self.generateSection5Layout()
-                } else {
-                    section = self.generateSection4Layout()
-                }
+            switch listOfSections[sectionIndex]{
                 
-            case 5:
-                if homeScreenSections[3] == "create"{
-                    section = self.generateSection6Layout()
-                }else if homeScreenSections[3] == "playerss"{
-                    section = self.generateSection5Layout()
-                } else {
-                    section = self.generateSection4Layout()
-                }
-//            case 6:
-//                section = self.generateSection7Layout()
-            default : print("Wrong Section")
-                return nil
+            case .player:
+                section = self.generateSection2Layout()
+            case .venue:
+                section = self.generateSection3Layout()
+            case .createGame:
+                section = self.generateSection1Layout()
+            case .venueBooked:
+                section = self.generateSection4Layout()
+            case .inviteSent:
+                section = self.generateSection5Layout()
+            case .gameCreated:
+                section = self.generateSection6Layout()
+            case .matches:
+                section = self.generateSection7Layout()
             }
+
             return section
         }
         return layout
@@ -333,53 +270,70 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeaderCollectionReusableView", for: indexPath) as! SectionHeaderCollectionReusableView
         headerView.headerLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        switch indexPath.section {
-        case 1:
-            headerView.headerLabel.text = DataController.sectionHeaderNames[1]
-            headerView.button.setTitle("See All", for: .normal)
-            headerView.button.addTarget(self, action: #selector(playerButtonTapped), for: .touchUpInside)
-        case 2:
-            headerView.headerLabel.text = DataController.sectionHeaderNames[2]
-            headerView.button.setTitle("See All", for: .normal)
-            headerView.button.addTarget(self, action: #selector(venueButtonTapped), for: .touchUpInside)
-        case 3:
-            headerView.headerLabel.text = DataController.sectionHeaderNames[3]
-            headerView.button.setTitle("See All", for: .normal)
-            headerView.button.addTarget(self, action: #selector(requestSeeAllButtonTapped), for: .touchUpInside)
-            
-        case 4:
-            headerView.headerLabel.text = DataController.sectionHeaderNames[4]
-            headerView.button.setTitle("See All", for: .normal)
-            headerView.button.addTarget(self, action: #selector(venueSelectionCardSeeAllButtonTapped), for: .touchUpInside)
         
-        case 5:
-            headerView.headerLabel.text = DataController.sectionHeaderNames[5]
-            headerView.button.setTitle("See All", for: .normal)
-        default:
-            print("fsg")
+        switch listOfSections[indexPath.section] {
+            
+        case .player:
+            headerView.headerLabel.text = DataController.headers[.player]
+                        headerView.button.setTitle("See All", for: .normal)
+                        headerView.button.addTarget(self, action: #selector(playerButtonTapped), for: .touchUpInside)
+        case .venue:
+            headerView.headerLabel.text = DataController.headers[.venue]
+                        headerView.button.setTitle("See All", for: .normal)
+                        headerView.button.addTarget(self, action: #selector(venueButtonTapped), for: .touchUpInside)
+        case .createGame:
+            headerView.headerLabel.text = DataController.headers[.createGame]
+        case .venueBooked:
+            headerView.headerLabel.text = DataController.headers[.venueBooked]
+                      headerView.button.setTitle("See All", for: .normal)
+        case .inviteSent:
+            headerView.headerLabel.text = DataController.headers[.inviteSent]
+                        headerView.button.setTitle("See All", for: .normal)
+                        headerView.button.addTarget(self, action: #selector(requestSeeAllButtonTapped), for: .touchUpInside)
+        case .gameCreated:
+            headerView.headerLabel.text = DataController.headers[.gameCreated]
+                        headerView.button.setTitle("See All", for: .normal)
+                        headerView.button.addTarget(self, action: #selector(venueSelectionCardSeeAllButtonTapped), for: .touchUpInside)
+        case .matches:
+            headerView.headerLabel.text = DataController.headers[.matches]
+                        headerView.button.setTitle("See All", for: .normal)
         }
+
         return headerView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
-            performSegue(withIdentifier: "GameEntry", sender: (Any).self)
-        }
-        else if indexPath.section == 2{
-            instance3.check = "ios"
-            let storyboard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
-            let destVC = storyboard.instantiateViewController(withIdentifier: "venueId2") as! VenueDetailViewController
-            destVC.indexPathForVenueDetail = indexPath
-            self.navigationController?.pushViewController(destVC, animated: true)
-        }
-        else if indexPath.section == 1{
+        switch listOfSections[indexPath.section] {
+            
+        case .player:
             instance3.check = "players"
-            let storyboard = UIStoryboard(name: "tabAryan", bundle: nil)
-            let destVC = storyboard.instantiateViewController(withIdentifier: "playerId2") as! PlayerProfileTableViewController
-            destVC.indexPathForPlayerProfile = indexPath
-            self.navigationController?.pushViewController(destVC, animated: true)
+                        let storyboard = UIStoryboard(name: "tabAryan", bundle: nil)
+                        let destVC = storyboard.instantiateViewController(withIdentifier: "playerId2") as! PlayerProfileTableViewController
+                       destVC.indexPathForPlayerProfile = indexPath
+                       self.navigationController?.pushViewController(destVC, animated: true)
+        case .venue:
+            instance3.check = "ios"
+                        let storyboard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
+                        let destVC = storyboard.instantiateViewController(withIdentifier: "venueId2") as! VenueDetailViewController
+                        destVC.indexPathForVenueDetail = indexPath
+                        self.navigationController?.pushViewController(destVC, animated: true)
+        case .createGame:
+            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
+                      performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+        case .venueBooked:
+            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
+                      performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+        case .inviteSent:
+            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
+                      performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+        case .gameCreated:
+            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
+                      performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+        case .matches:
+            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
+                      performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         }
+
     }
 @objc func venueButtonTapped() {
     instance3.check = "ios"

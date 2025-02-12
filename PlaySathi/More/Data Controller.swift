@@ -63,6 +63,8 @@ class DataController{
         "⏳Waiting for Opponent"
     ]
     
+    static var headers : [TypeOfSection:String] = [.createGame:"",.player:"Nearby Players", .venue : "Venue Near Me "]
+    
     
     static var sectionHeadersForVenueDetails:[String] = [
         "",

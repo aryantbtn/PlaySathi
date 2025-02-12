@@ -64,26 +64,8 @@ class PlayerProfileTableViewController: UITableViewController {
             
         }
         else{
-            if homeScreenSections.count == 3 {
-                homeScreenSections.insert("playerss", at: 1)
-            }
-            else if homeScreenSections.count == 4 {
-                if homeScreenSections.contains("playerss"){
-                    
-                } else {
-                    homeScreenSections.insert("playerss",at:2)
-                }
-            }
-             else if homeScreenSections.count == 5{
-                 if homeScreenSections.contains("playerss"){
-                     
-                 } else {
-                     homeScreenSections.insert("playerss",at:3)
-                 }
-                }
-            else {
-                
-            }
+            listOfSections.insert(.inviteSent, at: 1)
+            DataController.headers[.inviteSent] = "Invite Sent"
             let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
           

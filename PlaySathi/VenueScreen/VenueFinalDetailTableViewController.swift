@@ -67,26 +67,28 @@ class VenueFinalDetailTableViewController: UITableViewController {
             
         }
         else{
-            if homeScreenSections.count == 3 {
-                homeScreenSections.insert("venuee", at: 1)
-            }
-            else if homeScreenSections.count == 4 {
-                if homeScreenSections.contains("venuee"){
-                    
-                } else {
-                    homeScreenSections.insert("venuee",at:2)
-                }
-            }
-             else if homeScreenSections.count == 5{
-                 if homeScreenSections.contains("venuee"){
-                     
-                 } else {
-                     homeScreenSections.insert("venuee",at:3)
-                 }
-                }
-            else {
-                
-            }
+            listOfSections.insert(.venueBooked, at: 1)
+            DataController.headers[.venueBooked] = "Court Locked"
+//            if homeScreenSections.count == 3 {
+//                homeScreenSections.insert("venuee", at: 1)
+//            }
+//            else if homeScreenSections.count == 4 {
+//                if homeScreenSections.contains("venuee"){
+//                    
+//                } else {
+//                    homeScreenSections.insert("venuee",at:2)
+//                }
+//            }
+//             else if homeScreenSections.count == 5{
+//                 if homeScreenSections.contains("venuee"){
+//                     
+//                 } else {
+//                     homeScreenSections.insert("venuee",at:3)
+//                 }
+//                }
+//            else {
+//                
+//            }
             let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
             
