@@ -56,11 +56,14 @@ class VenueFinalDetailTableViewController: UITableViewController {
     
     @IBAction func confirmButtonTap(_ sender: Any) {
         if instance2.check == "isdp"{
-            let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
-            // DataController.venueData[indexPathForVenueFinal.row].name
+//            let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
+//            vc.venueNmae = DataController.venueData[indexPathForVenueFinal.row].name
             let targetVC = (navigationController?.viewControllers[1])!
             self.navigationController?.popToViewController(targetVC, animated: true)
+            if let destVC = navigationController?.viewControllers[1] as? CreateGameTableViewController {
+                destVC.venueNmae = DataController.venueData[indexPathForVenueFinal.row].name
+            }
             
         }
         else{

@@ -43,6 +43,20 @@ class HomeScreenViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
+    
+    
+    @IBAction func notificationButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+        let notificationVC = storyboard.instantiateViewController(withIdentifier: "notification") as! NotificationTableViewController
+        self.navigationController?.pushViewController(notificationVC, animated: true)
+    }
+    
+    @IBAction func profileButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+        let userProfileVC = storyboard.instantiateViewController(withIdentifier: "User Profile") as! UserProfileTableViewController
+        self.present(userProfileVC, animated: true)
+    }
+    
 }
 
 extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {

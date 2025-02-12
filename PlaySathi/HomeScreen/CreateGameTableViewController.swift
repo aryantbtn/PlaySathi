@@ -14,16 +14,17 @@ class CreateGameTableViewController: UITableViewController {
     
     @IBOutlet weak var venueName: UILabel! 
     @IBOutlet weak var playerName: UILabel!
-    
-    
+    var venueNmae : String?
+    var player : String? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Create Game"
         navigationItem.largeTitleDisplayMode = .never
         
-        
     }
+    
+
     
     @IBAction func goToVenue(_ sender: UIButton) {
         instance.check = "isdp"
@@ -55,6 +56,8 @@ class CreateGameTableViewController: UITableViewController {
 
         }
     override func viewWillAppear(_ animated: Bool) {
+        venueName.text = venueNmae
+        playerName.text = player
         tableView.reloadData()
     }
 

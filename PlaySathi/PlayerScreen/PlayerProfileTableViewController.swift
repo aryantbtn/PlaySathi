@@ -54,12 +54,12 @@ class PlayerProfileTableViewController: UITableViewController {
     
     @IBAction func inviteButtonTapped(_ sender: Any) {
         if instance4.check == "players1"{
-            let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
             let targetVC = (navigationController?.viewControllers[1])!
             self.navigationController?.popToViewController(targetVC, animated: true)
             
-            
+            if let destVC = navigationController?.viewControllers[1] as? CreateGameTableViewController {
+                destVC.player = DataController.userData[indexPathForPlayerProfile.row].name
+            }
         
             
         }
