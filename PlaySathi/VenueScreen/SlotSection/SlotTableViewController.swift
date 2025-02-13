@@ -16,6 +16,7 @@ class SlotTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        datePicker.minimumDate = Date()
         dispaly()
     }
     // MARK: - Table view data source

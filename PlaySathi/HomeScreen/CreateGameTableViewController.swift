@@ -48,13 +48,17 @@ class CreateGameTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
      switch section {
         case 0:
-            return 2
+            return 1
+        case 1:
+         return 1
+        case 2:
+         return 4
         default:
             return 4
         }
@@ -72,13 +76,13 @@ class CreateGameTableViewController: UITableViewController {
     }
 
     @IBAction func doneButtonTapped(_ sender: Any) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "tabPrince", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "createFinal") as! CreateGameFinalTableViewController
-        nextViewController.venueN = venueNmae
-        nextViewController.dateUp = dat
-        nextViewController.playerN = player
-        
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+        if listOfSections.contains(.gameCreated) {
+            self.navigationController?.popToRootViewController(animated: true)
+        } else {
+            listOfSections.insert(.gameCreated, at: 1)
+            DataController.headers[.gameCreated] = "Created Game"
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     }
