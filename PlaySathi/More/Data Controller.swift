@@ -33,7 +33,7 @@ class DataController{
     ]
     
     static var venueData: [Venue] = [
-        Venue(id: UUID(), name: "Sai Sports Academy", imageUrl: "v13", rating: 4.0, distanceInKm: 5, location: "Noida", numberOfCourts: ["Court1","Court2","Court3","Court4","Court1","Court2","Court3","Court4","Court1","Court2","Court3","Court4"], price: 230, amenities: ["Parking","Swimming Pool","Changing Room,", "Water","Wifi","Camera","Restrooms"],openingTime: "FSER",closingTime: "2", timeSlots: ["2PM-3PM","6PM-8PM","9PM-10PM","5PM-6PM"]),
+        Venue(id: UUID(), name: "Sai Sports Academy", imageUrl: "v13", rating: 4.0, distanceInKm: 5, location: "Noida", numberOfCourts: ["Court1","Court2","Court3","Court4","Court1","Court2","Court3","Court4","Court1","Court2","Court3","Court4"], price: 230, amenities: ["Parking","Swimming Pool","Changing Room", "Water","Wifi","Camera","Restrooms"],openingTime: "FSER",closingTime: "2", timeSlots: ["2PM-3PM","6PM-8PM","9PM-10PM","5PM-6PM"]),
         Venue(id: UUID(), name: "Say Sports Academy", imageUrl: "v7", rating: 4.0, distanceInKm: 5, location: "Noida", numberOfCourts: ["Court1","Court2","Court3","Court4","Court5"], price: 500, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "3",closingTime: "3", timeSlots: ["2PM-3PM","6PM-8PM","9PM-10PM","5PM-6PM"]),
         Venue(id: UUID(), name: "CrowdFit Academy", imageUrl: "v8", rating: 4.0, distanceInKm: 5, location: "Noida",numberOfCourts : ["Court1","Court2","Court3","Court4"], price: 200, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "2",closingTime: "5", timeSlots: ["2PM-3PM","6PM-8PM","9PM-10PM","5PM-6PM"]),
         Venue(id: UUID(), name: "Piyush Verma", imageUrl: "v9", rating: 4.0, distanceInKm: 5, location: "Noida", numberOfCourts: ["Court1","Court2","Court3","Court4"], price: 300, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "#",closingTime: "7", timeSlots: ["2PM-3PM","6PM-8PM","9PM-10PM","5PM-6PM"]),
@@ -54,15 +54,6 @@ class DataController{
     ]
     
     
-    static var sectionHeaderNames:[String] = [
-        "",
-        "Nearby Players",
-        "Venue Near Me",
-        "🏸Court Locked",
-        "📨Challenge Sent",
-        "⏳Waiting for Opponent"
-    ]
-    
     static var headers : [TypeOfSection:String] = [.createGame:"",.player:"Nearby Players", .venue : "Venue Near Me "]
     
     
@@ -71,7 +62,5 @@ class DataController{
         "Venue Description",
         "Amenities"
         ]
-    
-    
     
 }

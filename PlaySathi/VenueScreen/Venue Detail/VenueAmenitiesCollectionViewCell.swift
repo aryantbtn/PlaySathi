@@ -14,5 +14,6 @@ class VenueAmenitiesCollectionViewCell: UICollectionViewCell {
     
     func assignData(with indexpath: IndexPath,aminity:IndexPath){
         l1.text = DataController.venueData[indexpath.row].amenities[aminity.row]
+        
     }
 }

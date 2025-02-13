@@ -64,14 +64,16 @@ class PlayerProfileTableViewController: UITableViewController {
             
         }
         else{
-            listOfSections.insert(.inviteSent, at: 1)
-            DataController.headers[.inviteSent] = "Invite Sent"
-            let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
-          
-            self.navigationController?.popToRootViewController(animated: true)
-            
-
+            if listOfSections.contains(.inviteSent){
+                self.navigationController?.popToRootViewController(animated: true)
+                
+            } else {
+                listOfSections.insert(.inviteSent, at: 1)
+                DataController.headers[.inviteSent] = "Invite Sent"
+                
+                self.navigationController?.popToRootViewController(animated: true)
+                
+            }
         }
     }
     

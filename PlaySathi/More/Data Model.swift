@@ -41,7 +41,6 @@ struct Venue {
     var timeSlots: [String]
 }
 
-var homeScreenSections: [String] = ["cg","venue","player"]
 
 
 struct Game {

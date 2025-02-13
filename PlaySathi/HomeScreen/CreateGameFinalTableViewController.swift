@@ -38,13 +38,13 @@ class CreateGameFinalTableViewController: UITableViewController {
     }
 
     @IBAction func createGameConfirmTapped(_ sender: Any) {
-        listOfSections.insert(.gameCreated, at: 1)
-        DataController.headers[.gameCreated] = "Created Game"
+        if listOfSections.contains(.gameCreated) {
+            self.navigationController?.popToRootViewController(animated: true)
+        } else {
+            listOfSections.insert(.gameCreated, at: 1)
+            DataController.headers[.gameCreated] = "Created Game"
+            self.navigationController?.popToRootViewController(animated: true)
+        }
         
-        let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "homePage") as! HomeScreenViewController
-        self.navigationController?.popToRootViewController(animated: true)
     }
-    
-
 }

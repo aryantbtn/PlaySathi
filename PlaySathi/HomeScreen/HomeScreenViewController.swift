@@ -11,7 +11,7 @@ class HomeScreenViewController: UIViewController {
 
     var instance3 = ScreenNavigation.navigate
     var selectedIndexPath: IndexPath?
-    
+    var vName: IndexPath?
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +105,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
        
         case .venueBooked:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
-                            cell.d(with:indexPath)
+            cell.d(with:vName!)
                             cell.layer.cornerRadius = 8
                             return cell
         case .inviteSent:
@@ -317,19 +317,19 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                         destVC.indexPathForVenueDetail = indexPath
                         self.navigationController?.pushViewController(destVC, animated: true)
         case .createGame:
-            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
+            let gameEntry = DataController.headers
                       performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         case .venueBooked:
-            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
+            let gameEntry = DataController.headers
                       performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         case .inviteSent:
-            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
+            let gameEntry = DataController.headers
                       performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         case .gameCreated:
-            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
+            let gameEntry = DataController.headers
                       performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         case .matches:
-            let gameEntry = DataController.sectionHeaderNames[indexPath.section]
+            let gameEntry = DataController.headers
                       performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         }
 
