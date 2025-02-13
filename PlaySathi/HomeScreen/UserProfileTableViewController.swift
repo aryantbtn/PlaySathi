@@ -49,10 +49,10 @@ class UserProfileTableViewController: UITableViewController {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return CGFloat.leastNormalMagnitude
+//    }
+//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return CGFloat.leastNormalMagnitude
+//    }
 }

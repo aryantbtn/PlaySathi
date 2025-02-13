@@ -9,9 +9,19 @@ import UIKit
 
 class CreateGameFinalTableViewController: UITableViewController {
 
+    @IBOutlet weak var venueName1: UILabel!
+    @IBOutlet weak var dateUpdate: UILabel!
+    @IBOutlet weak var player: UILabel!
+    
+    var venueN : String?
+    var dateUp : String?
+    var playerN : String?
+    var priceN : String?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        venueName1.text = venueN
+            dateUpdate.text = dateUp
+        player.text = playerN
       
     }
 
@@ -19,7 +29,7 @@ class CreateGameFinalTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 4
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,11 +37,10 @@ class CreateGameFinalTableViewController: UITableViewController {
         case 0:
             return 2
         case 1:
-            return 4
+            return 2
         case 2:
             return 1
-      case 3:
-          return 2
+      
         default:
             return 1
         }
