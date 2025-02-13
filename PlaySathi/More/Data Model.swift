@@ -39,6 +39,7 @@ struct Venue {
     var openingTime : String
     var closingTime : String
     var timeSlots: [String]
+    
 }
 
 
