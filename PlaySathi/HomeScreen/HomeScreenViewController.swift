@@ -285,6 +285,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case .venueBooked:
             headerView.headerLabel.text = DataController.headers[.venueBooked]
                       headerView.button.setTitle("See All", for: .normal)
+            headerView.button.addTarget(self, action: #selector(venueSelectionCardSeeAllButtonTapped), for: .touchUpInside)
         case .inviteSent:
             headerView.headerLabel.text = DataController.headers[.inviteSent]
                         headerView.button.setTitle("See All", for: .normal)
@@ -292,7 +293,9 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case .gameCreated:
             headerView.headerLabel.text = DataController.headers[.gameCreated]
                         headerView.button.setTitle("See All", for: .normal)
-                        headerView.button.addTarget(self, action: #selector(venueSelectionCardSeeAllButtonTapped), for: .touchUpInside)
+            headerView.button.addTarget(self, action: #selector(createdGameseeAllButtonTapped), for: .touchUpInside)
+            
+                      
         case .matches:
             headerView.headerLabel.text = DataController.headers[.matches]
                         headerView.button.setTitle("See All", for: .normal)
@@ -350,10 +353,15 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         }
     }
     @objc func requestSeeAllButtonTapped() {
-        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
+//        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
+//        if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
+//            self.navigationController?.pushViewController(vc, animated: true)
+//            }
+        
+        let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "score") as? ScoreboardViewController {
             self.navigationController?.pushViewController(vc, animated: true)
-            }
+        }
         }
     
     
@@ -363,6 +371,13 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             self.navigationController?.pushViewController(vc, animated: true)
             }
         }
+    
+    @objc func createdGameseeAllButtonTapped() {
+        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "createdGame") as? CreatedGameViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

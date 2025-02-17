@@ -15,4 +15,6 @@ class GameEntryCollectionViewCell: UICollectionViewCell {
     func d(with indexPath : IndexPath){
         venueName.text = DataController.venueData[indexPath.row].name
     }
+    
+
 }
