@@ -8,7 +8,6 @@
 import UIKit
 
 class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
-
     
     @IBOutlet weak var playerListSegmetedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
@@ -105,14 +104,14 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
         let destination = DataController.userData[indexPath.row]
 //        print(selecteddIndexPath)
         selecteddIndexPath = indexPath
-        print(selecteddIndexPath)
+        print(selecteddIndexPath as Any)
 
         performSegue(withIdentifier: "segue1", sender: (Any).self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segue1" {
-            let destinationVC = segue.destination as! PlayerProfileTableViewController
+            let destinationVC = segue.destination as! PlayerProfileViewController
             destinationVC.indexPathForPlayerProfile = selecteddIndexPath!
         }
     }

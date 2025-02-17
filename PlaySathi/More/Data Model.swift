@@ -26,6 +26,13 @@ enum SkillLevel: String {
         case advanced = "Advanced"
 }
 
+struct Achievement {
+    var achieveName: String
+    var achieveImage: UIImage
+    var dateOfAchievement: String
+}
+
+
 struct Venue {
     let id: UUID
     var name: String
@@ -41,7 +48,6 @@ struct Venue {
     var timeSlots: [String]
     
 }
-
 
 
 struct Game {
@@ -60,7 +66,6 @@ class ScreenNavigation{
     static let navigate = ScreenNavigation()
     var check : String?
 }
-
 
 enum TypeOfSection {
     case player

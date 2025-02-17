@@ -310,7 +310,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case .player:
             instance3.check = "players"
                         let storyboard = UIStoryboard(name: "tabAryan", bundle: nil)
-                        let destVC = storyboard.instantiateViewController(withIdentifier: "playerId2") as! PlayerProfileTableViewController
+            let destVC = storyboard.instantiateViewController(withIdentifier: "playerId2") as! PlayerProfileViewController
                        destVC.indexPathForPlayerProfile = indexPath
                        self.navigationController?.pushViewController(destVC, animated: true)
         case .venue:

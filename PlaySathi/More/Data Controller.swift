@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class DataController{
@@ -30,6 +31,15 @@ class DataController{
         User(id: UUID(), name: "Amit", profilePicture: "images16", elitePoints: 442, skillLevel: .advanced, distance: 35, location: "SFD"),
         User(id: UUID(), name: "Amit", profilePicture: "images17", elitePoints: 452, skillLevel: .advanced, distance: 38.9, location: "FS"),
         User(id: UUID(), name: "Amit", profilePicture: "images18", elitePoints: 462, skillLevel: .advanced, distance: 40, location: "SF"),
+    ]
+    
+    static var achieve: [Achievement] = [
+        Achievement(achieveName: "10 Day Active", achieveImage: UIImage(named: "Achieve Trophy")!, dateOfAchievement: "14 Feb 2025"),
+        Achievement(achieveName: "20 Day Active", achieveImage: UIImage(named: "Achieve Trophy")!, dateOfAchievement: "25 Feb 2025"),
+        Achievement(achieveName: "30 Day Active", achieveImage: UIImage(named: "Achieve Trophy")!, dateOfAchievement: "5 March 2025"),
+        Achievement(achieveName: "40 Day Active", achieveImage: UIImage(named: "Achieve Trophy")!, dateOfAchievement: "16 March 2025"),
+        Achievement(achieveName: "50 Day Active", achieveImage: UIImage(named: "Achieve Trophy")!, dateOfAchievement: "28 March 2025"),
+        Achievement(achieveName: "60 Day Active", achieveImage: UIImage(named: "Achieve Trophy")!, dateOfAchievement: "10 April 2025")
     ]
     
     static var venueData: [Venue] = [
