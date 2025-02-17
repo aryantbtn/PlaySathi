@@ -8,12 +8,14 @@
 import UIKit
 
 class NumberOfCourtsCollectionViewCell: UICollectionViewCell {
-
+    
     static let identifier = String(describing: NumberOfCourtsCollectionViewCell.self)
-    @IBOutlet var courtLabel: UILabel!
+    
+    @IBOutlet var courtOutlet: UIButton!
     override func awakeFromNib() {
-           super.awakeFromNib()
-           courtLabel.textAlignment = .center
-       }
-
+        super.awakeFromNib()
+        
+    }
+    func up(with indexPath:IndexPath) {
+    }
 }

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NNx-P2-rxS" customClass="AvailableTimeSlotCollectionViewCell" customModule="PlaySathi" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="NNx-P2-rxS" customClass="AvailableTimeSlotCollectionViewCell" customModule="PlaySathi" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="92" height="32"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -20,19 +20,24 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pod-Xe-Vey">
                         <rect key="frame" x="0.0" y="0.0" width="92" height="32"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Court 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5O-Cm-wiK">
-                                <rect key="frame" x="18.666666666666671" y="5.6666666666666679" width="55" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYR-Zy-OhN">
+                                <rect key="frame" x="8.6666666666666643" y="-1.3333333333333339" width="75" height="34.666666666666664"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Button">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="opaqueSeparatorColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="NNx-P2-rxS" eventType="touchUpInside" id="Otz-le-h7O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="XYR-Zy-OhN" firstAttribute="centerY" secondItem="pod-Xe-Vey" secondAttribute="centerY" id="Z9G-No-oXG"/>
                             <constraint firstAttribute="width" constant="92" id="k93-2o-dAU"/>
-                            <constraint firstItem="R5O-Cm-wiK" firstAttribute="centerX" secondItem="pod-Xe-Vey" secondAttribute="centerX" id="l2b-hG-4QE"/>
+                            <constraint firstItem="XYR-Zy-OhN" firstAttribute="centerX" secondItem="pod-Xe-Vey" secondAttribute="centerX" id="mo1-JT-ob1"/>
                             <constraint firstAttribute="height" constant="32" id="wfE-S4-LzR"/>
-                            <constraint firstItem="R5O-Cm-wiK" firstAttribute="centerY" secondItem="pod-Xe-Vey" secondAttribute="centerY" id="zfu-OF-WdH"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -46,13 +51,15 @@
             </constraints>
             <size key="customSize" width="439" height="72"/>
             <connections>
-                <outlet property="courtLabel" destination="R5O-Cm-wiK" id="jNh-Ak-09e"/>
-                <outlet property="timeSlotLabel" destination="R5O-Cm-wiK" id="a4l-a3-7VE"/>
+                <outlet property="timeSlot" destination="XYR-Zy-OhN" id="ZqI-nU-j2w"/>
             </connections>
             <point key="canvasLocation" x="435.1145038167939" y="27.464788732394368"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

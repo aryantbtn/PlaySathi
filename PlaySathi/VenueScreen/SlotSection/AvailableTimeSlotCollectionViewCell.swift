@@ -9,10 +9,26 @@ import UIKit
 class AvailableTimeSlotCollectionViewCell: UICollectionViewCell {
     
     static let identifier = String(describing: AvailableTimeSlotCollectionViewCell.self)
-    @IBOutlet var timeSlotLabel: UILabel!
+    //var timeSlot: [String]
+    @IBOutlet var timeSlot: UIButton!
+     var isSelectedSlot : Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        timeSlotLabel.textAlignment = .center
+       
+    
     }
-}
+    
+    @IBAction func buttonTapped(_ sender: Any) {
+        
+               isSelectedSlot.toggle()
+               
+               if isSelectedSlot {
+                   timeSlot.backgroundColor = .systemGreen
+               } else {
+                   timeSlot.backgroundColor = .white 
+               }
+           }
+        
+    }
+
