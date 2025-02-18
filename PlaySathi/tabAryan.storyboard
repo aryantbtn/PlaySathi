@@ -17,11 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PYC-sd-aDr">
-                                <rect key="frame" x="0.0" y="151" width="393" height="667"/>
+                                <rect key="frame" x="0.0" y="153" width="393" height="665"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="667" id="c2M-dp-LgR"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" rowHeight="61" id="Slb-i9-FNe" customClass="PlayerList1TableViewCell" customModule="PlaySathi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="61"/>
@@ -69,9 +66,9 @@
                                 </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pr1-AV-0TH">
-                                <rect key="frame" x="5" y="108" width="383" height="36"/>
+                                <rect key="frame" x="0.0" y="108" width="393" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="zYe-ux-QFC"/>
+                                    <constraint firstAttribute="height" constant="37" id="4ST-ZS-hPA"/>
                                 </constraints>
                                 <segments>
                                     <segment title="All"/>
@@ -83,12 +80,15 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pr1-AV-0TH" secondAttribute="trailing" constant="5" id="2B0-IY-z69"/>
-                            <constraint firstItem="PYC-sd-aDr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="7o1-nq-THy"/>
-                            <constraint firstItem="PYC-sd-aDr" firstAttribute="centerX" secondItem="pr1-AV-0TH" secondAttribute="centerX" id="Dre-qH-kuJ"/>
-                            <constraint firstItem="pr1-AV-0TH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="FkM-fD-0Sy"/>
-                            <constraint firstItem="pr1-AV-0TH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="lje-Pc-bV2"/>
-                            <constraint firstItem="PYC-sd-aDr" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="stl-At-D30"/>
+                            <constraint firstItem="PYC-sd-aDr" firstAttribute="top" secondItem="pr1-AV-0TH" secondAttribute="bottom" constant="8" id="D1C-B8-ibE"/>
+                            <constraint firstItem="PYC-sd-aDr" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="KRW-BO-YdC"/>
+                            <constraint firstItem="PYC-sd-aDr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Omo-Lm-tUc"/>
+                            <constraint firstItem="pr1-AV-0TH" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Otl-To-W1A"/>
+                            <constraint firstItem="pr1-AV-0TH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="ZZd-NH-bzM"/>
+                            <constraint firstItem="PYC-sd-aDr" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="acW-fr-InY"/>
+                            <constraint firstItem="pr1-AV-0TH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="eU1-dM-V6c"/>
+                            <constraint firstItem="PYC-sd-aDr" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fhI-SR-FY0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pr1-AV-0TH" secondAttribute="trailing" id="p8a-gs-KrS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KZ2-65-gPT"/>
@@ -134,6 +134,33 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="340" id="Jmd-gV-PyC"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="71W-S2-aVm">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="71W-S2-aVm" id="Vq1-sV-KhK">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="edH-cE-eBn">
+                                        <rect key="frame" x="0.0" y="93.666667938232422" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="edH-cE-eBn" id="OwS-pR-yTd">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Zit-qe-vfi">
+                                        <rect key="frame" x="0.0" y="137.33333587646484" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zit-qe-vfi" id="i1v-9F-216">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y9B-HL-JFO">
                                 <rect key="frame" x="0.0" y="448" width="393" height="350"/>

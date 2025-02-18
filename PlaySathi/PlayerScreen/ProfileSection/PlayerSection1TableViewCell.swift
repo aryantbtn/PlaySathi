@@ -21,10 +21,13 @@ class PlayerSection1TableViewCell: UITableViewCell {
     
     func updatePlayerInfo(with indexPath: IndexPath) {
         playerImageView.image = UIImage(named: DataController.userData[indexPath.row].profilePicture)
-        //playerImageView.layer.cornerRadius = playerImageView.widthAnchor.constraint(equalToConstant: 50).constant / 2
+        playerImageView.layer.cornerRadius = playerImageView.frame.size.width / 2
+
         playerImageView.clipsToBounds = true
         playerNameLabel.text = DataController.userData[indexPath.row].name
         playerSkillLevel.text = DataController.userData[indexPath.row].name
+        
+        
     }
     
 }

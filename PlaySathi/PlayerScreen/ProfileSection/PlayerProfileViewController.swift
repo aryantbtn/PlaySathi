@@ -29,10 +29,37 @@ class PlayerProfileViewController: UIViewController, UICollectionViewDelegate, U
         let collectionViewNib = UINib(nibName: "PlayerAchievementCollectionViewCell", bundle: nil)
 
         playerAchievement.register(collectionViewNib, forCellWithReuseIdentifier: "PlayerAchievementCollectionViewCell")
+        
+        
+        playerAchievement.register(AcheivementSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "AcheivementSectionHeader")
+        
         playerAchievement.delegate = self
         playerAchievement.dataSource = self
     }
 
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AcheivementSectionHeader", for: indexPath) as! AcheivementSectionHeader
+            
+            let title = ["Achievement"]
+            header.headerLabel.text = title[indexPath.section]
+            
+            switch indexPath.section {
+            case 0:
+                header.headerLabel.font = .systemFont(ofSize: 24, weight: .bold)
+            default:
+                break
+                
+            }
+            return header
+        }
+        
+        return UICollectionReusableView()
+        
+    }
+        
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -131,6 +158,8 @@ extension PlayerProfileViewController: UITableViewDelegate, UITableViewDataSourc
      
         let section2Nib = UINib(nibName: "PlayerSection2TableViewCell", bundle: nil)
         playerInfoTableView.register(section2Nib, forCellReuseIdentifier: "PlayerSection2TableViewCell")
+        
+        
         
         playerInfoTableView.delegate = self
         playerInfoTableView.dataSource = self
