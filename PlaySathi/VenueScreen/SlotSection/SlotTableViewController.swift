@@ -70,7 +70,7 @@ class SlotTableViewController: UITableViewController {
             flowLayout.minimumInteritemSpacing = 6
             flowLayout.minimumLineSpacing = 5
             flowLayout.itemSize = CGSize(width: 100, height: 40)
-            flowLayout.sectionInset = UIEdgeInsets(top:0 , left: 10, bottom: 0, right: 10)
+            flowLayout.sectionInset = UIEdgeInsets(top:10 , left: 10, bottom: 0, right: 10)
         }
     }
 
