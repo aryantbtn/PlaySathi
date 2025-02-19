@@ -41,12 +41,12 @@
                                     <constraint firstAttribute="width" constant="20" id="IzG-ZI-kcU"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9S8-n7-b42">
-                                <rect key="frame" x="10" y="76.666666666666671" width="20" height="18.666666666666671"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.arrow.trianglehead.counterclockwise.rotate.90" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9S8-n7-b42">
+                                <rect key="frame" x="9.6666666666666661" y="76.666666666666671" width="18.333333333333336" height="16.666666666666671"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="a1s-cR-9oa"/>
-                                    <constraint firstAttribute="height" constant="20" id="x2c-F8-G6f"/>
+                                    <constraint firstAttribute="width" constant="18.000000000000007" id="a1s-cR-9oa"/>
+                                    <constraint firstAttribute="height" constant="17.999999999999986" id="x2c-F8-G6f"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request received on 25 Jan at 10:00AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzf-aw-MIe">
@@ -55,8 +55,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request acceptance time remaining: 2h 20Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1O-kD-yBc">
-                                <rect key="frame" x="35" y="78" width="281" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send request again after: 2h 20Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1O-kD-yBc">
+                                <rect key="frame" x="35" y="78" width="213.33333333333337" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -67,8 +67,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 7" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-3c-7Lg">
-                                <rect key="frame" x="291" y="5" width="60" height="60"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 7" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-3c-7Lg">
+                                <rect key="frame" x="301" y="10" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="f0O-EG-Zdu"/>
                                     <constraint firstAttribute="height" constant="60" id="hTl-JT-EH9"/>
@@ -77,12 +77,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2bd-3c-7Lg" firstAttribute="leading" secondItem="Wzf-aw-MIe" secondAttribute="trailing" constant="15" id="0IU-fs-oiZ"/>
+                            <constraint firstItem="2bd-3c-7Lg" firstAttribute="leading" secondItem="Wzf-aw-MIe" secondAttribute="trailing" constant="25" id="0IU-fs-oiZ"/>
                             <constraint firstItem="7ma-JJ-Qcx" firstAttribute="leading" secondItem="T9d-Fd-oKt" secondAttribute="leading" constant="15" id="3Lz-E2-pqA"/>
-                            <constraint firstItem="y1O-kD-yBc" firstAttribute="centerY" secondItem="9S8-n7-b42" secondAttribute="centerY" id="8lZ-Pb-vfm"/>
+                            <constraint firstItem="y1O-kD-yBc" firstAttribute="centerY" secondItem="9S8-n7-b42" secondAttribute="centerY" constant="1.0000000000000284" id="8lZ-Pb-vfm"/>
                             <constraint firstItem="9S8-n7-b42" firstAttribute="top" secondItem="9Dj-Yo-vkC" secondAttribute="bottom" constant="2" id="AsF-v9-LQS"/>
-                            <constraint firstItem="2bd-3c-7Lg" firstAttribute="top" secondItem="T9d-Fd-oKt" secondAttribute="top" constant="5" id="CqT-kV-tvv"/>
-                            <constraint firstItem="y1O-kD-yBc" firstAttribute="leading" secondItem="9S8-n7-b42" secondAttribute="trailing" constant="5" id="DN1-X4-kRa"/>
+                            <constraint firstItem="2bd-3c-7Lg" firstAttribute="top" secondItem="T9d-Fd-oKt" secondAttribute="top" constant="10" id="CqT-kV-tvv"/>
+                            <constraint firstItem="y1O-kD-yBc" firstAttribute="leading" secondItem="9S8-n7-b42" secondAttribute="trailing" constant="6.0000000000000142" id="DN1-X4-kRa"/>
                             <constraint firstItem="Wzf-aw-MIe" firstAttribute="centerY" secondItem="9Dj-Yo-vkC" secondAttribute="centerY" id="DXM-hv-gEd"/>
                             <constraint firstItem="9S8-n7-b42" firstAttribute="leading" secondItem="T9d-Fd-oKt" secondAttribute="leading" constant="10" id="MPb-y4-tYE"/>
                             <constraint firstItem="Wzf-aw-MIe" firstAttribute="leading" secondItem="9Dj-Yo-vkC" secondAttribute="trailing" constant="5" id="SJt-Zh-4IP"/>
@@ -103,18 +103,22 @@
                 <constraint firstAttribute="trailing" secondItem="T9d-Fd-oKt" secondAttribute="trailing" id="uxa-Cr-VOX"/>
             </constraints>
             <size key="customSize" width="393" height="104"/>
-            <point key="canvasLocation" x="138.1679389312977" y="-9.1549295774647899"/>
+            <connections>
+                <outlet property="image" destination="2bd-3c-7Lg" id="qXM-5i-HgD"/>
+                <outlet property="name" destination="fFQ-av-4Dc" id="CWP-3d-mvu"/>
+            </connections>
+            <point key="canvasLocation" x="-30" y="-30"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="Image 7" width="106" height="107"/>
         <image name="calendar.badge.exclamationmark" catalog="system" width="128" height="109"/>
-        <image name="clock" catalog="system" width="128" height="123"/>
+        <image name="clock.arrow.trianglehead.counterclockwise.rotate.90" catalog="system" width="128" height="119"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

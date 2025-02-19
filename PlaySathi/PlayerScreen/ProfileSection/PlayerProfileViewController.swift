@@ -98,6 +98,7 @@ class PlayerProfileViewController: UIViewController, UICollectionViewDelegate, U
                     
             if let destVC = navigationController?.viewControllers[1] as? CreateGameTableViewController {
                 destVC.player = DataController.userData[indexPathForPlayerProfile.row].name
+                
             }
                 
         }
@@ -107,6 +108,9 @@ class PlayerProfileViewController: UIViewController, UICollectionViewDelegate, U
             } else {
                 listOfSections.insert(.inviteSent, at: 1)
                 DataController.headers[.inviteSent] = "Invite Sent"
+                if let destVC = navigationController?.viewControllers[0] as? HomeScreenViewController {
+                    destVC.pName = indexPathForPlayerProfile
+                }
                 self.navigationController?.popToRootViewController(animated: true)
                         
             }

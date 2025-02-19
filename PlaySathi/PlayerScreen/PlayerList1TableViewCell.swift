@@ -29,6 +29,9 @@ class PlayerList1TableViewCell: UITableViewCell {
         print ("hello update")
         playerImageView.image = UIImage(named: DataController.userData[indexPath.row].profilePicture)
         playerImageView.layer.cornerRadius = playerImageView.bounds.width / 2
+        playerImageView.layer.borderWidth = 2
+        playerImageView.layer.borderColor = UIColor(red: 46/255, green: 107/255, blue: 101/255, alpha: 1).cgColor
+        
         playerNameLabel.text = DataController.userData[indexPath.row].name
         playerDescription.text = "Distance ~ " + DataController.userData[indexPath.row].distance.formatted() + " kms" + " | \(DataController.userData[indexPath.row].elitePoints) EP"
     }

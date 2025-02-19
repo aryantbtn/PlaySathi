@@ -12,6 +12,7 @@ class HomeScreenViewController: UIViewController {
     var instance3 = ScreenNavigation.navigate
     var selectedIndexPath: IndexPath?
     var vName: IndexPath?
+    var pName: IndexPath?
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +111,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                             return cell
         case .inviteSent:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
-                            cell.disp(with:indexPath)
+                            cell.disp(with:pName!)
                             cell.layer.cornerRadius = 8
                             return cell
         case .gameCreated:
