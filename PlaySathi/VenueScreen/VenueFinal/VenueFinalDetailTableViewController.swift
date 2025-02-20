@@ -72,11 +72,11 @@ class VenueFinalDetailTableViewController: UITableViewController {
                 self.navigationController?.popToRootViewController(animated: true)
             } else {
                 listOfSections.insert(.venueBooked, at: 1)
-                DataController.headers[.venueBooked] = "Court Locked"
-                
-                self.navigationController?.popToRootViewController(animated: true)
+                DataController.headers[.venueBooked] = "Court Booked"
                 if let destVC = navigationController?.viewControllers[0] as? HomeScreenViewController {
                     destVC.vName = indexPathForVenueFinal
+                self.navigationController?.popToRootViewController(animated: true)
+                
                 }
             }
         }
