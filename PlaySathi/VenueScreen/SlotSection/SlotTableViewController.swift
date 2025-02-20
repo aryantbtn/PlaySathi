@@ -13,6 +13,8 @@ class SlotTableViewController: UITableViewController {
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var courtsCollectionView: UICollectionView!
     @IBOutlet var timeCollectionView: UICollectionView!
+    var selectedTimeSlot = -1
+    var selectedCourt = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,19 +23,8 @@ class SlotTableViewController: UITableViewController {
         datePicker.minimumDate = Date()
         dispaly()
     }
-    // MARK: - Table view data source
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 4
-//    }
-//   
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        switch section {
-//            case 0, 1, 2, 3:
-//            return 1
-//        default:
-//            return 0
-//        }
-//    }
+  
+  
     func dispaly(){
         venueNameInSlotSection.text = DataController.venueData[indexPathForSlotSection!.row].name
     }
@@ -83,11 +74,11 @@ class SlotTableViewController: UITableViewController {
 extension SlotTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             if collectionView == courtsCollectionView {
-                print(DataController.venueData[indexPathForSlotSection!.row].numberOfCourts.count)
+                //print(DataController.venueData[indexPathForSlotSection!.row].numberOfCourts.count)
                 return DataController.venueData[indexPathForSlotSection!.row].numberOfCourts.count
                 
             } else if collectionView == timeCollectionView {
-                print(DataController.venueData[indexPathForSlotSection!.row].timeSlots.count)
+                //print(DataController.venueData[indexPathForSlotSection!.row].timeSlots.count)
                 return DataController.venueData[indexPathForSlotSection!.row].timeSlots.count
             }
             return 0
@@ -95,14 +86,17 @@ extension SlotTableViewController: UICollectionViewDelegate, UICollectionViewDat
         
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //print(#function)
-        //print(indexPath)
-        //print(DataController.venueData[indexPath.row])
+       
              if collectionView == timeCollectionView {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AvailableTimeSlotCollectionViewCell.identifier, for: indexPath) as? AvailableTimeSlotCollectionViewCell
                 let timeSlots = DataController.venueData[indexPathForSlotSection!.row].timeSlots // Assuming availableTimeSlots data
                  //print(timeSlots)
+                 cell?.venueIndex = indexPathForSlotSection?.row
+                 cell?.venueTimeSlotIndex = indexPath.row
+                 cell?.delegate = self
                cell!.timeSlot.setTitle(timeSlots[indexPath.row], for: .normal)
+                 cell?.selectedTimeSlot = self.selectedTimeSlot
+                 cell?.configureCell()
                 cell!.layer.cornerRadius = 8
                 cell!.layer.borderWidth = 1
                 cell!.layer.borderColor = UIColor.gray.cgColor
@@ -111,6 +105,12 @@ extension SlotTableViewController: UICollectionViewDelegate, UICollectionViewDat
             } else if collectionView == courtsCollectionView {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberOfCourtsCollectionViewCell.identifier, for: indexPath) as! NumberOfCourtsCollectionViewCell
                 let courts = DataController.venueData[indexPathForSlotSection!.row].numberOfCourts
+                cell.venueIndex = indexPathForSlotSection?.row
+                cell.venueCourtIndex = indexPath.row
+                cell.delegat = self
+             
+                cell.selectedCourt = self.selectedCourt
+                cell.configure()
                 //print(courts)
                 //print(courts[indexPath.row])
                cell.courtOutlet.setTitle(courts[indexPath.row], for: .normal)
@@ -127,3 +127,18 @@ extension SlotTableViewController: UICollectionViewDelegate, UICollectionViewDat
 }
 
 
+extension SlotTableViewController:TimeSlotTableViewCellDelegate {
+    func timeSlotSelected(selectedTimeSlot: Int) {
+        self.selectedTimeSlot = selectedTimeSlot
+        timeCollectionView.reloadData()
+    }
+}
+
+
+extension SlotTableViewController:CourtTableViewCellDelegate {
+    func courtSelected(selectedCourt: Int) {
+        self.selectedCourt = selectedCourt
+        courtsCollectionView.reloadData()
+    }
+    
+}
