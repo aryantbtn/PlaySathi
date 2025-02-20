@@ -13,6 +13,7 @@ class HomeScreenViewController: UIViewController {
     var selectedIndexPath: IndexPath?
     var vName: IndexPath?
     var pName: IndexPath?
+    var venueNameForGameCard: String?
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,6 +118,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case .gameCreated:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCardCollectionViewCell.identifier, for: indexPath) as! GameCardCollectionViewCell
                             cell.game(with:indexPath)
+            cell.venueName.text = venueNameForGameCard
                             cell.layer.cornerRadius = 8
                             return cell
         case .matches:
@@ -325,16 +327,16 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                       performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         case .venueBooked:
             let gameEntry = DataController.headers
-                      performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+                     // performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         case .inviteSent:
             let gameEntry = DataController.headers
-                      performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+                    //  performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         case .gameCreated:
             let gameEntry = DataController.headers
-                      performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+                    //  performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         case .matches:
             let gameEntry = DataController.headers
-                      performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+                    //  performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         }
 
     }
