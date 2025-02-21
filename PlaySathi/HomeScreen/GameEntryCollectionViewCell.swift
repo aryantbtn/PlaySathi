@@ -8,6 +8,7 @@
 import UIKit
 
 class GameEntryCollectionViewCell: UICollectionViewCell {
+    
     static let identifier = String(describing: GameEntryCollectionViewCell.self)
    
     @IBOutlet var dateAndTime: UILabel!

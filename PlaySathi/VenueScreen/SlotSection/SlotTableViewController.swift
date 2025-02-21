@@ -33,7 +33,8 @@ class SlotTableViewController: UITableViewController {
         let storyboard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "final") as! VenueFinalDetailTableViewController
         vc.indexPathForVenueFinal = indexPathForSlotSection
-        
+        vc.selectedTime = DataController.venueData[indexPathForSlotSection!.row].timeSlots[selectedTimeSlot]
+        vc.court = DataController.venueData[indexPathForSlotSection!.row].numberOfCourts[selectedCourt]
         vc.selectedDay = "\(datePicker.date.formatted(.dateTime.day().month().year()))"
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -112,7 +113,7 @@ extension SlotTableViewController: UICollectionViewDelegate, UICollectionViewDat
                 cell.selectedCourt = self.selectedCourt
                 cell.configure()
                 //print(courts)
-                //print(courts[indexPath.row])
+                print(selectedCourt)
                cell.courtOutlet.setTitle(courts[indexPath.row], for: .normal)
                 cell.layer.cornerRadius = 8
                 cell.layer.borderWidth = 1

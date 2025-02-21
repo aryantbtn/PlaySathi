@@ -41,7 +41,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 5" translatesAutoresizingMaskIntoConstraints="NO" id="VP8-PU-ZZc">
-                                <rect key="frame" x="219.66666666666666" y="20" width="59.999999999999972" height="60"/>
+                                <rect key="frame" x="229.66666666666663" y="20" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="NHY-cu-sob"/>
                                     <constraint firstAttribute="height" constant="60" id="spc-pe-INC"/>
@@ -66,7 +66,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.circle.dashed" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="H5N-U1-7gS">
-                                <rect key="frame" x="279.66666666666669" y="20.666666666666668" width="60" height="58.666666666666657"/>
+                                <rect key="frame" x="289.66666666666669" y="20.666666666666668" width="60" height="58.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="a16-bL-LAZ"/>
                                     <constraint firstAttribute="width" constant="60" id="pl0-VZ-gF2"/>
@@ -90,7 +90,7 @@
                             <constraint firstItem="H5N-U1-7gS" firstAttribute="top" secondItem="cJ2-je-9nT" secondAttribute="top" constant="20" id="hcQ-jk-BbO"/>
                             <constraint firstItem="0z6-On-yCa" firstAttribute="leading" secondItem="cJ2-je-9nT" secondAttribute="leading" constant="15" id="l1V-mq-k9l"/>
                             <constraint firstItem="VP8-PU-ZZc" firstAttribute="top" secondItem="cJ2-je-9nT" secondAttribute="top" constant="20" id="lUf-oK-eQ4"/>
-                            <constraint firstItem="VP8-PU-ZZc" firstAttribute="leading" secondItem="G43-e4-Uar" secondAttribute="trailing" constant="25" id="neR-HJ-4bW"/>
+                            <constraint firstItem="VP8-PU-ZZc" firstAttribute="leading" secondItem="G43-e4-Uar" secondAttribute="trailing" constant="35" id="neR-HJ-4bW"/>
                             <constraint firstItem="7bG-CX-9no" firstAttribute="top" secondItem="cJ2-je-9nT" secondAttribute="top" constant="12" id="rD3-Mf-Toi"/>
                         </constraints>
                     </view>

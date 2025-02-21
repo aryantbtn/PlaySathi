@@ -9,11 +9,15 @@ import UIKit
 
 class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, UICollectionViewDelegate{
     
+    @IBOutlet weak var proceedButton: UIButton!
+    @IBOutlet weak var price: UILabel!
     var indexPathForVenueDetail : IndexPath = IndexPath()
     
     @IBOutlet var venueCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        price.text = "₹\(DataController.venueData[indexPathForVenueDetail.row].price)/hour"
+        proceedButton.layer.cornerRadius = 10
         registerCells()
         
         venueCollectionView.register(HeaderForVenueCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderForVenueCollectionReusableView")
@@ -143,13 +147,12 @@ class VenueDetailViewController: UIViewController ,UICollectionViewDataSource, U
     }
 
     
-    @IBAction func goToSlot(_ sender: Any) {
+    
+    @IBAction func goToSlotSection(_ sender: Any) {
         let storyboard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "slotVC") as! SlotTableViewController
         vc.indexPathForSlotSection = indexPathForVenueDetail
 
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
-    
 }

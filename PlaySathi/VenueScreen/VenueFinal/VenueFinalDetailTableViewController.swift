@@ -9,13 +9,14 @@ import UIKit
 
 class VenueFinalDetailTableViewController: UITableViewController {
     
+    var court = ""
     var instance2 = ScreenNavigation.navigate
     var indexPathForVenueFinal : IndexPath!
     var selectedDay : String = ""
+    var selectedTime : String = ""
     
     @IBOutlet var venueNameInFinal: UILabel!
     @IBOutlet var courtNumberInFinal: UILabel!
- 
     @IBOutlet var dateInFinal: UILabel!
     @IBOutlet var timeInFinal: UILabel!
     @IBOutlet var priceInFinal: UILabel!
@@ -49,6 +50,8 @@ class VenueFinalDetailTableViewController: UITableViewController {
         venueNameInFinal.text = DataController.venueData[indexPathForVenueFinal.row].name
         priceInFinal.text = DataController.venueData[indexPathForVenueFinal.row].price.formatted()
         dateInFinal.text = selectedDay
+        timeInFinal.text = selectedTime
+        courtNumberInFinal.text = court
     }
     
     
@@ -75,6 +78,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
                 DataController.headers[.venueBooked] = "Court Booked"
                 if let destVC = navigationController?.viewControllers[0] as? HomeScreenViewController {
                     destVC.vName = indexPathForVenueFinal
+                    destVC.venueDateAndTimeForGameEntry = "\(selectedDay)  \(selectedTime)"
                 self.navigationController?.popToRootViewController(animated: true)
                 
                 }

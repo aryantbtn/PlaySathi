@@ -14,6 +14,9 @@ class HomeScreenViewController: UIViewController {
     var vName: IndexPath?
     var pName: IndexPath?
     var venueNameForGameCard: String?
+    var venueDateAndTimeForGameEntry: String?
+    
+    
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +111,8 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case .venueBooked:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
             cell.d(with:vName!)
+            cell.dateAndTime.text = venueDateAndTimeForGameEntry
+            
                             cell.layer.cornerRadius = 8
                             return cell
         case .inviteSent:
@@ -191,7 +196,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(160), heightDimension: .absolute(194))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(160), heightDimension: .absolute(215))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading:8, bottom: 8, trailing: 0)
         group.interItemSpacing = .fixed(2)

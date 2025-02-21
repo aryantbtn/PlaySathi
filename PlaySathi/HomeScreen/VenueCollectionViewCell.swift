@@ -14,12 +14,12 @@ class VenueCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var venueName: UILabel!
     
-    @IBOutlet weak var venueDistance: UILabel!
+    @IBOutlet weak var venuePrice: UILabel!
     
     
     func update(with indexPath: IndexPath){
         venueImage.image = UIImage(named: DataController.venueData[indexPath.row].imageUrl)
         venueName.text = DataController.venueData[indexPath.row].name
-        venueDistance.text = "Distance ~ " + DataController.venueData[indexPath.row].distanceInKm.formatted() + " kms"
+        venuePrice.text = " ₹\(DataController.venueData[indexPath.row].price.formatted())"
     }
 }
