@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeScreenViewController: UIViewController {
 
@@ -331,14 +332,65 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             let gameEntry = DataController.headers
                       performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         case .venueBooked:
-            let gameEntry = DataController.headers
-                     // performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+            let hostingController = UIHostingController(rootView:
+                    VenueCardView(
+                        isPresented: .constant(true),
+                        venueName: "Sports Complex",
+                        courtNumber: "3",
+                        timeSlot: "2:00 PM - 3:00 PM",
+                        date: "25 Feb 2025",
+                        distance: "2.5 km",
+                        price: "₹500",
+                        dismissAction: { [weak self] in
+                            self?.dismiss(animated: true)
+                        }
+                    )
+                )
+                hostingController.modalPresentationStyle = .overCurrentContext
+                hostingController.view.backgroundColor = .clear
+                hostingController.modalTransitionStyle = .crossDissolve
+                present(hostingController, animated: true)
+
         case .inviteSent:
-            let gameEntry = DataController.headers
-                    //  performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+            let hostingController = UIHostingController(rootView: 
+                InviteCardView(
+                    isPresented: .constant(true),
+                    playerName: "Akash",
+                    elitePoints: 23,
+                    date: "25 Feb 2025",
+                    time: "6:00 PM",
+                    status: "pending",
+                    dismissAction: { [weak self] in
+                        self?.dismiss(animated: true)
+                    }
+                )
+            )
+            hostingController.modalPresentationStyle = .overCurrentContext
+            hostingController.view.backgroundColor = .clear
+            hostingController.modalTransitionStyle = .crossDissolve
+            present(hostingController, animated: true)
         case .gameCreated:
-            let gameEntry = DataController.headers
-                    //  performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+            let hostingController = UIHostingController(rootView:
+                   CreateGameCardView(
+                       isPresented: .constant(true),
+                       playerName: "John Doe",
+                       playerImage: "player_profile", // Make sure this image exists in assets
+                       elitePoints: 100,
+                       venueName: "Sports Complex",
+                       courtNumber: "3",
+                       timeSlot: "2:00 PM - 3:00 PM",
+                       date: "25 Feb 2025",
+                       price: "₹500",
+                       status: "Pending", // Add status parameter
+                       dismissAction: { [weak self] in
+                           self?.dismiss(animated: true)
+                       }
+                   )
+               )
+               hostingController.modalPresentationStyle = .overCurrentContext
+               hostingController.view.backgroundColor = .clear
+               hostingController.modalTransitionStyle = .crossDissolve
+               present(hostingController, animated: true)
         case .matches:
             let gameEntry = DataController.headers
                     //  performSegue(withIdentifier: "GameEntry", sender: (Any).self)
