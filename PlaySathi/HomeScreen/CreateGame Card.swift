@@ -40,7 +40,7 @@ struct CreateGameCardView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 70, height: 70)
                         .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.blue, lineWidth: 2))
+                        .overlay(Circle().stroke(Color.accentColor, lineWidth: 2))
                     
                     VStack(alignment: .leading, spacing: 6) {
                         Text(playerName)
@@ -82,7 +82,7 @@ struct CreateGameCardView: View {
                         Circle()
                             .fill(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [Color.blue.opacity(0.7), Color.blue.opacity(0.5)]),
+                                    gradient: Gradient(colors: [Color.white.opacity(0.7), Color.blue.opacity(0.5)]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
@@ -91,9 +91,9 @@ struct CreateGameCardView: View {
                         
                         Image(systemName: "sportscourt.fill")
                             .font(.system(size: 28))
-                            .foregroundColor(.white)
+                            .foregroundColor(.accent)
                     }
-                    .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 2)
+                    .shadow(color: Color.white.opacity(0.3), radius: 5, x: 0, y: 2)
                     
                     VStack(alignment: .leading, spacing: 8) {
                         Text(venueName)
@@ -105,7 +105,7 @@ struct CreateGameCardView: View {
                                 .font(.system(size: 14))
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
-                                .background(Color.blue.opacity(0.1))
+                                .background(Color.accentColor.opacity(0.1))
                                 .cornerRadius(12)
                         }
                     }
@@ -120,26 +120,26 @@ struct CreateGameCardView: View {
                 VStack(spacing: 12) {
                     HStack(spacing: 8) {
                         Image(systemName: "calendar")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.accentColor)
                         Text(date)
                             .font(.system(size: 16, weight: .medium))
                         Spacer()
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 12)
-                    .background(Color.blue.opacity(0.1))
+                    .background(Color.accentColor.opacity(0.1))
                     .cornerRadius(12)
                     
                     HStack(spacing: 8) {
                         Image(systemName: "clock")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.accent)
                         Text(timeSlot)
                             .font(.system(size: 16, weight: .medium))
                         Spacer()
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 12)
-                    .background(Color.blue.opacity(0.1))
+                    .background(Color.accentColor.opacity(0.1))
                     .cornerRadius(12)
                 }
                 
@@ -154,10 +154,10 @@ struct CreateGameCardView: View {
                     Text(price)
                         .font(.title)
                         .bold()
-                        .foregroundColor(.green)
+                        .foregroundColor(.black)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 10)
-                        .background(Color.green.opacity(0.1))
+                        .background(Color.accentColor.opacity(0.1))
                         .cornerRadius(16)
                 }
             }

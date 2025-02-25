@@ -30,7 +30,7 @@ struct InviteCardView: View {
                 HStack {
                     Image(systemName: "person.circle.fill")
                         .font(.system(size: 40))
-                        .foregroundColor(.blue)
+                        .foregroundColor(.accent)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text(playerName)
@@ -61,14 +61,14 @@ struct InviteCardView: View {
                 VStack(spacing: 12) {
                     HStack {
                         Image(systemName: "calendar")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.accent)
                         Text(date)
                             .foregroundColor(.primary)
                         
                         Spacer()
                         
                         Image(systemName: "clock")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.accent)
                         Text(time)
                             .foregroundColor(.primary)
                     }
@@ -77,7 +77,7 @@ struct InviteCardView: View {
                 // Status Section
                 HStack {
                     Text("Status")
-                        .foregroundColor(.gray)
+                        .foregroundColor(.accent)
                     
                     Text(status)
                         .bold()

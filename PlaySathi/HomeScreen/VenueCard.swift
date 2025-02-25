@@ -30,15 +30,15 @@ struct VenueCardView: View {
                 }
             
             VStack(spacing: 20) {
-                // Header section
+    
                 VStack(spacing: 16) {
                     HStack(alignment: .top) {
-                        // Venue Icon with gradient background
+                       
                         ZStack {
                             Circle()
                                 .fill(
                                     LinearGradient(
-                                        gradient: Gradient(colors: [Color.blue.opacity(0.7), Color.blue.opacity(0.5)]),
+                                        gradient: Gradient(colors: [Color.accentColor.opacity(0.7), Color.blue.opacity(0.5)]),
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
                                     )
@@ -51,11 +51,11 @@ struct VenueCardView: View {
                         }
                         .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 2)
                         
-                        // Venue Details
+                       
                         VStack(alignment: .leading, spacing: 8) {
                             Text(venueName)
                                 .font(.system(size: 22, weight: .bold))
-                                .foregroundColor(.primary)
+                                .foregroundColor(.black)
                             
                             // Info Pills
                             HStack(spacing: 12) {
@@ -63,26 +63,26 @@ struct VenueCardView: View {
                                 HStack(spacing: 4) {
                                     Image(systemName: "location.fill")
                                         .font(.system(size: 12))
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(.accentColor)
                                     Text(distance)
                                         .font(.system(size: 14))
                                 }
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
-                                .background(Color.blue.opacity(0.1))
+                                .background(Color.accentColor.opacity(0.1))
                                 .cornerRadius(12)
                                 
                                 // Court Pill
                                 HStack(spacing: 4) {
                                     Image(systemName: "number.circle.fill")
                                         .font(.system(size: 12))
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(.accentColor)
                                     Text("Court \(courtNumber)")
                                         .font(.system(size: 14))
                                 }
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
-                                .background(Color.blue.opacity(0.1))
+                                .background(Color.accentColor.opacity(0.1))
                                 .cornerRadius(12)
                             }
                         }
@@ -108,27 +108,27 @@ struct VenueCardView: View {
                     // Date Box
                     HStack(spacing: 8) {
                         Image(systemName: "calendar")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.accent)
                         Text(date)
                             .font(.system(size: 16, weight: .medium))
                         Spacer()
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 12)
-                    .background(Color.blue.opacity(0.1))
+                    .background(Color.accentColor.opacity(0.1))
                     .cornerRadius(12)
                     
                     // Time Box
                     HStack(spacing: 8) {
                         Image(systemName: "clock")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.accentColor)
                         Text(timeSlot)
                             .font(.system(size: 16, weight: .medium))
                         Spacer()
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 12)
-                    .background(Color.blue.opacity(0.1))
+                    .background(Color.accentColor.opacity(0.1))
                     .cornerRadius(12)
                 }
                 
@@ -143,10 +143,10 @@ struct VenueCardView: View {
                     Text(price)
                         .font(.title2)
                         .bold()
-                        .foregroundColor(.green)
+                        .foregroundColor(.black)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
-                        .background(Color.green.opacity(0.1))
+                        .background(Color.accentColor.opacity(0.1))
                         .cornerRadius(12)
                 }
             }
