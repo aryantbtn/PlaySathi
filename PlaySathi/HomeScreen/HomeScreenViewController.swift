@@ -15,7 +15,8 @@ class HomeScreenViewController: UIViewController {
     var vName: IndexPath?
     var pName: IndexPath?
     var venueNameForGameCard: String?
-    var venueDateAndTimeForGameEntry: String?
+    var venueTimeForGameEntry: String?
+    var venueDateForGameEntry: String?
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -112,7 +113,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case .venueBooked:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
             cell.d(with:vName!)
-            cell.dateAndTime.text = venueDateAndTimeForGameEntry
+            cell.dateAndTime.text = venueDateForGameEntry! + " " + venueTimeForGameEntry!
             
                             cell.layer.cornerRadius = 8
                             return cell
@@ -335,12 +336,12 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             let hostingController = UIHostingController(rootView:
                     VenueCardView(
                         isPresented: .constant(true),
-                        venueName: "Sports Complex",
+                        venueName: DataController.venueData[vName!.row].name,
                         courtNumber: "3",
-                        timeSlot: "2:00 PM - 3:00 PM",
-                        date: "25 Feb 2025",
+                        timeSlot:venueTimeForGameEntry!,
+                        date: venueDateForGameEntry!,
                         distance: "2.5 km",
-                        price: "₹500",
+                        price: "\(DataController.venueData[vName!.row].price)",
                         dismissAction: { [weak self] in
                             self?.dismiss(animated: true)
                         }

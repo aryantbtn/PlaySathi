@@ -20,7 +20,6 @@ class PlayerList1TableViewCell: UITableViewCell {
     
 //    @IBOutlet weak var chevronButton: UIButton!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -80,7 +80,8 @@ class VenueFinalDetailTableViewController: UITableViewController {
                 DataController.headers[.venueBooked] = "Court Booked"
                 if let destVC = navigationController?.viewControllers[0] as? HomeScreenViewController {
                     destVC.vName = indexPathForVenueFinal
-                    destVC.venueDateAndTimeForGameEntry = "\(selectedDay)  \(selectedTime)"
+                    destVC.venueDateForGameEntry = "\(selectedDay)"
+                    destVC.venueTimeForGameEntry = "\(selectedTime)"
                 self.navigationController?.popToRootViewController(animated: true)
                 
                 }
