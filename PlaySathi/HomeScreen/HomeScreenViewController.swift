@@ -413,15 +413,10 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         }
     }
     @objc func requestSeeAllButtonTapped() {
-//        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
-//        if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
-//            self.navigationController?.pushViewController(vc, animated: true)
-//            }
-        
-        let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "score") as? ScoreboardViewController {
+        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
             self.navigationController?.pushViewController(vc, animated: true)
-        }
+            }
         }
     
     
