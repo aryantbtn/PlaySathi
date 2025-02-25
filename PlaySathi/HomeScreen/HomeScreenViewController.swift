@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeScreenViewController: UIViewController {
 
@@ -14,7 +15,8 @@ class HomeScreenViewController: UIViewController {
     var vName: IndexPath?
     var pName: IndexPath?
     var venueNameForGameCard: String?
-    var venueDateAndTimeForGameEntry: String?
+    var venueTimeForGameEntry: String?
+    var venueDateForGameEntry: String?
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -111,7 +113,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case .venueBooked:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
             cell.d(with:vName!)
-            cell.dateAndTime.text = venueDateAndTimeForGameEntry
+            cell.dateAndTime.text = venueDateForGameEntry! + " " + venueTimeForGameEntry!
             
                             cell.layer.cornerRadius = 8
                             return cell
@@ -331,14 +333,65 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             let gameEntry = DataController.headers
                       performSegue(withIdentifier: "GameEntry", sender: (Any).self)
         case .venueBooked:
-            let gameEntry = DataController.headers
-                     // performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+            let hostingController = UIHostingController(rootView:
+                    VenueCardView(
+                        isPresented: .constant(true),
+                        venueName: DataController.venueData[vName!.row].name,
+                        courtNumber: "3",
+                        timeSlot:venueTimeForGameEntry!,
+                        date: venueDateForGameEntry!,
+                        distance: "2.5 km",
+                        price: "\(DataController.venueData[vName!.row].price)",
+                        dismissAction: { [weak self] in
+                            self?.dismiss(animated: true)
+                        }
+                    )
+                )
+                hostingController.modalPresentationStyle = .overCurrentContext
+                hostingController.view.backgroundColor = .clear
+                hostingController.modalTransitionStyle = .crossDissolve
+                present(hostingController, animated: true)
+
         case .inviteSent:
-            let gameEntry = DataController.headers
-                    //  performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+            let hostingController = UIHostingController(rootView: 
+                InviteCardView(
+                    isPresented: .constant(true),
+                    playerName: "Akash",
+                    elitePoints: 23,
+                    date: "25 Feb 2025",
+                    time: "6:00 PM",
+                    status: "pending",
+                    dismissAction: { [weak self] in
+                        self?.dismiss(animated: true)
+                    }
+                )
+            )
+            hostingController.modalPresentationStyle = .overCurrentContext
+            hostingController.view.backgroundColor = .clear
+            hostingController.modalTransitionStyle = .crossDissolve
+            present(hostingController, animated: true)
         case .gameCreated:
-            let gameEntry = DataController.headers
-                    //  performSegue(withIdentifier: "GameEntry", sender: (Any).self)
+            let hostingController = UIHostingController(rootView:
+                   CreateGameCardView(
+                       isPresented: .constant(true),
+                       playerName: "John Doe",
+                       playerImage: "player_profile", // Make sure this image exists in assets
+                       elitePoints: 100,
+                       venueName: "Sports Complex",
+                       courtNumber: "3",
+                       timeSlot: "2:00 PM - 3:00 PM",
+                       date: "25 Feb 2025",
+                       price: "₹500",
+                       status: "Pending", // Add status parameter
+                       dismissAction: { [weak self] in
+                           self?.dismiss(animated: true)
+                       }
+                   )
+               )
+               hostingController.modalPresentationStyle = .overCurrentContext
+               hostingController.view.backgroundColor = .clear
+               hostingController.modalTransitionStyle = .crossDissolve
+               present(hostingController, animated: true)
         case .matches:
             let gameEntry = DataController.headers
                     //  performSegue(withIdentifier: "GameEntry", sender: (Any).self)
@@ -361,15 +414,10 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         }
     }
     @objc func requestSeeAllButtonTapped() {
-//        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
-//        if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
-//            self.navigationController?.pushViewController(vc, animated: true)
-//            }
-        
-        let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "score") as? ScoreboardViewController {
+        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
             self.navigationController?.pushViewController(vc, animated: true)
-        }
+            }
         }
     
     

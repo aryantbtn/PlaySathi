@@ -8,6 +8,8 @@
 import UIKit
 
 class CreateGameTableViewController: UITableViewController {
+   
+    @IBOutlet weak var time: UILabel!
     
     @IBOutlet weak var date: UILabel!
     var instance = ScreenNavigation.navigate
@@ -19,6 +21,7 @@ class CreateGameTableViewController: UITableViewController {
     var venueNmae : String?
     var player : String?
     var dat: String?
+    var tim: String?
     
     
     
@@ -68,6 +71,7 @@ class CreateGameTableViewController: UITableViewController {
         venueName.text = venueNmae
         playerName.text = player
         date.text = dat
+        time.text = tim
         tableView.reloadData()
         
         if ((venueName.text?.isEmpty) != nil) && ((playerName.text?.isEmpty) != nil){
@@ -83,6 +87,7 @@ class CreateGameTableViewController: UITableViewController {
                 destVC.venueNameForGameCard = venueNmae
                 listOfSections.insert(.gameCreated, at: 1)
                 DataController.headers[.gameCreated] = "Created Game"
+               
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
