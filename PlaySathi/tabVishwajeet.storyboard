@@ -88,6 +88,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Venue" id="K6R-UT-2lH"/>
                     <connections>
+                        <outlet property="searchBar" destination="bry-8g-4hk" id="ZhF-Q9-u7z"/>
                         <outlet property="sortingButton" destination="vFm-7W-FbF" id="sHp-oe-HFY"/>
                         <outlet property="sortingTitle" destination="JfW-Iz-s74" id="hqP-e7-lMO"/>
                         <outlet property="venueCollectionView" destination="1Da-LU-loK" id="ej0-4J-WA8"/>

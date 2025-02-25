@@ -13,12 +13,14 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet var sortingButton: UIButton!
     @IBOutlet var sortingTitle: UILabel!
     
+    @IBOutlet weak var searchBar: UITextField!
     // Added sorting criteria
        var distance = ["Nearby Distance", "Price", "Rating"]
        var filteredVenueData: [Venue] = []
        
        override func viewDidLoad() {
            super.viewDidLoad()
+           setupUI()
            registerCells()
            self.tabBarController?.isTabBarHidden = true
            venueCollectionView.setCollectionViewLayout(generateLayout(), animated: true)
@@ -32,6 +34,36 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
            sortDistance()
        }
        
+    private func setupUI() {
+            self.tabBarController?.isTabBarHidden = true
+            venueCollectionView.setCollectionViewLayout(generateLayout(), animated: true)
+            venueCollectionView.dataSource = self
+            venueCollectionView.delegate = self
+            
+            // Setup search functionality
+            searchBar.placeholder = "Type Venue Name"
+            searchBar.addTarget(self, action: #selector(searchTextChanged), for: .editingChanged)
+        }
+    @objc private func searchTextChanged() {
+            guard let searchText = searchBar.text else { return }
+            
+            if searchText.isEmpty {
+                filteredVenueData = DataController.venueData
+            } else {
+                filteredVenueData = DataController.venueData.filter { venue in
+                    venue.name.lowercased().contains(searchText.lowercased())
+                }
+            }
+            
+            // Apply current sorting to filtered results
+            if let currentSorting = sortingTitle.text {
+                sortVenuesByCriteria(currentSorting)
+            }
+            
+            venueCollectionView.reloadData()
+        }
+
+
        // Sort and filter venues based on selection
        private func sortDistance() {
            var sortingAction: [UIAction] = []
@@ -51,18 +83,25 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
        }
        
        // Filter venues based on sorting criteria
+    // Update sortVenuesByCriteria to work with filteredVenueData
     func sortVenuesByCriteria(_ criteria: String) {
-        switch criteria {
-        case "Nearby Distance":
-            DataController.venueData.sort(by: { $0.distanceInKm < $1.distanceInKm })
-        case "Price":
-            DataController.venueData.sort(by: { $0.price < $1.price })
-        case "Rating":
-            DataController.venueData.sort(by: { $0.rating > $1.rating })
-        default:
-            break
-        }
-    }
+           switch criteria {
+           case "Nearby Distance":
+               filteredVenueData.sort { $0.distanceInKm < $1.distanceInKm }
+           case "Price":
+               filteredVenueData.sort { $0.price < $1.price }
+           case "Rating":
+               filteredVenueData.sort { $0.rating > $1.rating }
+           default:
+               break
+           }
+           // Make sure to reload collection view after sorting
+           DispatchQueue.main.async {
+               self.venueCollectionView.reloadData()
+           }
+       }
+       
+        
        
        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
            return filteredVenueData.count
@@ -75,13 +114,16 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VenueListCollectionViewCell.identifier, for: indexPath) as! VenueListCollectionViewCell
            let venue = filteredVenueData[indexPath.item]
-           cell.updateFunc(with: indexPath)  // Update cell with the sorted venue
-           cell.layer.cornerRadius = 8
-           return cell
+           // Update the cell with filtered venue data
+                   cell.venueListImage.image = UIImage(named: venue.imageUrl)
+                   cell.venueListName.text = venue.name
+                   cell.venueListDistance.text = "₹ \(venue.price.formatted())"
+                   cell.layer.cornerRadius = 8
+                   return cell
        }
        
        var selectedIndexPath: IndexPath?
-       let searchBar = UISearchBar()
+       let searchBarcontent = UISearchBar()
        
        func registerCells() {
            let firstNib = UINib(nibName: VenueListCollectionViewCell.identifier, bundle: nil)
