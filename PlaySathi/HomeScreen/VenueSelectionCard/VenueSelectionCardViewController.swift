@@ -17,25 +17,25 @@ class VenueSelectionCardViewController: UIViewController,UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VenueSelectionCardCollectionViewCell.identifier, for: indexPath) as! VenueSelectionCardCollectionViewCell
-        cell.display3(with:indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
+        cell.d(with:indexPath)
         cell.layer.cornerRadius = 8
         return cell
     }
     
     @IBOutlet weak var cView: UICollectionView!
-    
+    var tit : String?
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
         cView.setCollectionViewLayout(generateLayout(), animated: true)
         cView.dataSource = self
         cView.delegate = self
-        
+        navigationItem.title = tit
     }
     func registerCells() {
-        let firstNib = UINib(nibName: VenueSelectionCardCollectionViewCell.identifier, bundle: nil)
-        cView.register(firstNib, forCellWithReuseIdentifier: VenueSelectionCardCollectionViewCell.identifier)
+        let firstNib = UINib(nibName: GameEntryCollectionViewCell.identifier, bundle: nil)
+        cView.register(firstNib, forCellWithReuseIdentifier: GameEntryCollectionViewCell.identifier)
     }
     func generateLayout()->UICollectionViewLayout{
         let layout = UICollectionViewCompositionalLayout {

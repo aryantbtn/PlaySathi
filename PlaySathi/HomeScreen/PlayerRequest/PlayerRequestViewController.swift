@@ -17,12 +17,12 @@ class PlayerRequestViewController: UIViewController,UICollectionViewDelegate,UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerRequestCollectionViewCell.identifier, for: indexPath) as! PlayerRequestCollectionViewCell
-        cell.dispaly2(with:indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
+        cell.disp(with:indexPath)
         cell.layer.cornerRadius = 8
         return cell
     }
-    
+    var t : String?
     @IBOutlet weak var cv: UICollectionView!
     
     override func viewDidLoad() {
@@ -32,11 +32,12 @@ class PlayerRequestViewController: UIViewController,UICollectionViewDelegate,UIC
         cv.setCollectionViewLayout(generateLayout(), animated: true)
         cv.dataSource = self
         cv.delegate = self
+        navigationItem.title = t
         
     }
     func registerCells() {
-        let firstNib = UINib(nibName: PlayerRequestCollectionViewCell.identifier, bundle: nil)
-        cv.register(firstNib, forCellWithReuseIdentifier: PlayerRequestCollectionViewCell.identifier)
+        let firstNib = UINib(nibName: PlayerSelectionCollectionViewCell.identifier, bundle: nil)
+        cv.register(firstNib, forCellWithReuseIdentifier: PlayerSelectionCollectionViewCell.identifier)
     }
     func generateLayout()->UICollectionViewLayout{
         let layout = UICollectionViewCompositionalLayout {

@@ -85,6 +85,9 @@ class CreateGameTableViewController: UITableViewController {
         } else {
             if let destVC = navigationController?.viewControllers[0] as? HomeScreenViewController {
                 destVC.venueNameForGameCard = venueNmae
+                destVC.dateForGameCard = dat
+                destVC.timeForGameCard = tim
+                destVC.playerforGameCard = DataController.userData[0].profilePicture
                 listOfSections.insert(.gameCreated, at: 1)
                 DataController.headers[.gameCreated] = "Created Game"
                

@@ -24,7 +24,7 @@ class CreatedGameViewController: UIViewController,UICollectionViewDelegate,UICol
     }
     
     @IBOutlet weak var cv: UICollectionView!
-    
+    var titl : String?
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
@@ -32,7 +32,7 @@ class CreatedGameViewController: UIViewController,UICollectionViewDelegate,UICol
         cv.setCollectionViewLayout(generateLayout(), animated: true)
         cv.dataSource = self
         cv.delegate = self
-        
+        navigationItem.title = titl
     }
     func registerCells() {
         let firstNib = UINib(nibName: GameCardCollectionViewCell.identifier, bundle: nil)

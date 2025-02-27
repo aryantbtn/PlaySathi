@@ -15,6 +15,9 @@ class HomeScreenViewController: UIViewController {
     var vName: IndexPath?
     var pName: IndexPath?
     var venueNameForGameCard: String?
+    var dateForGameCard: String?
+    var timeForGameCard: String?
+    var playerforGameCard: String?
     var venueTimeForGameEntry: String?
     var venueDateForGameEntry: String?
     
@@ -126,6 +129,8 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCardCollectionViewCell.identifier, for: indexPath) as! GameCardCollectionViewCell
                             cell.game(with:indexPath)
             cell.venueName.text = venueNameForGameCard
+            cell.dateAndTime.text = dateForGameCard! + " " + timeForGameCard!
+            cell.playerSelected.image = UIImage(named: playerforGameCard!)
                             cell.layer.cornerRadius = 8
                             return cell
         case .matches:
@@ -277,41 +282,51 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeaderCollectionReusableView", for: indexPath) as! SectionHeaderCollectionReusableView
-        headerView.headerLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        
-        switch listOfSections[indexPath.section] {
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeaderCollectionReusableView", for: indexPath) as! SectionHeaderCollectionReusableView
+            headerView.headerLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
             
-        case .player:
-            headerView.headerLabel.text = DataController.headers[.player]
-                        headerView.button.setTitle("See All", for: .normal)
-                        headerView.button.addTarget(self, action: #selector(playerButtonTapped), for: .touchUpInside)
-        case .venue:
-            headerView.headerLabel.text = DataController.headers[.venue]
-                        headerView.button.setTitle("See All", for: .normal)
-                        headerView.button.addTarget(self, action: #selector(venueButtonTapped), for: .touchUpInside)
-        case .createGame:
-            headerView.headerLabel.text = DataController.headers[.createGame]
-        case .venueBooked:
-            headerView.headerLabel.text = DataController.headers[.venueBooked]
-                      headerView.button.setTitle("See All", for: .normal)
-            headerView.button.addTarget(self, action: #selector(venueSelectionCardSeeAllButtonTapped), for: .touchUpInside)
-        case .inviteSent:
-            headerView.headerLabel.text = DataController.headers[.inviteSent]
-                        headerView.button.setTitle("See All", for: .normal)
-                        headerView.button.addTarget(self, action: #selector(requestSeeAllButtonTapped), for: .touchUpInside)
-        case .gameCreated:
-            headerView.headerLabel.text = DataController.headers[.gameCreated]
-                        headerView.button.setTitle("See All", for: .normal)
-            headerView.button.addTarget(self, action: #selector(createdGameseeAllButtonTapped), for: .touchUpInside)
-            
-                      
-        case .matches:
-            headerView.headerLabel.text = DataController.headers[.matches]
-                        headerView.button.setTitle("See All", for: .normal)
-        }
+            switch listOfSections[indexPath.section] {
+                
+            case .player:
+                headerView.headerLabel.text = DataController.headers[.player]
+                headerView.button.setTitle("See All", for: .normal)
+                headerView.button.tag = indexPath.section  // Add tag to identify section
+                            headerView.button.addTarget(self, action: #selector(sectionHeaderButtonTapped(_:)), for: .touchUpInside)
 
-        return headerView
+            case .venue:
+                headerView.headerLabel.text = DataController.headers[.venue]
+                headerView.button.setTitle("See All", for: .normal)
+                headerView.button.tag = indexPath.section  // Add tag to identify section
+                            headerView.button.addTarget(self, action: #selector(sectionHeaderButtonTapped(_:)), for: .touchUpInside)
+
+            case .createGame:
+                headerView.headerLabel.text = DataController.headers[.createGame]
+            case .venueBooked:
+                headerView.headerLabel.text = DataController.headers[.venueBooked]
+                headerView.button.setTitle("See All", for: .normal)
+                headerView.button.tag = indexPath.section  // Add tag to identify section
+                            headerView.button.addTarget(self, action: #selector(sectionHeaderButtonTapped(_:)), for: .touchUpInside)
+
+            case .inviteSent:
+                headerView.headerLabel.text = DataController.headers[.inviteSent]
+                headerView.button.setTitle("See All", for: .normal)
+                headerView.button.tag = indexPath.section  // Add tag to identify section
+                            headerView.button.addTarget(self, action: #selector(sectionHeaderButtonTapped(_:)), for: .touchUpInside)
+
+            case .gameCreated:
+                headerView.headerLabel.text = DataController.headers[.gameCreated]
+                headerView.button.setTitle("See All", for: .normal)
+                headerView.button.tag = indexPath.section  // Add tag to identify section
+                            headerView.button.addTarget(self, action: #selector(sectionHeaderButtonTapped(_:)), for: .touchUpInside)
+
+                
+                
+            case .matches:
+                headerView.headerLabel.text = DataController.headers[.matches]
+                headerView.button.setTitle("See All", for: .normal)
+            }
+            
+            return headerView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -398,42 +413,51 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         }
 
     }
-@objc func venueButtonTapped() {
-    instance3.check = "ios"
-    let storyBoard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
-    if let venueVC = storyBoard.instantiateViewController(withIdentifier: "venueId") as? VenueListViewController {
-        self.navigationController?.pushViewController(venueVC, animated: true)
-        }
-    }
-    @objc func playerButtonTapped() {
-        instance3.check = "players"
-        let storyBoard = UIStoryboard(name: "tabAryan", bundle: nil)
-        
-        if let playerVC = storyBoard.instantiateViewController(withIdentifier: "playerId") as? PlayerList1ViewController {
-            self.navigationController?.pushViewController(playerVC, animated: true)
-        }
-    }
-    @objc func requestSeeAllButtonTapped() {
-        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
+    @objc private func sectionHeaderButtonTapped(_ sender: UIButton) {
+            let section = sender.tag
+            let sectionType = listOfSections[section]
+        let headerTitle = DataController.headers[sectionType] ?? ""
+            
+            switch sectionType {
+            case .player:
+                instance3.check = "players"
+                let storyBoard = UIStoryboard(name: "tabAryan", bundle: nil)
+                if let playerVC = storyBoard.instantiateViewController(withIdentifier: "playerId") as? PlayerList1ViewController {
+                    navigationController?.pushViewController(playerVC, animated: true)
+                }
+                
+            case .venue:
+                instance3.check = "ios"
+                let storyBoard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
+                if let venueVC = storyBoard.instantiateViewController(withIdentifier: "venueId") as? VenueListViewController {
+                    navigationController?.pushViewController(venueVC, animated: true)
+                }
+                
+            case .venueBooked:
+                let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
+                if let vc = storyBoard.instantiateViewController(withIdentifier: "vscard") as? VenueSelectionCardViewController {
+                    vc.tit = headerTitle
+                    navigationController?.pushViewController(vc, animated: true)
+                }
+                
+            case .inviteSent:
+                let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
+                if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
+                    vc.t = headerTitle
+                    navigationController?.pushViewController(vc, animated: true)
+                }
+                
+            case .gameCreated:
+                let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
+                if let vc = storyBoard.instantiateViewController(withIdentifier: "createdGame") as? CreatedGameViewController {
+                    vc.titl = headerTitle
+                    navigationController?.pushViewController(vc, animated: true)
+                }
+                
+            default:
+                break
             }
         }
-    
-    
-    @objc func venueSelectionCardSeeAllButtonTapped() {
-        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(withIdentifier: "vscard") as? VenueSelectionCardViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-            }
-        }
-    
-    @objc func createdGameseeAllButtonTapped() {
-        let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(withIdentifier: "createdGame") as? CreatedGameViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
