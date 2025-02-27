@@ -46,6 +46,7 @@ struct Venue {
     var openingTime : String
     var closingTime : String
     var timeSlots: [String]
+    var courtAvailability: [String: [String]]
     
 }
 
@@ -76,6 +77,10 @@ enum TypeOfSection {
     case gameCreated
     case venueBooked
     case matches
+}
+struct CourtAvailability {
+    let courtId: String
+    var availableTimeSlots: [String]
 }
 
 var listOfSections:[TypeOfSection] = [.createGame,.player,.venue]

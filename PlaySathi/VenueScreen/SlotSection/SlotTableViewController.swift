@@ -18,6 +18,11 @@ class SlotTableViewController: UITableViewController {
     
     @IBOutlet var nextButton : UIBarButtonItem!
     
+    // Add these new properties
+     private var availableCourts: [String] = []
+     private var selectedDate: Date?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSlotCollectionView()
@@ -25,8 +30,28 @@ class SlotTableViewController: UITableViewController {
         datePicker.minimumDate = Date()
         dispaly()
         nextButton.isEnabled = false
+        selectedDate = datePicker.date
         nextButtonState()
+        // Hide courts collection view initially
+        courtsCollectionView.isHidden = true
     }
+    private func updateAvailableCourts(for timeSlot: String) {
+        guard let venueIndex = indexPathForSlotSection?.row else { return }
+        let venue = DataController.venueData[venueIndex]
+        
+        selectedCourt = -1
+                
+                // In a real app, you would check court availability from your data
+                // For now, we'll show all courts as available
+                availableCourts = venue.numberOfCourts
+                
+                courtsCollectionView.isHidden = false
+                courtsCollectionView.reloadData()
+                nextButtonState()
+            }
+    
+            
+
   
     
     func nextButtonState() {
@@ -86,67 +111,70 @@ class SlotTableViewController: UITableViewController {
 
 extension SlotTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            if collectionView == courtsCollectionView {
-                //print(DataController.venueData[indexPathForSlotSection!.row].numberOfCourts.count)
-                return DataController.venueData[indexPathForSlotSection!.row].numberOfCourts.count
-                
-            } else if collectionView == timeCollectionView {
-                //print(DataController.venueData[indexPathForSlotSection!.row].timeSlots.count)
-                return DataController.venueData[indexPathForSlotSection!.row].timeSlots.count
-            }
-            return 0
+        if collectionView == courtsCollectionView {
+            return availableCourts.count
+        } else if collectionView == timeCollectionView {
+            return DataController.venueData[indexPathForSlotSection!.row].timeSlots.count
         }
-        
+        return 0
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-             if collectionView == timeCollectionView {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AvailableTimeSlotCollectionViewCell.identifier, for: indexPath) as? AvailableTimeSlotCollectionViewCell
-                let timeSlots = DataController.venueData[indexPathForSlotSection!.row].timeSlots // Assuming availableTimeSlots data
-                 //print(timeSlots)
-                 cell?.venueIndex = indexPathForSlotSection?.row
-                 cell?.venueTimeSlotIndex = indexPath.row
-                 cell?.delegate = self
-               cell!.timeSlot.setTitle(timeSlots[indexPath.row], for: .normal)
-                 cell?.selectedTimeSlot = self.selectedTimeSlot
-                 cell?.configureCell()
-                cell!.layer.cornerRadius = 8
-                cell!.layer.borderWidth = 1
-                cell!.layer.borderColor = UIColor.gray.cgColor
-                cell!.backgroundColor = .systemGray
-                return cell!
-            } else if collectionView == courtsCollectionView {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberOfCourtsCollectionViewCell.identifier, for: indexPath) as! NumberOfCourtsCollectionViewCell
-                let courts = DataController.venueData[indexPathForSlotSection!.row].numberOfCourts
-                cell.venueIndex = indexPathForSlotSection?.row
-                cell.venueCourtIndex = indexPath.row
-                cell.delegat = self
-             
-                cell.selectedCourt = self.selectedCourt
-                cell.configure()
-                //print(courts)
-                print(selectedCourt)
-               cell.courtOutlet.setTitle(courts[indexPath.row], for: .normal)
-                cell.layer.cornerRadius = 8
-                cell.layer.borderWidth = 1
-                cell.layer.borderColor = UIColor.gray.cgColor
-                cell.backgroundColor = .systemGray
-                return cell
-            }
-            return UICollectionViewCell()
+        if collectionView == timeCollectionView {
+            // Existing time slot cell code remains the same
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AvailableTimeSlotCollectionViewCell.identifier, for: indexPath) as? AvailableTimeSlotCollectionViewCell
+            let timeSlots = DataController.venueData[indexPathForSlotSection!.row].timeSlots
+            cell?.venueIndex = indexPathForSlotSection?.row
+            cell?.venueTimeSlotIndex = indexPath.row
+            cell?.delegate = self
+            cell?.timeSlot.setTitle(timeSlots[indexPath.row], for: .normal)
+            cell?.selectedTimeSlot = self.selectedTimeSlot
+            cell?.configureCell()
+            cell?.layer.cornerRadius = 8
+            cell?.layer.borderWidth = 1
+            cell?.layer.borderColor = UIColor.gray.cgColor
+            cell?.backgroundColor = .systemGray
+            return cell!
+        } else if collectionView == courtsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberOfCourtsCollectionViewCell.identifier, for: indexPath) as! NumberOfCourtsCollectionViewCell
+            cell.venueIndex = indexPathForSlotSection?.row
+            cell.venueCourtIndex = indexPath.row
+            cell.delegat = self
+            cell.selectedCourt = self.selectedCourt
+            cell.configure()
+            cell.courtOutlet.setTitle(availableCourts[indexPath.row], for: .normal)
+            cell.layer.cornerRadius = 8
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.gray.cgColor
+            cell.backgroundColor = .systemGray
+            return cell
         }
-    
-    
+        return UICollectionViewCell()
+    }
 }
 
 
-extension SlotTableViewController:TimeSlotTableViewCellDelegate {
+
+// Modify TimeSlotTableViewCellDelegate implementation
+extension SlotTableViewController: TimeSlotTableViewCellDelegate {
     func timeSlotSelected(selectedTimeSlot: Int) {
         self.selectedTimeSlot = selectedTimeSlot
+        if selectedTimeSlot != -1 {
+            // Show courts when time is selected
+            courtsCollectionView.isHidden = false
+            // Get all courts for the venue
+            availableCourts = DataController.venueData[indexPathForSlotSection!.row].numberOfCourts
+        } else {
+            // Hide courts when no time selected
+            courtsCollectionView.isHidden = true
+            availableCourts = []
+        }
         timeCollectionView.reloadData()
+        courtsCollectionView.reloadData()
         nextButtonState()
     }
 }
+
 
 
 extension SlotTableViewController:CourtTableViewCellDelegate {
