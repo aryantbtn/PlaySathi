@@ -9,6 +9,25 @@ import Foundation
 import UIKit
 
 
+struct Profile: Codable {
+    let id: UUID
+    let email: String
+    let name: String
+    let contactNumber: String
+//    let profilePicture: String
+//    let elitePoints: Int
+//    let skillLevel: String
+//    let distance: Double
+//    let location: String
+    
+    init(id:UUID,name: String, email: String, contactNumber: String) {
+        self.id = id
+        self.name = name
+        self.email = email
+        self.contactNumber = contactNumber
+    }
+}
+
 struct User {
     var id: UUID
     var name: String
@@ -77,5 +96,7 @@ enum TypeOfSection {
     case venueBooked
     case matches
 }
+
+
 
 var listOfSections:[TypeOfSection] = [.createGame,.player,.venue]
