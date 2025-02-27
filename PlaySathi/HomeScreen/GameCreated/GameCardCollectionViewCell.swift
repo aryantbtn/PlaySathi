@@ -16,6 +16,7 @@ class GameCardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var playerSelected: UIImageView!
     
     func game(with indexpath: IndexPath){
+        playerSelected.layer.cornerRadius = playerSelected.bounds.width/2
         
     }
 }
