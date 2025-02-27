@@ -50,25 +50,38 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
            let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCell", for: indexPath) as! PlayerList1TableViewCell
    //        print("Cell for row")
            if searching {
-               cell.playerNameLabel.text = searchPlayer[indexPath.row].name
-           }
-   //        let player = players[indexPath.row]
-           cell.upadateCell(with: indexPath)
-           cell.showsReorderControl = true
-           return cell
+               let player = searchPlayer[indexPath.row]
+                cell.playerNameLabel.text = player.name
+        
+            } else {
+                cell.upadateCell(with: indexPath)
+            }
+                   
+            cell.showsReorderControl = true
+            return cell
        }
        
        // MARK:- Search Bar Function
        
-       func updateSearchResults(for searchController: UISearchController) {
-           if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-                   searchPlayer = DataController.userData.filter {$0.name.lowercased().contains(searchText.lowercased())}
-                   searching = true
-               } else {
-                   searching = false
-               }
-               tableView.reloadData()
-       }
+        func updateSearchResults(for searchController: UISearchController) {
+            guard let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+                searching = false
+                tableView.reloadData()
+                return
+            }
+            
+            if searchText.isEmpty {
+                searching = false
+                searchPlayer = []
+            } else {
+                searching = true
+                searchPlayer = DataController.userData.filter { player in
+                    player.name.lowercased().contains(searchText.lowercased())
+                }
+            }
+            
+            tableView.reloadData()
+        }
        
    //    MARK:- Segmented Control
        @objc func segmentValueChanged(_ sender: UISegmentedControl) {

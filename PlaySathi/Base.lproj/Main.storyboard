@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6kO-Tg-CIB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t1d-aC-GAc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,6 +12,7 @@
         <scene sceneID="L64-0E-7Es">
             <objects>
                 <tabBarController id="6kO-Tg-CIB" customClass="MainTabBarController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zxT-oL-Qon"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GWe-8A-f4h">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -23,7 +26,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02F-pY-2OE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196" y="-204"/>
+            <point key="canvasLocation" x="1121.3740458015266" y="-204.22535211267606"/>
         </scene>
         <!--tabAryan-->
         <scene sceneID="fQK-tm-opU">
@@ -33,7 +36,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZsE-T8-v6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="-375"/>
+            <point key="canvasLocation" x="1981.679389312977" y="-375.35211267605638"/>
         </scene>
         <!--tabPrince-->
         <scene sceneID="0Fg-dq-NzR">
@@ -43,7 +46,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y4s-QV-buz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069" y="-204"/>
+            <point key="canvasLocation" x="1994.6564885496182" y="-204.22535211267606"/>
         </scene>
         <!--tabVishwajeet-->
         <scene sceneID="0SN-to-DPi">
@@ -53,10 +56,50 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVW-44-dm6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="-27"/>
+            <point key="canvasLocation" x="2006.1068702290077" y="-27.464788732394368"/>
+        </scene>
+        <!--Weekly Availability View Controller-->
+        <scene sceneID="qdv-HO-cHm">
+            <objects>
+                <viewController id="sri-JJ-LIj" customClass="WeeklyAvailabilityViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nVY-yp-HBa">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zRM-Tv-xla"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JhA-Wr-xCl"/>
+                    <connections>
+                        <segue destination="6kO-Tg-CIB" kind="show" identifier="home" id="aOs-RE-jzf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TyD-uQ-C4d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208.3969465648855" y="-204.22535211267606"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bBQ-4S-NRu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t1d-aC-GAc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SaO-1E-Zda">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sri-JJ-LIj" kind="relationship" relationship="rootViewController" id="Dud-dv-H3G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pTV-Ju-FvV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-718.32061068702285" y="-204.22535211267606"/>
         </scene>
     </scenes>
     <resources>
         <image name="i.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
