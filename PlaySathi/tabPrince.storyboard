@@ -514,6 +514,9 @@
                                                 <constraint firstItem="Ugc-l7-Lga" firstAttribute="leading" secondItem="Bni-KD-NRV" secondAttribute="leading" constant="25" id="nnb-89-kuc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="s8o-Rg-RFW" kind="show" id="07G-AQ-W9q"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="39" id="H99-Yk-BiK">
                                         <rect key="frame" x="20" y="435.66666793823242" width="353" height="39"/>
@@ -543,6 +546,9 @@
                                                 <constraint firstItem="CiW-gd-owR" firstAttribute="centerY" secondItem="fUd-Fd-HfS" secondAttribute="centerY" id="kgD-7N-A6A"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="O0x-Vm-RHk" kind="show" id="1P0-3S-3Q6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -555,15 +561,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-iC-giA">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.circle.dashed" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-iC-giA">
                                                     <rect key="frame" x="25" y="10.000000000000002" width="25" height="23.666666666666671"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="48V-TY-7wn"/>
                                                         <constraint firstAttribute="width" constant="25" id="KRf-5w-Y2P"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoL-1r-WjE">
-                                                    <rect key="frame" x="60" y="11.333333333333336" width="54.666666666666657" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoL-1r-WjE">
+                                                    <rect key="frame" x="60" y="11.333333333333336" width="35.333333333333343" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -576,6 +582,9 @@
                                                 <constraint firstItem="NWZ-iC-giA" firstAttribute="centerY" secondItem="IGz-Mo-qki" secondAttribute="centerY" id="UoC-72-nws"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qVJ-zq-VeY" kind="show" id="3fJ-oe-mvY"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="4Gs-Q9-MFE">
                                         <rect key="frame" x="20" y="554.33333587646484" width="353" height="43.666667938232422"/>
@@ -605,6 +614,9 @@
                                                 <constraint firstItem="iWw-ju-kak" firstAttribute="centerY" secondItem="5Qz-iQ-1gh" secondAttribute="centerY" id="nRw-uw-liM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2Ca-Ug-Fqt" kind="show" id="bYj-YA-b11"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="oLg-zQ-aow">
                                         <rect key="frame" x="20" y="598.00000381469727" width="353" height="43.666667938232422"/>
@@ -634,6 +646,9 @@
                                                 <constraint firstItem="CqQ-Cw-YN4" firstAttribute="centerY" secondItem="HXN-sd-SO0" secondAttribute="centerY" id="r1N-ez-YKw"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7QM-74-1FL" kind="show" id="wXN-PJ-sE0"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -669,6 +684,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lig-At-V83" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="449.61832061068702" y="787.32394366197184"/>
+        </scene>
+        <!--Point System View Controller-->
+        <scene sceneID="s5Q-2Q-88m">
+            <objects>
+                <viewController id="O0x-Vm-RHk" customClass="PointSystemViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eoK-b7-52x">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cbl-Ig-LCV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ybe-Xl-oFU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Wh-lc-8kR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-625" y="1532"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="pbu-bR-fpi">
+            <objects>
+                <viewController id="qVJ-zq-VeY" customClass="HelpViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JIP-hb-P8z">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YTM-Dl-ZRY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wyv-nv-VQJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tet-aE-24E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-515" y="2219"/>
+        </scene>
+        <!--Refferal View Controller-->
+        <scene sceneID="tZj-zf-pmB">
+            <objects>
+                <viewController id="2Ca-Ug-Fqt" customClass="RefferalViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xk1-XN-dso">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="pD6-92-fK5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="STG-EO-Mit"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR6-PG-6Eg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="593" y="2222"/>
+        </scene>
+        <!--Set View Controller-->
+        <scene sceneID="7ih-x8-3gH">
+            <objects>
+                <viewController id="7QM-74-1FL" customClass="SetViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HVv-cQ-JpX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eol-6n-bjh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qEe-Bk-Txf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fyc-iV-be6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1589" y="2244"/>
         </scene>
         <!--Created Game View Controller-->
         <scene sceneID="Agk-ZC-P6b">
@@ -808,7 +887,6 @@
         <!--Calendar View Controller-->
         <scene sceneID="sTb-hd-cEd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jgZ-p2-6zh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="71R-4q-LbG" customClass="FSCalendarViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nV7-Ru-eiG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -842,8 +920,25 @@
                         <outlet property="cardTableView" destination="iq2-x0-RZN" id="BJy-xM-Zh9"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jgZ-p2-6zh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2441.9847328244273" y="1521.8309859154931"/>
+        </scene>
+        <!--User Personal View Controller-->
+        <scene sceneID="vlK-zU-FHf">
+            <objects>
+                <viewController id="s8o-Rg-RFW" customClass="UserPersonalViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s96-bk-Kc0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="FbN-l0-ior"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3Rp-cR-h8g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vUU-sl-fT9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-596" y="771"/>
         </scene>
         <!--Player Request View Controller-->
         <scene sceneID="h6v-6C-X6k">
@@ -1005,6 +1100,7 @@
         <image name="person.and.background.striped.horizontal" catalog="system" width="128" height="99"/>
         <image name="person.badge.plus" catalog="system" width="128" height="124"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
+        <image name="questionmark.circle.dashed" catalog="system" width="128" height="123"/>
         <image name="sportscourt" catalog="system" width="128" height="83"/>
         <image name="star.circle" catalog="system" width="128" height="123"/>
         <image name="trophy" catalog="system" width="128" height="128"/>
