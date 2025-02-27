@@ -16,16 +16,28 @@ class SlotTableViewController: UITableViewController {
     var selectedTimeSlot = -1
     var selectedCourt = -1
     
+    @IBOutlet var nextButton : UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSlotCollectionView()
         setupCollectionView()
         datePicker.minimumDate = Date()
         dispaly()
+        nextButton.isEnabled = false
+        nextButtonState()
     }
   
+    
+    func nextButtonState() {
+        // Button should be enabled only when both selections are made
+                nextButton.isEnabled = selectedTimeSlot != -1 && selectedCourt != -1
+                nextButton.tintColor = nextButton.isEnabled ? .systemBlue : .systemGray
+
+        
+    }
   
-    func dispaly(){
+    func dispaly() {
         venueNameInSlotSection.text = DataController.venueData[indexPathForSlotSection!.row].name
     }
    
@@ -132,6 +144,7 @@ extension SlotTableViewController:TimeSlotTableViewCellDelegate {
     func timeSlotSelected(selectedTimeSlot: Int) {
         self.selectedTimeSlot = selectedTimeSlot
         timeCollectionView.reloadData()
+        nextButtonState()
     }
 }
 
@@ -140,6 +153,7 @@ extension SlotTableViewController:CourtTableViewCellDelegate {
     func courtSelected(selectedCourt: Int) {
         self.selectedCourt = selectedCourt
         courtsCollectionView.reloadData()
+        nextButtonState() 
     }
     
 }
