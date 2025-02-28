@@ -172,7 +172,7 @@ class LoginViewController: UIViewController {
             // Navigate to the home page or next screen
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeViewController = storyboard.instantiateViewController(withIdentifier: "week") as! WeeklyAvailabilityViewController
+            let homeViewController = storyboard.instantiateViewController(withIdentifier: "main") as! MainTabBarController
             self.navigationController?.pushViewController(homeViewController, animated: true)
             self.navigationController?.navigationBar.isHidden = true
              

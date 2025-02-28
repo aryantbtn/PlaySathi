@@ -8,6 +8,12 @@
 import UIKit
 import Auth
 
+struct SignUpData {
+    let id: UUID
+    let email: String
+    let name: String
+    let contactNumber: String
+}
 class SignUpViewController: UIViewController {
     
     @IBOutlet var nameTextField: UITextField!
@@ -50,64 +56,83 @@ class SignUpViewController: UIViewController {
     }
         
     @IBAction func signupButtonTapped(_ sender: UIButton) {
-        guard let name = nameTextField.text, !name.isEmpty,
-              let email = emailTextField.text, !email.isEmpty,
-              let contactString = contactNumberTextField.text, !contactString.isEmpty,
-              let password = signupPasswordTextField.text, !password.isEmpty else {
+            guard let name = nameTextField.text, !name.isEmpty,
+                  let email = emailTextField.text, !email.isEmpty,
+                  let contactString = contactNumberTextField.text, !contactString.isEmpty,
+                  let password = signupPasswordTextField.text, !password.isEmpty else {
+                showAlert(message: "Please fill in all fields.")
+                return
+            }
             
-            showAlert(message: "Please fill in all fields.")
-            print("The fields were empty")
-            return
-        }
-        print("No fields were empty")
-        
-        guard let contactNumber = Double(contactString) else {
-            showAlert(message: "Invalid contact number. Please enter a valid numeric value.")
-            return
-        }
-        
-        let playerImage = "default image"
-        let location = "default location"
-        let availableTime = "default time"
-        signUp(name: name, email: email, contactNumber: String(contactNumber), password: password,playerImage:playerImage ,location: location,availableTime:availableTime )
-        
-    }
-        
-    func insertNewUser(id:UUID,name: String, email:String, contactNumber: String,playerImage:String,location:String,availableTime:String) async {
-        await PlayerDataController.shared.insertUser(newUser: Profile(id: id, email: email, name: name, contactNumber: contactNumber
-                                                                      , playerImage: playerImage, location: location, availableTime: availableTime))
-    }
-    
-    func signUp(name: String, email: String, contactNumber: String, password: String,playerImage:String,location:String,availableTime:String) {
-        Task {
-            do {
-                
-                SupabaseAuthanticationManager.shared.signUp(email: email, password: password, name: name, contactNumber: contactNumber,playerImage: playerImage, location: location, availableTime: availableTime) { result in
-                    switch result {
-                    case .success(let authResponse):
-                        print("New user created with ID: \(authResponse.user.id.uuidString)")
-                        
-                        DispatchQueue.main.async {
-                            self.showAlert(message: "Signup successful! Please login.")
-                            self.navigationController?.popViewController(animated: true)
+            guard let contactNumber = Double(contactString) else {
+                showAlert(message: "Invalid contact number. Please enter a valid numeric value.")
+                return
+            }
+            
+            Task {
+                do {
+                    // Single signup call to Supabase
+                    let authResponse = try await SupabaseAuthanticationManager.shared.getClient().auth.signUp(email: email, password: password)
+                    print("Auth signup successful with ID: \(authResponse.user.id.uuidString)")
+                    
+                    // Navigate to WeeklyAvailabilityViewController
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        if let weeklyVC = storyboard.instantiateViewController(withIdentifier: "week") as? WeeklyAvailabilityViewController {
+                            weeklyVC.userData = SignUpData(id: authResponse.user.id,
+                                                         email: email,
+                                                         name: name,
+                                                         contactNumber: String(contactNumber))
+                            self.navigationController?.pushViewController(weeklyVC, animated: true)
                         }
-                    case .failure(let error):
-                        DispatchQueue.main.async {
-                            self.showAlert(message: "Signup failed: \(error.localizedDescription)")
-                        }
-                        print("Signup error: \(error.localizedDescription)")
                     }
+                } catch {
+                    DispatchQueue.main.async {
+                        self.showAlert(message: "Signup failed: \(error.localizedDescription)")
+                    }
+                    print("Signup error: \(error.localizedDescription)")
                 }
-//                print("New user created with ID: \(SupabaseAuthenticationManager.shared.user.id.uuidString)")
-                
-            } catch {
-                DispatchQueue.main.async {
-                    self.showAlert(message: "Signup failed: \(error.localizedDescription)")
-                }
-                print("Signup error: \(error.localizedDescription)")
             }
         }
-    }
+//        signUp(name: name, email: email, contactNumber: String(contactNumber), password: password,playerImage:playerImage ,location: location,availableTime:availableTime )
+//        
+//    }
+//        
+//    func insertNewUser(id:UUID,name: String, email:String, contactNumber: String,playerImage:String,location:String,availableTime:String) async {
+//        await PlayerDataController.shared.insertUser(newUser: Profile(id: id, email: email, name: name, contactNumber: contactNumber
+//                                                                      , playerImage: playerImage, location: location, availableTime: availableTime))
+//    }
+    
+//    func signUp(name: String, email: String, contactNumber: String, password: String,playerImage:String,location:String,availableTime:String) {
+//        Task {
+//            do {
+//                
+//                SupabaseAuthanticationManager.shared.signUp(email: email, password: password) { result in
+//                    switch result {
+//                    case .success(let authResponse):
+//                        print("New user created with ID: \(authResponse.user.id.uuidString)")
+//                        
+//                        DispatchQueue.main.async {
+//                            self.showAlert(message: "Signup successful! Please login.")
+//                            self.navigationController?.popViewController(animated: true)
+//                        }
+//                    case .failure(let error):
+//                        DispatchQueue.main.async {
+//                            self.showAlert(message: "Signup failed: \(error.localizedDescription)")
+//                        }
+//                        print("Signup error: \(error.localizedDescription)")
+//                    }
+//                }
+////                print("New user created with ID: \(SupabaseAuthenticationManager.shared.user.id.uuidString)")
+//                
+//            } catch {
+//                DispatchQueue.main.async {
+//                    self.showAlert(message: "Signup failed: \(error.localizedDescription)")
+//                }
+//                print("Signup error: \(error.localizedDescription)")
+//            }
+//        }
+//    }
         
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)

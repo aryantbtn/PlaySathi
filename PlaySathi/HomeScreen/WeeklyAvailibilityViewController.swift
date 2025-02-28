@@ -1,9 +1,9 @@
 import UIKit
 
+
 class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
-    
+    var userData: SignUpData?
     
     @IBOutlet weak var lo: UITextField!
     
@@ -14,14 +14,48 @@ class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControlle
     
     
     @IBAction func ok(_ sender: Any) {
+        
+        guard let userData = userData,
+              let location = lo.text,
+              let time = ti.text,
+              let imageUrl = imm.text else {
+            return
+        }
+        
+        // Insert user data into Player table
+        Task {
+            do {
+                try await SupabaseAuthanticationManager.shared.getClient().from("Player").insert([
+                    "id": userData.id.uuidString,
+                    "email": userData.email,
+                    "name": userData.name,
+                    "contactNumber": userData.contactNumber,
+                    "playerImage": imageUrl,
+                    "location": location,
+                    "availableTime": time
+                ]).execute()
+                
+                // Navigate to main screen
+                DispatchQueue.main.async {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "main") as! MainTabBarController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            } catch {
+                print("Error inserting user data: \(error)")
+            }
+        }
+        
+        
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "main") as! MainTabBarController
-            self.navigationController?.pushViewController(vc, animated: true)
+        let vc = storyboard.instantiateViewController(withIdentifier: "main") as! MainTabBarController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
-
 }
+
 
 //    // MARK: - UI Components
 //    private let scrollView: UIScrollView = {

@@ -21,7 +21,7 @@ struct SupabaseAuthanticationManager {
         client = SupabaseClient(supabaseURL: supabaseURL, supabaseKey: supabaseKey)
     }
 
-    func signUp(email: String, password: String, name: String, contactNumber: String,playerImage: String, location: String, availableTime: String, completion: @escaping (Result<AuthResponse,Error>)->Void) {
+    func signUp(email: String, password: String, completion: @escaping (Result<AuthResponse,Error>)->Void) {
             Task {
                 do {
                     let authResponse = try await client.auth.signUp(email: email, password: password)
@@ -29,18 +29,6 @@ struct SupabaseAuthanticationManager {
                     // Directly access user ID
                     let userId = authResponse.user.id
                             
-                    // Insert user data into 'User' table
-                    try await client.from("Player").insert([
-                        "id": userId.uuidString,
-                        "email": email,
-                        "name": name,
-                        "contactNumber": contactNumber,
-                        "playerImage":playerImage,
-                        "location":location,
-                        "availableTime":availableTime
-                    ]).execute()
-                            
-                    completion(.success(authResponse))
                 } catch {
                     completion(.failure(error))
                 }
