@@ -57,7 +57,7 @@ class SlotTableViewController: UITableViewController {
     func nextButtonState() {
         // Button should be enabled only when both selections are made
                 nextButton.isEnabled = selectedTimeSlot != -1 && selectedCourt != -1
-                nextButton.tintColor = nextButton.isEnabled ? .systemBlue : .systemGray
+        nextButton.tintColor = nextButton.isEnabled ? .accent : .systemGray
 
         
     }
