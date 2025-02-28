@@ -10,21 +10,22 @@ import UIKit
 
 
 struct Profile: Codable {
-    let id: UUID
-    let email: String
-    let name: String
-    let contactNumber: String
-//    let profilePicture: String
-//    let elitePoints: Int
-//    let skillLevel: String
-//    let distance: Double
-//    let location: String
+    var id: UUID
+    var email: String
+    var name: String
+    var contactNumber: String
+    var playerImage:String
+    var location:String
+    var availableTime:String
     
-    init(id:UUID,name: String, email: String, contactNumber: String) {
+    init(id:UUID,email:String,name:String,contactNumber:String,playerImage:String,location:String,availableTime:String){
         self.id = id
-        self.name = name
         self.email = email
         self.contactNumber = contactNumber
+        self.name = name
+        self.playerImage = playerImage
+        self.location = location
+        self.availableTime = availableTime
     }
 }
 

@@ -8,24 +8,35 @@
 import UIKit
 
 class UserProfileTableViewController: UITableViewController {
-
+    @IBOutlet weak var name: UILabel!
+    
+    @IBOutlet weak var skillLevel: UILabel!
+    
+    private var userProfile :  Profile?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        Task {
+            
+            name.text =  await PlayerTableManager.shared.fetchCurrentUser()?.name
+        }
+            }
+//    
+//    private func fetchUserProfile() async {
+//            if let profile = await PlayerTableManager.shared.fetchCurrentUser() {
+//                self.userProfile = profile
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
+//        
+            override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 5
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         switch section {
@@ -34,25 +45,19 @@ class UserProfileTableViewController: UITableViewController {
         case 1:
             return 1
         case 2:
-           return 2
+            return 2
         case 3:
-           return 3
+            return 3
         case 4:
-           return 1
+            return 1
         default:
             return 1
         }
     }
-
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return CGFloat.leastNormalMagnitude
-//    }
-//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return CGFloat.leastNormalMagnitude
-//    }
 }

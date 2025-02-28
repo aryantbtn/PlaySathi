@@ -66,19 +66,23 @@ class SignUpViewController: UIViewController {
             return
         }
         
-        signUp(name: name, email: email, contactNumber: String(contactNumber), password: password)
+        let playerImage = "default image"
+        let location = "default location"
+        let availableTime = "default time"
+        signUp(name: name, email: email, contactNumber: String(contactNumber), password: password,playerImage:playerImage ,location: location,availableTime:availableTime )
         
     }
         
-    func insertNewUser(id:UUID,name: String, email:String, contactNumber: String) async {
-        await PlayerDataController.shared.insertUser(newUser: Profile(id: id, name: name, email: email, contactNumber: contactNumber))
+    func insertNewUser(id:UUID,name: String, email:String, contactNumber: String,playerImage:String,location:String,availableTime:String) async {
+        await PlayerDataController.shared.insertUser(newUser: Profile(id: id, email: email, name: name, contactNumber: contactNumber
+                                                                      , playerImage: playerImage, location: location, availableTime: availableTime))
     }
     
-    func signUp(name: String, email: String, contactNumber: String, password: String) {
+    func signUp(name: String, email: String, contactNumber: String, password: String,playerImage:String,location:String,availableTime:String) {
         Task {
             do {
                 
-                SupabaseAuthanticationManager.shared.signUp(email: email, password: password, name: name, contactNumber: contactNumber) { result in
+                SupabaseAuthanticationManager.shared.signUp(email: email, password: password, name: name, contactNumber: contactNumber,playerImage: playerImage, location: location, availableTime: availableTime) { result in
                     switch result {
                     case .success(let authResponse):
                         print("New user created with ID: \(authResponse.user.id.uuidString)")
