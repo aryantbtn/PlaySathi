@@ -18,44 +18,87 @@ class SlotTableViewController: UITableViewController {
     
     @IBOutlet var nextButton : UIBarButtonItem!
     
-    // Add these new properties
-     private var availableCourts: [String] = []
-     private var selectedDate: Date?
-
+   
+      private var headerView: UIView?
+     
+      private var availableCourts: [String] = []
+      
+      override func viewDidLoad() {
+          super.viewDidLoad()
+          setupSlotCollectionView()
+          setupCollectionView()
+          setupLegendHeaderView()
+          datePicker.minimumDate = Date()
+          dispaly()
+          nextButton.isEnabled = false
+         
+          nextButtonState()
+          courtsCollectionView.isHidden = true
+      }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupSlotCollectionView()
-        setupCollectionView()
-        datePicker.minimumDate = Date()
-        dispaly()
-        nextButton.isEnabled = false
-        selectedDate = datePicker.date
-        nextButtonState()
-        // Hide courts collection view initially
-        courtsCollectionView.isHidden = true
-    }
-    private func updateAvailableCourts(for timeSlot: String) {
-        guard let venueIndex = indexPathForSlotSection?.row else { return }
-        let venue = DataController.venueData[venueIndex]
-        
-        selectedCourt = -1
-                
-                // In a real app, you would check court availability from your data
-                // For now, we'll show all courts as available
-                availableCourts = venue.numberOfCourts
-                
-                courtsCollectionView.isHidden = false
-                courtsCollectionView.reloadData()
-                nextButtonState()
-            }
+  
+    private func setupLegendHeaderView() {
+           let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 40))
+           headerView.backgroundColor = .systemBackground
+           
+           let availableBox = createColorBox(color: UIColor.systemGreen)
+           let availableLabel = createLabel(text: "Available")
+           let bookedBox = createColorBox(color: UIColor.systemGray4)
+           let bookedLabel = createLabel(text: "Booked")
+           
+           headerView.addSubview(availableBox)
+           headerView.addSubview(availableLabel)
+           headerView.addSubview(bookedBox)
+           headerView.addSubview(bookedLabel)
+           
+           NSLayoutConstraint.activate([
+               availableBox.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+               availableBox.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+               availableLabel.leadingAnchor.constraint(equalTo: availableBox.trailingAnchor, constant: 8),
+               availableLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+               
+               bookedBox.leadingAnchor.constraint(equalTo: availableLabel.trailingAnchor, constant: 32),
+               bookedBox.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+               bookedLabel.leadingAnchor.constraint(equalTo: bookedBox.trailingAnchor, constant: 8),
+               bookedLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
+           ])
+           
+           self.headerView = headerView
+           headerView.isHidden = true
+           tableView.tableHeaderView = headerView
+       }
+       
+       private func createColorBox(color: UIColor) -> UIView {
+           let box = UIView()
+           box.translatesAutoresizingMaskIntoConstraints = false
+           box.backgroundColor = color
+           box.layer.cornerRadius = 4
+           
+           NSLayoutConstraint.activate([
+               box.widthAnchor.constraint(equalToConstant: 16),
+               box.heightAnchor.constraint(equalToConstant: 16)
+           ])
+           
+           return box
+       }
+       
+       private func createLabel(text: String) -> UILabel {
+           let label = UILabel()
+           label.translatesAutoresizingMaskIntoConstraints = false
+           label.text = text
+           label.font = .systemFont(ofSize: 12)
+           label.textColor = .label
+           return label
+       }
+       
+
     
             
 
   
     
     func nextButtonState() {
-        // Button should be enabled only when both selections are made
+      
                 nextButton.isEnabled = selectedTimeSlot != -1 && selectedCourt != -1
         nextButton.tintColor = nextButton.isEnabled ? .accent : .systemGray
 
@@ -155,18 +198,16 @@ extension SlotTableViewController: UICollectionViewDelegate, UICollectionViewDat
 
 
 
-// Modify TimeSlotTableViewCellDelegate implementation
 extension SlotTableViewController: TimeSlotTableViewCellDelegate {
     func timeSlotSelected(selectedTimeSlot: Int) {
         self.selectedTimeSlot = selectedTimeSlot
         if selectedTimeSlot != -1 {
-            // Show courts when time is selected
             courtsCollectionView.isHidden = false
-            // Get all courts for the venue
+            headerView?.isHidden = false
             availableCourts = DataController.venueData[indexPathForSlotSection!.row].numberOfCourts
         } else {
-            // Hide courts when no time selected
             courtsCollectionView.isHidden = true
+            headerView?.isHidden = true
             availableCourts = []
         }
         timeCollectionView.reloadData()
@@ -174,6 +215,7 @@ extension SlotTableViewController: TimeSlotTableViewCellDelegate {
         nextButtonState()
     }
 }
+
 
 
 

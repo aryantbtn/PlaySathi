@@ -14,7 +14,7 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet var sortingTitle: UILabel!
     
     @IBOutlet weak var searchBar: UITextField!
-    // Added sorting criteria
+   
        var distance = ["Nearby Distance", "Price", "Rating"]
        var filteredVenueData: [Venue] = []
        
@@ -26,11 +26,10 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
            venueCollectionView.setCollectionViewLayout(generateLayout(), animated: true)
            venueCollectionView.dataSource = self
            venueCollectionView.delegate = self
-           
-           // Initially set venue data to all venues
+        
            filteredVenueData = DataController.venueData
            
-           // Initialize sorting menu and apply filtering
+          
            sortDistance()
        }
        
@@ -82,8 +81,7 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
            sortingButton.showsMenuAsPrimaryAction = true
        }
        
-       // Filter venues based on sorting criteria
-    // Update sortVenuesByCriteria to work with filteredVenueData
+      
     func sortVenuesByCriteria(_ criteria: String) {
            switch criteria {
            case "Nearby Distance":
@@ -95,7 +93,7 @@ class VenueListViewController: UIViewController, UICollectionViewDataSource, UIC
            default:
                break
            }
-           // Make sure to reload collection view after sorting
+           
            DispatchQueue.main.async {
                self.venueCollectionView.reloadData()
            }
