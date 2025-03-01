@@ -51,7 +51,9 @@ class PlayerList1ViewController: UIViewController, UITableViewDelegate, UITableV
    //        print("Cell for row")
            if searching {
                let player = searchPlayer[indexPath.row]
-                cell.playerNameLabel.text = player.name
+               cell.playerNameLabel.text = player.name
+               cell.playerImageView.image = UIImage(named: player.profilePicture)
+               cell.playerDescription.text = "Distance ~ " + player.distance.formatted() + " kms" + " | \(player.elitePoints) EP"
         
             } else {
                 cell.upadateCell(with: indexPath)

@@ -27,7 +27,7 @@ class PlayerSection1TableViewCell: UITableViewCell {
         
         playerImageView.clipsToBounds = true
         playerNameLabel.text = DataController.userData[indexPath.row].name
-        playerSkillLevel.text = DataController.userData[indexPath.row].name
+        playerSkillLevel.text = DataController.userData[indexPath.row].skillLevel.rawValue
         
         
     }
