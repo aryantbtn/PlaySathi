@@ -13,10 +13,8 @@ class PlayerSection2TableViewCell: UITableViewCell {
     @IBOutlet weak var winRate: UILabel!
     @IBOutlet weak var elitePointEarned: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     func updatePlayerMatchStats(with indexPath: IndexPath) {

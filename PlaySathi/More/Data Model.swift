@@ -78,6 +78,7 @@ enum TypeOfSection {
     case venueBooked
     case matches
 }
+
 struct CourtAvailability {
     let courtId: String
     var availableTimeSlots: [String]

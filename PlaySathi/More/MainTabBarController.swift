@@ -13,7 +13,6 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         self.selectedIndex = 1
         self.navigationController?.navigationBar.isHidden = true
-        // Do any additional setup after loading the view.
     }
 
 }

@@ -9,9 +9,21 @@ import UIKit
 
 class VenueSelectionCardViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
+    @IBOutlet weak var cView: UICollectionView!
+    var tit : String?
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        registerCells()
+        cView.setCollectionViewLayout(generateLayout(), animated: true)
+        cView.dataSource = self
+        cView.delegate = self
+        navigationItem.title = tit
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         1
     }
@@ -23,20 +35,11 @@ class VenueSelectionCardViewController: UIViewController,UICollectionViewDelegat
         return cell
     }
     
-    @IBOutlet weak var cView: UICollectionView!
-    var tit : String?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        registerCells()
-        cView.setCollectionViewLayout(generateLayout(), animated: true)
-        cView.dataSource = self
-        cView.delegate = self
-        navigationItem.title = tit
-    }
     func registerCells() {
         let firstNib = UINib(nibName: GameEntryCollectionViewCell.identifier, bundle: nil)
         cView.register(firstNib, forCellWithReuseIdentifier: GameEntryCollectionViewCell.identifier)
     }
+    
     func generateLayout()->UICollectionViewLayout{
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex,enviroment)->NSCollectionLayoutSection? in let section:NSCollectionLayoutSection
@@ -45,6 +48,7 @@ class VenueSelectionCardViewController: UIViewController,UICollectionViewDelegat
         }
         return layout
     }
+    
     func generateSectionLayout()->NSCollectionLayoutSection{
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -58,7 +62,4 @@ class VenueSelectionCardViewController: UIViewController,UICollectionViewDelegat
         
         return section
     }
-
-    
-
 }

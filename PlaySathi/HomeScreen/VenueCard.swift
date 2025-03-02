@@ -160,5 +160,3 @@ struct VenueCardView: View {
         }
     }
 }
-
-// End of file. No additional code.

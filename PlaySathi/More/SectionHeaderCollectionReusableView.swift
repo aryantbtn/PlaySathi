@@ -10,10 +10,8 @@ import UIKit
 class SectionHeaderCollectionReusableView: UICollectionReusableView {
     
     static let identifier = String(describing: SectionHeaderCollectionReusableView.self)
-    
     var headerLabel = UILabel()
     var button  = UIButton(type: .system)
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,8 +23,7 @@ class SectionHeaderCollectionReusableView: UICollectionReusableView {
         updateSectionHeader()
     }
     
-    
-    func updateSectionHeader (){
+    func updateSectionHeader () {
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
         

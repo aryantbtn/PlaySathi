@@ -2,7 +2,6 @@
 import UIKit
 class PointSystemViewController: UIViewController {
     
-    // MARK: - Properties
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .insetGrouped)
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +21,6 @@ class PointSystemViewController: UIViewController {
     }
     
     private var pointsData: [[PointItem]] = [
-        // Points Section
         [
             PointItem(title: "App Download", points: "100 Points", subtitle: nil),
             PointItem(title: "Refer Friend", points: "20 Points", subtitle: nil),
@@ -31,7 +29,7 @@ class PointSystemViewController: UIViewController {
             PointItem(title: "LOSS", points: "-20 Points", subtitle: "if both players are of same level"),
             PointItem(title: "Did not show up (DNS)", points: "-50 Points", subtitle: nil)
         ],
-        // Levels Section
+        
         [
             PointItem(title: "Amateur", points: "0-500", subtitle: nil),
             PointItem(title: "Semi Pro", points: "500-1500", subtitle: nil),
@@ -40,7 +38,6 @@ class PointSystemViewController: UIViewController {
         ]
     ]
     
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -89,7 +86,6 @@ extension PointSystemViewController: UITableViewDelegate, UITableViewDataSource 
             content.text = "\(item.title) (\(subtitle))"
         }
         
-        // Add star icon
         let imageConfig = UIImage.SymbolConfiguration(scale: .medium)
         content.image = UIImage(systemName: "star.fill", withConfiguration: imageConfig)
         content.imageProperties.tintColor = .systemBlue
@@ -111,4 +107,3 @@ extension PointSystemViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-// End of file. No additional code.
