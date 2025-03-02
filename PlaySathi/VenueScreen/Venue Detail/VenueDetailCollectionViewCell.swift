@@ -9,7 +9,7 @@ import UIKit
 
 class VenueDetailCollectionViewCell: UICollectionViewCell {
     
-    //static let identifier = String(describing: VenueDetailCollectionViewCell.self)
+   
 
     @IBOutlet var ImageLabel: UIImageView!
     @IBOutlet var distanceLabel: UILabel!
