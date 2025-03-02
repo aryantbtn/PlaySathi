@@ -96,6 +96,7 @@ class PlayerProfileViewController: UIViewController, UITableViewDelegate, UITabl
                     
             if let destVC = navigationController?.viewControllers[1] as? CreateGameTableViewController {
                 destVC.player = DataController.userData[indexPathForPlayerProfile.row].name
+                destVC.indexPath = indexPathForPlayerProfile.row
             }
                 
         } else {
@@ -115,97 +116,3 @@ class PlayerProfileViewController: UIViewController, UITableViewDelegate, UITabl
 }
 
 
-/*
-// Func Register CollectionView
-@IBOutlet weak var playerAchievement: UICollectionView!
-func registerCollectionView() {
-    let collectionViewNib = UINib(nibName: "PlayerAchievementCollectionViewCell", bundle: nil)
-
-    playerAchievement.register(collectionViewNib, forCellWithReuseIdentifier: "PlayerAchievementCollectionViewCell")
-    
-    
-    playerAchievement.register(AcheivementSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "AcheivementSectionHeader")
-    
-    playerAchievement.delegate = self
-    playerAchievement.dataSource = self
-}
-
-func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    if kind == UICollectionView.elementKindSectionHeader {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AcheivementSectionHeader", for: indexPath) as! AcheivementSectionHeader
-        
-        let title = ["Achievement"]
-        header.headerLabel.text = title[indexPath.section]
-        
-        switch indexPath.section {
-        case 0:
-            header.headerLabel.font = .systemFont(ofSize: 24, weight: .bold)
-        default:
-            break
-            
-        }
-        return header
-    }
-    
-    return UICollectionReusableView()
-    
-}
-    
-
-
-func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
-}
-
-func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return DataController.achieve.count // Example count
-}
-
-func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerAchievementCollectionViewCell", for: indexPath) as! PlayerAchievementCollectionViewCell
-    cell.updateAchievementInfo(achievement: DataController.achieve[indexPath.row])
-    cell.layer.cornerRadius = 10
-    cell.clipsToBounds = true
-    return cell
-}
-
-
-//MARK: - Collection View Generate Layout Function
-func generateLayout() -> UICollectionViewLayout {
-    let layout = UICollectionViewCompositionalLayout { (sectionIndex,enviroment)->NSCollectionLayoutSection? in let section:NSCollectionLayoutSection
-        section = self.generateHorizontalLayout()
-        
-        return section
-    }
-    
-    return layout
-}
- 
- func generateHorizontalLayout() -> NSCollectionLayoutSection {
-     let itemSize = NSCollectionLayoutSize(
-         widthDimension: .absolute(150), // Fixed width for each item
-         heightDimension: .absolute(180) // Fixed height for each item
-     )
-     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-     item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
-     
-     let groupSize = NSCollectionLayoutSize(
-         widthDimension: .estimated(160), // Allows items to scroll horizontally
-         heightDimension: .absolute(180)
-     )
-     let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-     
-     let section = NSCollectionLayoutSection(group: group)
-     section.orthogonalScrollingBehavior = .continuous // Enables horizontal scrolling
-     
-     let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
-     let header = NSCollectionLayoutBoundarySupplementaryItem(
-         layoutSize: headerSize,
-         elementKind: UICollectionView.elementKindSectionHeader,
-         alignment: .top
-     )
-     section.boundarySupplementaryItems = [header]
-     
-     return section
- }
-*/

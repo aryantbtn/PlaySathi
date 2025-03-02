@@ -9,17 +9,17 @@ import UIKit
 
 class PlayerRequestViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    @IBOutlet weak var cv: UICollectionView!
-    var t : String?
+    @IBOutlet weak var collectionViewForInviteSent: UICollectionView!
+    var inviteSentTitle : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
         self.tabBarController?.isTabBarHidden = true
-        cv.setCollectionViewLayout(generateLayout(), animated: true)
-        cv.dataSource = self
-        cv.delegate = self
-        navigationItem.title = t
+        collectionViewForInviteSent.setCollectionViewLayout(generateLayout(), animated: true)
+        collectionViewForInviteSent.dataSource = self
+        collectionViewForInviteSent.delegate = self
+        navigationItem.title = inviteSentTitle
         
     }
     
@@ -33,15 +33,16 @@ class PlayerRequestViewController: UIViewController,UICollectionViewDelegate,UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
-        cell.disp(with:indexPath)
+        cell.updateInviteSent(with:indexPath)
         cell.layer.cornerRadius = 8
         return cell
     }
     
     func registerCells() {
         let firstNib = UINib(nibName: PlayerSelectionCollectionViewCell.identifier, bundle: nil)
-        cv.register(firstNib, forCellWithReuseIdentifier: PlayerSelectionCollectionViewCell.identifier)
+        collectionViewForInviteSent.register(firstNib, forCellWithReuseIdentifier: PlayerSelectionCollectionViewCell.identifier)
     }
+    
     func generateLayout()->UICollectionViewLayout{
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex,enviroment)->NSCollectionLayoutSection? in let section:NSCollectionLayoutSection
@@ -50,6 +51,7 @@ class PlayerRequestViewController: UIViewController,UICollectionViewDelegate,UIC
         }
         return layout
     }
+    
     func generateSectionLayout()->NSCollectionLayoutSection{
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)

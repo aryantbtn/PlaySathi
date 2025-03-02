@@ -7,11 +7,9 @@
 
 import Foundation
 import SwiftUI
-// Your imports remain the same
-import SwiftUI
 
 struct CreateGameCardView: View {
-    // Properties
+    
     @Binding var isPresented: Bool
     var playerName: String
     var playerImage: String
@@ -33,7 +31,6 @@ struct CreateGameCardView: View {
                 }
             
             VStack(spacing: 20) {
-                // Player Section
                 HStack(spacing: 16) {
                     Image(playerImage)
                         .resizable()
@@ -76,7 +73,7 @@ struct CreateGameCardView: View {
                 Divider()
                     .padding(.vertical, 8)
                 
-                // Venue Section
+                
                 HStack(alignment: .top) {
                     ZStack {
                         Circle()
@@ -116,7 +113,7 @@ struct CreateGameCardView: View {
                 Divider()
                     .padding(.vertical, 8)
                 
-                // Date and Time Section
+            
                 VStack(spacing: 12) {
                     HStack(spacing: 8) {
                         Image(systemName: "calendar")
@@ -143,7 +140,7 @@ struct CreateGameCardView: View {
                     .cornerRadius(12)
                 }
                 
-                // Price Section
+              
                 HStack {
                     Text("Total Price")
                         .font(.title3)
@@ -171,7 +168,7 @@ struct CreateGameCardView: View {
         }
     }
     
-    // Status color helper function
+    
     private func statusColor(_ status: String) -> Color {
         switch status.lowercased() {
         case "accepted": return .green
@@ -182,4 +179,3 @@ struct CreateGameCardView: View {
     }
 }
 
-// End of file. No additional code.
