@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04FAAEF52D74B8BB00274319 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 04FAAEF42D74B8BB00274319 /* FSCalendar */; };
 		BF9351932D70AD6200E8B5F0 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BF9351922D70AD6200E8B5F0 /* GoogleSignIn */; };
 		BF9351952D70AD6200E8B5F0 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF9351942D70AD6200E8B5F0 /* GoogleSignInSwift */; };
 		BF9351982D70AD8000E8B5F0 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = BF9351972D70AD8000E8B5F0 /* Auth */; };
@@ -51,6 +52,7 @@
 				BF9351952D70AD6200E8B5F0 /* GoogleSignInSwift in Frameworks */,
 				BF9351A02D70AD8000E8B5F0 /* Storage in Frameworks */,
 				BF93519A2D70AD8000E8B5F0 /* Functions in Frameworks */,
+				04FAAEF52D74B8BB00274319 /* FSCalendar in Frameworks */,
 				BF9351A22D70AD8000E8B5F0 /* Supabase in Frameworks */,
 				BF93519E2D70AD8000E8B5F0 /* Realtime in Frameworks */,
 				BF9351982D70AD8000E8B5F0 /* Auth in Frameworks */,
@@ -105,6 +107,7 @@
 				BF93519D2D70AD8000E8B5F0 /* Realtime */,
 				BF93519F2D70AD8000E8B5F0 /* Storage */,
 				BF9351A12D70AD8000E8B5F0 /* Supabase */,
+				04FAAEF42D74B8BB00274319 /* FSCalendar */,
 			);
 			productName = PlaySathi;
 			productReference = 05BB73132D376E6D00236644 /* PlaySathi.app */;
@@ -137,6 +140,7 @@
 			packageReferences = (
 				BF9351912D70AD6200E8B5F0 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				BF9351962D70AD8000E8B5F0 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				04FAAEF32D74B8BB00274319 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 05BB73142D376E6D00236644 /* Products */;
@@ -372,6 +376,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		04FAAEF32D74B8BB00274319 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
 		BF9351912D70AD6200E8B5F0 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -391,6 +403,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		04FAAEF42D74B8BB00274319 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04FAAEF32D74B8BB00274319 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
 		BF9351922D70AD6200E8B5F0 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BF9351912D70AD6200E8B5F0 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
