@@ -13,9 +13,8 @@ class GameEntryCollectionViewCell: UICollectionViewCell {
    
     @IBOutlet var dateAndTime: UILabel!
     @IBOutlet var venueName: UILabel!
-    func d(with indexPath : IndexPath){
+    
+    func d(with indexPath : IndexPath) {
         venueName.text = DataController.venueData[indexPath.row].name
     }
-    
-
 }

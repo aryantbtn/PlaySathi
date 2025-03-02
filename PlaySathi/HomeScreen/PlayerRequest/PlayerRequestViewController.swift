@@ -9,21 +9,8 @@ import UIKit
 
 class PlayerRequestViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
-        cell.disp(with:indexPath)
-        cell.layer.cornerRadius = 8
-        return cell
-    }
-    var t : String?
     @IBOutlet weak var cv: UICollectionView!
+    var t : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +22,22 @@ class PlayerRequestViewController: UIViewController,UICollectionViewDelegate,UIC
         navigationItem.title = t
         
     }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
+        cell.disp(with:indexPath)
+        cell.layer.cornerRadius = 8
+        return cell
+    }
+    
     func registerCells() {
         let firstNib = UINib(nibName: PlayerSelectionCollectionViewCell.identifier, bundle: nil)
         cv.register(firstNib, forCellWithReuseIdentifier: PlayerSelectionCollectionViewCell.identifier)

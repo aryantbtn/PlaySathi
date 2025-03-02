@@ -13,7 +13,6 @@ class HeaderForVenueCollectionReusableView: UICollectionReusableView {
     var headerLabel = UILabel()
     var button  = UIButton(type: .system)
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         updateSectionHeader()
@@ -24,8 +23,7 @@ class HeaderForVenueCollectionReusableView: UICollectionReusableView {
         updateSectionHeader()
     }
     
-    
-    func updateSectionHeader (){
+    func updateSectionHeader() {
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -46,4 +44,5 @@ class HeaderForVenueCollectionReusableView: UICollectionReusableView {
         button.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
+    
 }

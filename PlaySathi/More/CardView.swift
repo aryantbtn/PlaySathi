@@ -13,10 +13,12 @@ class CardView: UIView {
         super.init(frame: frame)
         initialSetup()
     }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         initialSetup()
     }
+    
     private func initialSetup() {
         layer.shadowColor = UIColor.black.cgColor
         layer.cornerRadius = 10
@@ -24,4 +26,5 @@ class CardView: UIView {
         layer.shadowOpacity = 0.1
         
     }
+    
 }
