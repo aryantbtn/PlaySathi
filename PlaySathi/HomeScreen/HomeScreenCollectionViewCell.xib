@@ -79,9 +79,9 @@
             </constraints>
             <size key="customSize" width="282" height="50"/>
             <connections>
-                <outlet property="BannerImage" destination="0M3-JC-ffv" id="b3P-N9-Yk8"/>
-                <outlet property="Label1" destination="Rhk-xl-4R1" id="BfH-XK-MsW"/>
-                <outlet property="Label2" destination="nke-gd-RSx" id="nMS-Pl-inn"/>
+                <outlet property="bannerImage" destination="0M3-JC-ffv" id="b3P-N9-Yk8"/>
+                <outlet property="connectLabel" destination="Rhk-xl-4R1" id="BfH-XK-MsW"/>
+                <outlet property="startLabel" destination="nke-gd-RSx" id="nMS-Pl-inn"/>
             </connections>
             <point key="canvasLocation" x="316.03053435114504" y="19.366197183098592"/>
         </collectionViewCell>

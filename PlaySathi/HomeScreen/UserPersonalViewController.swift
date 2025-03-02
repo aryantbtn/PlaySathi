@@ -18,7 +18,7 @@ struct UserProfile {
 }
 
 class UserPersonalViewController: UIViewController {
-    // Add delegate property at the top of the class
+   
      weak var delegate: UserPersonalViewControllerDelegate?
     
     private let scrollView: UIScrollView = {

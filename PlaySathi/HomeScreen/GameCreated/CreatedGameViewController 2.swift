@@ -9,36 +9,37 @@
 import UIKit
 
 class CreatedGameViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+    @IBOutlet weak var collectionViewForCreatedGame: UICollectionView!
+    var titl : String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        registerCells()
+        self.tabBarController?.isTabBarHidden = true
+        collectionViewForCreatedGame.setCollectionViewLayout(generateLayout(), animated: true)
+        collectionViewForCreatedGame.dataSource = self
+        collectionViewForCreatedGame.delegate = self
+        navigationItem.title = titl
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
-    
+     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCardCollectionViewCell.identifier, for: indexPath) as! GameCardCollectionViewCell
-        cell.game(with:indexPath)
+        cell.updateCreateGame(with:indexPath)
         cell.layer.cornerRadius = 8
         return cell
     }
     
-    @IBOutlet weak var cv: UICollectionView!
-    var titl : String?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        registerCells()
-        self.tabBarController?.isTabBarHidden = true
-        cv.setCollectionViewLayout(generateLayout(), animated: true)
-        cv.dataSource = self
-        cv.delegate = self
-        navigationItem.title = titl
-    }
-    
     func registerCells() {
         let firstNib = UINib(nibName: GameCardCollectionViewCell.identifier, bundle: nil)
-        cv.register(firstNib, forCellWithReuseIdentifier: GameCardCollectionViewCell.identifier)
+        collectionViewForCreatedGame.register(firstNib, forCellWithReuseIdentifier: GameCardCollectionViewCell.identifier)
     }
     
     func generateLayout()->UICollectionViewLayout{

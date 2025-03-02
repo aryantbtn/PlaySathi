@@ -29,7 +29,7 @@ class DataController{
         User(id: UUID(), name: "Shubham", profilePicture: "images14", elitePoints: 443, skillLevel: .beginner, distance: 27.5, location: "FDs"),
         User(id: UUID(), name: "Rajiv Singh", profilePicture: "images15", elitePoints: 562, skillLevel: .beginner, distance: 30, location: "FG"),
         User(id: UUID(), name: "Amit", profilePicture: "images16", elitePoints: 442, skillLevel: .beginner, distance: 35, location: "SFD"),
-        User(id: UUID(), name: "Amit", profilePicture: "images17", elitePoints: 452, skillLevel: .beginner, distance: 38.9, location: "FS"),
+        User(id: UUID(), name: "Amit Singh", profilePicture: "images17", elitePoints: 452, skillLevel: .beginner, distance: 38.9, location: "FS"),
         User(id: UUID(), name: "Amit", profilePicture: "images18", elitePoints: 462, skillLevel: .beginner, distance: 40, location: "SF"),
     ]
     
@@ -69,7 +69,7 @@ class DataController{
                 "Court5": ["5PM-6PM","9PM-10PM"]
         ]),
         
-        Venue(id: UUID(), name: "Piyush Verma", imageUrl: "v9", rating: 4.0, distanceInKm: 5, location: "Noida", numberOfCourts: ["Court1","Court2","Court3","Court4"], price: 300, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "5 AM",closingTime: "7 PM",
+        Venue(id: UUID(), name: "rohini Sports Complex", imageUrl: "v9", rating: 4.0, distanceInKm: 5, location: "Noida", numberOfCourts: ["Court1","Court2","Court3","Court4"], price: 300, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "5 AM",closingTime: "7 PM",
               timeSlots: ["2PM-3PM","6PM-8PM","9PM-10PM","5PM-6PM"],
               courtAvailability: [
                 "Court3": ["6PM-8PM","9PM-10PM"],

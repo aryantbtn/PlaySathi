@@ -66,8 +66,8 @@ class VenueFinalDetailTableViewController: UITableViewController {
             self.navigationController?.popToViewController(targetVC, animated: true)
             if let destVC = navigationController?.viewControllers[1] as? CreateGameTableViewController {
                 destVC.venueNmae = DataController.venueData[indexPathForVenueFinal.row].name
-                destVC.dat = selectedDay
-                destVC.tim = selectedTime
+                destVC.selectedDate = selectedDay
+                destVC.time = selectedTime
                 
             }
             
