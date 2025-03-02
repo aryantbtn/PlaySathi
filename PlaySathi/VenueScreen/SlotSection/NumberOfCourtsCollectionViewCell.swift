@@ -19,7 +19,7 @@ class NumberOfCourtsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var courtOutlet: UIButton!
     
-    
+    private var bookedCourts: Set<Int> = []
     var venueIndex:Int?
     var venueCourtIndex:Int?
     var isCurrentSlotSelected : Bool = false
@@ -30,59 +30,54 @@ class NumberOfCourtsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
     }
-    func configure(){
+    func configure() {
         guard let venueIndex = venueIndex, let venueCourtIndex = venueCourtIndex else { return }
         currentCourt = DataController.venueData[venueIndex].numberOfCourts[venueCourtIndex]
         isCurrentSlotSelected = selectedCourt == venueCourtIndex
-        isBooked = Bool.random()
-                
-                courtOutlet.setTitle(currentCourt, for: .normal)
-                updateCellAppearance()
+        
+        // isBooked is now set from the SlotTableViewController
         courtOutlet.setTitle(currentCourt, for: .normal)
-        if isCurrentSlotSelected {
+        updateCellAppearance()
+    }
+
+    private func updateCellAppearance() {
+        if isBooked {
+            courtOutlet.backgroundColor = .systemGray4
+            courtOutlet.isEnabled = false
+        } else if isCurrentSlotSelected {
             courtOutlet.backgroundColor = .systemGreen
+            courtOutlet.isEnabled = true
         } else {
             courtOutlet.backgroundColor = .white
+            courtOutlet.isEnabled = true
         }
-    }
-    private func updateCellAppearance() {
-            if isBooked {
-                courtOutlet.backgroundColor = .systemGray4
-                courtOutlet.isEnabled = false
-            } else if isCurrentSlotSelected {
-                courtOutlet.backgroundColor = .systemGreen
-                courtOutlet.isEnabled = true
-            } else {
-                courtOutlet.backgroundColor = .white
-                courtOutlet.isEnabled = true
-            }
-       
-             courtOutlet.layer.cornerRadius = 8
-             courtOutlet.layer.borderWidth = 1
-             courtOutlet.layer.borderColor = UIColor.gray.cgColor
-         }
-
         
-
+        courtOutlet.layer.cornerRadius = 8
+        courtOutlet.layer.borderWidth = 1
+        courtOutlet.layer.borderColor = UIColor.gray.cgColor
+    }
+    
+    
+    
     
     
     
     @IBAction func buttonTapped(_ sender: Any) {
-        if !isBooked {
-                   isCurrentSlotSelected.toggle()
-                   if isCurrentSlotSelected {
-                       selectedCourt = venueCourtIndex ?? -1
-                   } else {
-                       selectedCourt = -1
-                   }
-                   updateCellAppearance()
-                   delegat?.courtSelected(selectedCourt: self.selectedCourt)
-               }
-           }
-       }
-
-
-
+        guard !isBooked else { return }
+        
+        // Only toggle selection for available courts
+        isCurrentSlotSelected.toggle()
+        if isCurrentSlotSelected {
+            selectedCourt = venueCourtIndex ?? -1
+        } else {
+            selectedCourt = -1
+        }
+        updateCellAppearance()
+        delegat?.courtSelected(selectedCourt: self.selectedCourt)
+    }
+    
+    
+}
 
 
 

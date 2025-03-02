@@ -20,7 +20,7 @@ class SlotTableViewController: UITableViewController {
     
    
       private var headerView: UIView?
-     
+    private var bookedCourtsByTimeSlot: [Int: Set<Int>] = [:]
       private var availableCourts: [String] = []
       
       override func viewDidLoad() {
@@ -41,23 +41,16 @@ class SlotTableViewController: UITableViewController {
            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 40))
            headerView.backgroundColor = .systemBackground
            
-           let availableBox = createColorBox(color: UIColor.systemGreen)
-           let availableLabel = createLabel(text: "Available")
+         
            let bookedBox = createColorBox(color: UIColor.systemGray4)
            let bookedLabel = createLabel(text: "Booked")
            
-           headerView.addSubview(availableBox)
-           headerView.addSubview(availableLabel)
+          
            headerView.addSubview(bookedBox)
            headerView.addSubview(bookedLabel)
            
            NSLayoutConstraint.activate([
-               availableBox.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
-               availableBox.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
-               availableLabel.leadingAnchor.constraint(equalTo: availableBox.trailingAnchor, constant: 8),
-               availableLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
-               
-               bookedBox.leadingAnchor.constraint(equalTo: availableLabel.trailingAnchor, constant: 32),
+              
                bookedBox.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
                bookedLabel.leadingAnchor.constraint(equalTo: bookedBox.trailingAnchor, constant: 8),
                bookedLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
@@ -164,37 +157,37 @@ extension SlotTableViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == timeCollectionView {
-            // Existing time slot cell code remains the same
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AvailableTimeSlotCollectionViewCell.identifier, for: indexPath) as? AvailableTimeSlotCollectionViewCell
-            let timeSlots = DataController.venueData[indexPathForSlotSection!.row].timeSlots
-            cell?.venueIndex = indexPathForSlotSection?.row
-            cell?.venueTimeSlotIndex = indexPath.row
-            cell?.delegate = self
-            cell?.timeSlot.setTitle(timeSlots[indexPath.row], for: .normal)
-            cell?.selectedTimeSlot = self.selectedTimeSlot
-            cell?.configureCell()
-            cell?.layer.cornerRadius = 8
-            cell?.layer.borderWidth = 1
-            cell?.layer.borderColor = UIColor.gray.cgColor
-            cell?.backgroundColor = .systemGray
-            return cell!
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AvailableTimeSlotCollectionViewCell.identifier, for: indexPath) as! AvailableTimeSlotCollectionViewCell
+            cell.venueIndex = indexPathForSlotSection?.row
+            cell.venueTimeSlotIndex = indexPath.row
+            cell.delegate = self
+            cell.selectedTimeSlot = selectedTimeSlot
+            cell.configureCell()
+            return cell
         } else if collectionView == courtsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberOfCourtsCollectionViewCell.identifier, for: indexPath) as! NumberOfCourtsCollectionViewCell
             cell.venueIndex = indexPathForSlotSection?.row
             cell.venueCourtIndex = indexPath.row
             cell.delegat = self
             cell.selectedCourt = self.selectedCourt
+            
+            // Set isBooked based on the current time slot's booking status
+            if let bookedCourts = bookedCourtsByTimeSlot[selectedTimeSlot] {
+                cell.isBooked = bookedCourts.contains(indexPath.row)
+            }
+            
             cell.configure()
             cell.courtOutlet.setTitle(availableCourts[indexPath.row], for: .normal)
             cell.layer.cornerRadius = 8
             cell.layer.borderWidth = 1
             cell.layer.borderColor = UIColor.gray.cgColor
-            cell.backgroundColor = .systemGray
             return cell
         }
         return UICollectionViewCell()
     }
 }
+
+
 
 
 
@@ -205,25 +198,40 @@ extension SlotTableViewController: TimeSlotTableViewCellDelegate {
             courtsCollectionView.isHidden = false
             headerView?.isHidden = false
             availableCourts = DataController.venueData[indexPathForSlotSection!.row].numberOfCourts
+            
+            // Initialize booking status for this time slot if not already done
+            if bookedCourtsByTimeSlot[selectedTimeSlot] == nil {
+                var bookedCourts: Set<Int> = []
+                // Randomly book some courts
+                for courtIndex in 0..<availableCourts.count {
+                    if Bool.random() {
+                        bookedCourts.insert(courtIndex)
+                    }
+                }
+                bookedCourtsByTimeSlot[selectedTimeSlot] = bookedCourts
+            }
         } else {
             courtsCollectionView.isHidden = true
             headerView?.isHidden = true
             availableCourts = []
         }
+        
+        selectedCourt = -1 // Reset court selection when time slot changes
         timeCollectionView.reloadData()
         courtsCollectionView.reloadData()
         nextButtonState()
     }
-}
-
-
-
-
-extension SlotTableViewController:CourtTableViewCellDelegate {
-    func courtSelected(selectedCourt: Int) {
-        self.selectedCourt = selectedCourt
-        courtsCollectionView.reloadData()
-        nextButtonState() 
-    }
     
 }
+    
+    
+    
+    extension SlotTableViewController:CourtTableViewCellDelegate {
+        func courtSelected(selectedCourt: Int) {
+            self.selectedCourt = selectedCourt
+            courtsCollectionView.reloadData()
+            nextButtonState()
+        }
+        
+    }
+
