@@ -17,6 +17,8 @@ struct Profile: Codable {
     var playerImage:String
     var location:String
     var availableTime:String
+    var skillLevel : String = "Beginner"
+    var elitePoints: Int = 0
     
     init(id:UUID,email:String,name:String,contactNumber:String,playerImage:String,location:String,availableTime:String){
         self.id = id

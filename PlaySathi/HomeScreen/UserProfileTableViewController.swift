@@ -12,26 +12,23 @@ class UserProfileTableViewController: UITableViewController {
     
     @IBOutlet weak var skillLevel: UILabel!
     
+    @IBOutlet weak var image: UIImageView!
     private var userProfile :  Profile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Task {
+        if let imageData = UserDefaults.standard.data(forKey: "userProfileImage"),
+           let savedImage = UIImage(data: imageData) {
+            image.image = savedImage
             
-            name.text =  await PlayerTableManager.shared.fetchCurrentUser()?.name
-        }
+            Task {
+                name.text =  await PlayerTableManager.shared.fetchCurrentUser()?.name
+                skillLevel.text = await PlayerTableManager.shared.fetchCurrentUser()?.skillLevel
+                
             }
-//    
-//    private func fetchUserProfile() async {
-//            if let profile = await PlayerTableManager.shared.fetchCurrentUser() {
-//                self.userProfile = profile
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
-//        
+        }
+    }
+        
             override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 5
@@ -59,5 +56,8 @@ class UserProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        image.layer.cornerRadius = image.bounds.width / 2
     }
 }

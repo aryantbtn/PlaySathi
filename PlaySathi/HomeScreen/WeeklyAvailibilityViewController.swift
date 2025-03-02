@@ -43,6 +43,21 @@ class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControlle
         return imageView
     }()
     
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            // Update UI
+            profileImageView.image = selectedImage
+            
+            // Convert image to base64 string for storage
+            if let imageData = selectedImage.jpegData(compressionQuality: 0.5) {
+                let base64String = imageData.base64EncodedString()
+                // Store this base64String in your player data
+            }
+        }
+        picker.dismiss(animated: true)
+    }
+    
     private let imagePickerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Edit Photo", for: .normal)
@@ -409,6 +424,24 @@ class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControlle
     @objc private func okButtonTapped() {
         guard let userData = userData else { return }
         
+        // Format time without date components
+        let availabilityString = selectedDays.map { day, time -> String in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:00" // Only hour in 24-hour format
+            return "\(day): \(formatter.string(from: time))"
+        }.joined(separator: ", ")
+        
+        // Get base64 string of profile image
+        let imageString: String
+        if let image = profileImageView.image,
+           let imageData = image.jpegData(compressionQuality: 0.5) {
+            imageString = imageData.base64EncodedString()
+            UserDefaults.standard.set(imageData, forKey: "userProfileImage")
+
+        } else {
+            imageString = ""
+        }
+        
         Task {
             do {
                 try await SupabaseAuthanticationManager.shared.getClient().from("Player").insert([
@@ -416,10 +449,12 @@ class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControlle
                     "email": userData.email,
                     "name": userData.name,
                     "contactNumber": userData.contactNumber,
-                    "playerImage": "",
+                    "playerImage": imageString,
                     "location": locationTextField.text ?? "",
-                    "availableTime": selectedDays.isEmpty ? "" : selectedDays.map { "\($0.key): \($0.value)" }.joined(separator: ", "),
-                    "gender": maleButton.backgroundColor == .systemBlue ? "Male" : "Female"
+                    "availableTime": availabilityString,
+                    "gender": maleButton.backgroundColor == .systemBlue ? "Male" : "Female",
+                    "skillLevel": "Beginner",
+                    "elitePoint": "0"
                 ]).execute()
                 
                 DispatchQueue.main.async { [weak self] in
@@ -429,6 +464,12 @@ class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControlle
                 }
             } catch {
                 print("Error inserting user data: \(error)")
+                // Show error alert
+                DispatchQueue.main.async { [weak self] in
+                    let alert = UIAlertController(title: "Error", message: "Failed to save data. Please try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self?.present(alert, animated: true)
+                }
             }
         }
     }
