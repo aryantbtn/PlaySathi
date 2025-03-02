@@ -9,15 +9,15 @@ import UIKit
 
 class VenueSelectionCardViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    @IBOutlet weak var cView: UICollectionView!
-    var tit : String?
+    @IBOutlet weak var collectionViewForCourtBooked: UICollectionView!
+    var courtBookedTitle : String?
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
-        cView.setCollectionViewLayout(generateLayout(), animated: true)
-        cView.dataSource = self
-        cView.delegate = self
-        navigationItem.title = tit
+        collectionViewForCourtBooked.setCollectionViewLayout(generateLayout(), animated: true)
+        collectionViewForCourtBooked.dataSource = self
+        collectionViewForCourtBooked.delegate = self
+        navigationItem.title = courtBookedTitle
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -30,14 +30,14 @@ class VenueSelectionCardViewController: UIViewController,UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
-        cell.d(with:indexPath)
+        cell.updateCourtBooked(with:indexPath)
         cell.layer.cornerRadius = 8
         return cell
     }
     
     func registerCells() {
         let firstNib = UINib(nibName: GameEntryCollectionViewCell.identifier, bundle: nil)
-        cView.register(firstNib, forCellWithReuseIdentifier: GameEntryCollectionViewCell.identifier)
+        collectionViewForCourtBooked.register(firstNib, forCellWithReuseIdentifier: GameEntryCollectionViewCell.identifier)
     }
     
     func generateLayout()->UICollectionViewLayout{

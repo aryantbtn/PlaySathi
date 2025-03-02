@@ -18,8 +18,10 @@ class CreateGameTableViewController: UITableViewController {
     var instance = ScreenNavigation.navigate
     var venueNmae : String?
     var player : String?
-    var dat: String?
-    var tim: String?
+    var selectedDate: String?
+    var selectedTime: String?
+    var indexPath : Int?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,16 +47,15 @@ class CreateGameTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
      switch section {
+        
         case 0:
-            return 1
-        case 1:
          return 1
-        case 2:
+        case 1:
          return 4
         default:
             return 4
@@ -64,8 +65,8 @@ class CreateGameTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         venueName.text = venueNmae
         playerName.text = player
-        date.text = dat
-        time.text = tim
+        date.text = selectedDate
+        time.text = selectedTime
         tableView.reloadData()
         
         if ((venueName.text?.isEmpty) != nil) && ((playerName.text?.isEmpty) != nil){
@@ -79,8 +80,8 @@ class CreateGameTableViewController: UITableViewController {
         } else {
             if let destVC = navigationController?.viewControllers[0] as? HomeScreenViewController {
                 destVC.venueNameForGameCard = venueNmae
-                destVC.dateForGameCard = dat
-                destVC.timeForGameCard = tim
+                destVC.dateForGameCard = selectedDate
+                destVC.timeForGameCard = selectedTime
                 destVC.playerforGameCard = DataController.userData[0].profilePicture
                 listOfSections.insert(.gameCreated, at: 1)
                 DataController.headers[.gameCreated] = "Created Game"

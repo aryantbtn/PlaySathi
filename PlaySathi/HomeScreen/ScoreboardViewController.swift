@@ -18,7 +18,7 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
         tableContainer.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableContainer)
 
-        // Create a vertical stack view for rows
+
         let verticalStackView = UIStackView()
         verticalStackView.axis = .vertical
         verticalStackView.alignment = .fill
@@ -27,21 +27,21 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         tableContainer.addSubview(verticalStackView)
 
-        // Define table data (Static Names, Editable Scores)
+  
         let headers = ["Name", "Match 1", "Match 2", "Match 3"]
         let players = ["Rishabh", "Alok"]
         
-        // Create Header Row
+  
         let headerRow = createRow(with: headers, isHeader: true)
         verticalStackView.addArrangedSubview(headerRow)
 
-        // Create Player Rows
+       
         for player in players {
             let row = createRow(with: [player, "", "", ""], isHeader: false)
             verticalStackView.addArrangedSubview(row)
         }
 
-        // Add constraints for table container
+      
         NSLayoutConstraint.activate([
             tableContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tableContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: 335), // Adjust position
@@ -55,7 +55,7 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
         ])
     }
 
-    // Function to create a row with labels or text fields
+
     func createRow(with values: [String], isHeader: Bool) -> UIStackView {
         let rowStackView = UIStackView()
         rowStackView.axis = .horizontal
@@ -80,7 +80,7 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
         return rowStackView
     }
 
-    // Function to create UILabel
+
     func createLabel(with text: String, isBold: Bool) -> UILabel {
         let label = UILabel()
         label.text = text
@@ -92,7 +92,7 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
         return label
     }
 
-    // Function to create UITextField
+
     func createTextField() -> UITextField {
         let textField = UITextField()
         textField.textAlignment = .center
@@ -105,7 +105,7 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
         return textField
     }
 
-    // Function to dismiss keyboard when tapping outside
+
     func setupGestureToDismissKeyboard() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
@@ -115,7 +115,7 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
 
-    // Restrict UITextField input to numbers only
+ 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)

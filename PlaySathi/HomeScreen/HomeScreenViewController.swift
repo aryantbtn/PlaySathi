@@ -21,7 +21,6 @@ class HomeScreenViewController: UIViewController {
     var venueTimeForGameEntry: String?
     var venueDateForGameEntry: String?
     
-    
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,25 +109,25 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                         return cell
         case .createGame:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeScreenCollectionViewCell.identifier, for: indexPath) as! HomeScreenCollectionViewCell
-                       cell.dispaly(with:indexPath)
+                       cell.createGameCard(with:indexPath)
                        cell.layer.cornerRadius = 8
                        return cell
        
         case .venueBooked:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
-            cell.d(with:vName!)
+            cell.updateCourtBooked(with:vName!)
             cell.dateAndTime.text = venueDateForGameEntry! + " " + venueTimeForGameEntry!
             
                             cell.layer.cornerRadius = 8
                             return cell
         case .inviteSent:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
-                            cell.disp(with:pName!)
+                            cell.updateInviteSent(with:pName!)
                             cell.layer.cornerRadius = 8
                             return cell
         case .gameCreated:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCardCollectionViewCell.identifier, for: indexPath) as! GameCardCollectionViewCell
-                            cell.game(with:indexPath)
+                            cell.updateCreateGame(with:indexPath)
             cell.venueName.text = venueNameForGameCard
             cell.dateAndTime.text = dateForGameCard! + " " + timeForGameCard!
             cell.playerSelected.image = UIImage(named: playerforGameCard!)
@@ -440,21 +439,21 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             case .venueBooked:
                 let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
                 if let vc = storyBoard.instantiateViewController(withIdentifier: "vscard") as? VenueSelectionCardViewController {
-                    vc.tit = headerTitle
+                    vc.courtBookedTitle = headerTitle
                     navigationController?.pushViewController(vc, animated: true)
                 }
                 
             case .inviteSent:
                 let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
                 if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
-                    vc.t = headerTitle
+                    vc.inviteSentTitle = headerTitle
                     navigationController?.pushViewController(vc, animated: true)
                 }
                 
             case .gameCreated:
                 let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
                 if let vc = storyBoard.instantiateViewController(withIdentifier: "createdGame") as? CreatedGameViewController {
-                    vc.titl = headerTitle
+                    vc.title = headerTitle
                     navigationController?.pushViewController(vc, animated: true)
                 }
                 
@@ -479,5 +478,6 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
     }
+
     
 }
