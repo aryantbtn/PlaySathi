@@ -62,33 +62,19 @@
         <!--Weekly Availability View Controller-->
         <scene sceneID="qdv-HO-cHm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TyD-uQ-C4d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="week" id="sri-JJ-LIj" customClass="WeeklyAvailabilityViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nVY-yp-HBa">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcm-8c-d4u">
-                                <rect key="frame" x="288" y="763" width="75" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="ok:" destination="sri-JJ-LIj" eventType="touchUpInside" id="KQJ-a9-7dE"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zRM-Tv-xla"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="zRM-Tv-xla" firstAttribute="trailing" secondItem="Pcm-8c-d4u" secondAttribute="trailing" constant="30" id="FMX-Vk-xfd"/>
-                            <constraint firstItem="zRM-Tv-xla" firstAttribute="bottom" secondItem="Pcm-8c-d4u" secondAttribute="bottom" constant="20" id="g6Q-Kq-gm7"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JhA-Wr-xCl"/>
                     <connections>
                         <segue destination="6kO-Tg-CIB" kind="show" identifier="home" id="aOs-RE-jzf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TyD-uQ-C4d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="208.3969465648855" y="-204.22535211267606"/>
         </scene>
