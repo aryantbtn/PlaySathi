@@ -7,6 +7,7 @@
 
 import UIKit
 import Auth
+import CoreLocation
 
 struct SignUpData {
     let id: UUID
@@ -15,6 +16,8 @@ struct SignUpData {
     let contactNumber: String
 }
 class SignUpViewController: UIViewController {
+    
+    private let locationManager = CLLocationManager()
     
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
@@ -25,7 +28,14 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPasswordTextField()
+        setupLocationManager()
     }
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true) // This will dismiss the keyboard
@@ -144,3 +154,42 @@ class SignUpViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+extension SignUpViewController: CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .denied, .restricted:
+            showLocationAlert()
+        case .notDetermined:
+            break
+        @unknown default:
+            break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        // Store location for later use
+        UserDefaults.standard.set(location.coordinate.latitude, forKey: "userLatitude")
+        UserDefaults.standard.set(location.coordinate.longitude, forKey: "userLongitude")
+    }
+    
+    private func showLocationAlert() {
+        let alert = UIAlertController(
+            title: "Location Access Required",
+            message: "PlaySathi needs your location to find nearby players. Please enable location access in Settings.",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Settings", style: .default) { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url)
+            }
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+}
+

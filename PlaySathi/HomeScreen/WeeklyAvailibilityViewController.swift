@@ -1,4 +1,5 @@
 import UIKit
+import CoreLocation
 
 
 class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -49,10 +50,9 @@ class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControlle
             // Update UI
             profileImageView.image = selectedImage
             
-            // Convert image to base64 string for storage
+            // Save to UserDefaults for temporary storage
             if let imageData = selectedImage.jpegData(compressionQuality: 0.5) {
-                let base64String = imageData.base64EncodedString()
-                // Store this base64String in your player data
+                UserDefaults.standard.set(imageData, forKey: "userProfileImage")
             }
         }
         picker.dismiss(animated: true)
@@ -221,6 +221,26 @@ class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControlle
         setupWeekdayButtons()
         setupActions()
         animateUI()
+        loadUserLocation()
+    }
+    
+    private func loadUserLocation() {
+        if let latitude = UserDefaults.standard.object(forKey: "userLatitude") as? Double,
+           let longitude = UserDefaults.standard.object(forKey: "userLongitude") as? Double {
+            let geocoder = CLGeocoder()
+            let location = CLLocation(latitude: latitude, longitude: longitude)
+            
+            geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
+                if let placemark = placemarks?.first {
+                    DispatchQueue.main.async {
+                        let address = [placemark.locality, placemark.administrativeArea, placemark.country]
+                            .compactMap { $0 }
+                            .joined(separator: ", ")
+                        self?.locationTextField.text = address
+                    }
+                }
+            }
+        }
     }
     
     private func setupUI() {
@@ -424,6 +444,19 @@ class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControlle
     @objc private func okButtonTapped() {
         guard let userData = userData else { return }
         
+        // Get image data from the imageView
+        let imageData: Data?
+        if let image = profileImageView.image {
+            imageData = image.jpegData(compressionQuality: 0.5)
+        } else {
+            imageData = nil
+        }
+        
+        // Save image data to UserDefaults
+        if let imageData = imageData {
+            UserDefaults.standard.set(imageData, forKey: "userProfileImage")
+        }
+        
         // Format time without date components
         let availabilityString = selectedDays.map { day, time -> String in
             let formatter = DateFormatter()
@@ -436,8 +469,6 @@ class WeeklyAvailabilityViewController: UIViewController, UIImagePickerControlle
         if let image = profileImageView.image,
            let imageData = image.jpegData(compressionQuality: 0.5) {
             imageString = imageData.base64EncodedString()
-            UserDefaults.standard.set(imageData, forKey: "userProfileImage")
-
         } else {
             imageString = ""
         }

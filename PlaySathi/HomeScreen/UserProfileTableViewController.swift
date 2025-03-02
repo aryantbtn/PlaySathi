@@ -17,17 +17,19 @@ class UserProfileTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Load profile image from UserDefaults
         if let imageData = UserDefaults.standard.data(forKey: "userProfileImage"),
            let savedImage = UIImage(data: imageData) {
             image.image = savedImage
-            
-            Task {
-                name.text =  await PlayerTableManager.shared.fetchCurrentUser()?.name
-                skillLevel.text = await PlayerTableManager.shared.fetchCurrentUser()?.skillLevel
-                
-            }
+        }
+        
+        Task {
+            name.text = await PlayerTableManager.shared.fetchCurrentUser()?.name
+            skillLevel.text = await PlayerTableManager.shared.fetchCurrentUser()?.skillLevel
         }
     }
+
         
             override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
