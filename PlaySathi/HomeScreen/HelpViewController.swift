@@ -18,7 +18,6 @@ class HelpViewController: UIViewController {
         return search
     }()
     
-    // Help items structure
     private struct HelpItem {
         let title: String
         let content: String
@@ -154,4 +153,3 @@ extension HelpViewController: UISearchBarDelegate {
     }
 }
 
-// End of file. No additional code.

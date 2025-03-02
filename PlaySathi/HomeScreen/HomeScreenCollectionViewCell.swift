@@ -9,23 +9,15 @@ import UIKit
 import Foundation
 
 class HomeScreenCollectionViewCell: UICollectionViewCell {
-
     static let identifier = String(describing: HomeScreenCollectionViewCell.self)
     
     @IBOutlet weak var Label2: UILabel!
     @IBOutlet weak var Label1: UILabel!
     @IBOutlet weak var BannerImage: UIImageView!
 
-    
     func dispaly (with indexPath: IndexPath){
         Label1.text = "Start Your Game"
         Label2.text = "Connect with players nearby and schedule your match"
         BannerImage.image = UIImage(named: "Unknown 1")
-    }
-    
-    @IBAction func arrowTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "createGame") as! CreateGameTableViewController
-   //     self.navigationController?.pushViewController(vc, animated: true)
     }
 }

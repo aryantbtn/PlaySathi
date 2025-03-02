@@ -10,20 +10,16 @@ import UIKit
 class CreateGameTableViewController: UITableViewController {
    
     @IBOutlet weak var time: UILabel!
-    
     @IBOutlet weak var date: UILabel!
-    var instance = ScreenNavigation.navigate
-    
     @IBOutlet weak var doneButton: UIBarButtonItem!
-    
     @IBOutlet weak var venueName: UILabel! 
     @IBOutlet weak var playerName: UILabel!
+    
+    var instance = ScreenNavigation.navigate
     var venueNmae : String?
     var player : String?
     var dat: String?
     var tim: String?
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,16 +28,14 @@ class CreateGameTableViewController: UITableViewController {
         doneButton.isEnabled = false
     }
     
-
-    
     @IBAction func goToVenue(_ sender: UIButton) {
         instance.check = "isdp"
         let storyBoard = UIStoryboard(name: "tabVishwajeet", bundle: nil)
-        
         if let venueVC = storyBoard.instantiateViewController(withIdentifier: "venueId") as? VenueListViewController {
             self.navigationController?.pushViewController(venueVC, animated: true)
         }
     }
+    
     @IBAction func selectPlayer(_ sender: UIButton) {
         instance.check = "players1"
         let storyBoard = UIStoryboard(name: "tabAryan", bundle: nil)
@@ -65,8 +59,8 @@ class CreateGameTableViewController: UITableViewController {
         default:
             return 4
         }
-
-        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         venueName.text = venueNmae
         playerName.text = player
@@ -95,6 +89,5 @@ class CreateGameTableViewController: UITableViewController {
             }
         }
     }
-    
-    }
+}
 

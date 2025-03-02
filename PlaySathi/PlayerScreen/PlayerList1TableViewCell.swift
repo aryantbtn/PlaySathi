@@ -9,14 +9,9 @@ import UIKit
 
 class PlayerList1TableViewCell: UITableViewCell {
     
-    
-
-   
-    
     @IBOutlet weak var playerImageView: UIImageView!
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var playerDescription: UILabel!
-    
     
 //    @IBOutlet weak var chevronButton: UIButton!
     

@@ -9,7 +9,6 @@ import UIKit
 
 class GameCardCollectionViewCell: UICollectionViewCell {
     static let identifier = String(describing: GameCardCollectionViewCell.self)
-    
 
     @IBOutlet weak var dateAndTime: UILabel!
     @IBOutlet weak var venueName: UILabel!
