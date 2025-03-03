@@ -215,8 +215,8 @@
                                                     <rect key="frame" x="30" y="12" width="19.666666666666671" height="19"/>
                                                     <color key="tintColor" systemColor="systemGrayColor"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-Kb-P39">
-                                                    <rect key="frame" x="358" y="32.333333333333336" width="0.0" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-Kb-P39">
+                                                    <rect key="frame" x="316.66666666666669" y="11.666666666666664" width="41.333333333333314" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -299,7 +299,7 @@
                         <outlet property="date" destination="RUd-nB-tYK" id="DL9-Dq-kCw"/>
                         <outlet property="doneButton" destination="4jk-Zx-JIy" id="rmZ-eG-Lt4"/>
                         <outlet property="playerName" destination="c1i-PN-aD4" id="h8U-6P-ECD"/>
-                        <outlet property="selectedTime" destination="i9H-Kb-P39" id="6oc-8c-RQf"/>
+                        <outlet property="time" destination="i9H-Kb-P39" id="fO2-g6-zSL"/>
                         <outlet property="venueName" destination="Tse-kT-1pb" id="4En-nd-bFa"/>
                     </connections>
                 </tableViewController>
@@ -640,7 +640,7 @@
                                         <rect key="frame" x="20" y="712.66667175292969" width="353" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HP5-R0-wCc" id="9rc-9v-cyE">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZP3-23-daM">
