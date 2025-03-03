@@ -15,7 +15,7 @@ class PlayerDataController{
     }
     
     func loadUserProfiles()async ->Profile? {
-        let user = await PlayerTableManager.shared.fetchUsers()
+        let user = await PlayerTableManager.shared.fetchCurrentUser()
         return user
     }
     

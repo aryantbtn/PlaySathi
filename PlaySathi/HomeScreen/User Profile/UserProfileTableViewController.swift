@@ -23,6 +23,10 @@ class UserProfileTableViewController: UITableViewController {
         if let imageData = UserDefaults.standard.data(forKey: "userProfileImage"),
            let savedImage = UIImage(data: imageData) {
             image.image = savedImage
+            image.layer.cornerRadius = image.bounds.width / 2
+            image.clipsToBounds = true
+            image.layer.borderWidth = 2
+            image.layer.borderColor = UIColor.accent.cgColor
         }
         
         Task {

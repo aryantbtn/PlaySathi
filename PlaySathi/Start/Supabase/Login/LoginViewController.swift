@@ -21,11 +21,11 @@ class LoginViewController: UIViewController {
     }
     
     
-    func loadUserProfile(completion:((Profile?)->Void)) async{
-        let user = await PlayerDataController.shared.loadUserProfiles()
-        completion(user)
-
-    }
+//    func loadUserProfile(completion:((Profile?)->Void)) async{
+//        let user = await PlayerDataController.shared.loadUserProfiles()
+//        completion(user)
+//
+//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true) // This will dismiss the keyboard
