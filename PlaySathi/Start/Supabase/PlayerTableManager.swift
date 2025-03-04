@@ -41,9 +41,16 @@ class PlayerTableManager {
     
     func fetchUsers() async -> [Profile] {
         do {
+            guard let session = try? await client.auth.session else {
+                print("No active session found")
+                return []
+            }
+            let currentUserId = session.user.id
+            
             let players:[Profile] = try await client
                 .from("Player")
                 .select()
+                .neq("id", value: currentUserId)
                 .execute()
                 .value
             return players
