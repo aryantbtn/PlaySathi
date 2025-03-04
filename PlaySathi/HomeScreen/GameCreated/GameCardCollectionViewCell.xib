@@ -123,7 +123,7 @@
                 <constraint firstItem="TAX-ha-dSx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xuh-8N-xkl"/>
             </constraints>
             <connections>
-                <outlet property="dateAndTime" destination="R3X-Ud-1r0" id="XMK-FN-9tP"/>
+                <outlet property="dateAndTime" destination="R3X-Ud-1r0" id="zHO-CE-RmD"/>
                 <outlet property="host" destination="781-bs-79u" id="fvW-L1-eha"/>
                 <outlet property="playerSelected" destination="x6c-JS-26Q" id="IVP-ui-od7"/>
                 <outlet property="venueName" destination="6XP-LX-FEL" id="fQE-8n-SAj"/>

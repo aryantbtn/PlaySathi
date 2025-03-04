@@ -85,10 +85,39 @@ class CreateGameTableViewController: UITableViewController {
                 destVC.playerforGameCard = PlayerDataController.shared.userProfiles[0].playerImage
                 listOfSections.insert(.gameCreated, at: 1)
                 DataController.headers[.gameCreated] = "Created Game"
+                
+                
+                NotificationCenter.default.post(
+                                    name: NSNotification.Name("GameAccepted"),
+                                    object: nil,
+                                    userInfo: ["playerName": player ?? "Player"]
+                                )
+                
+                // Add timer to switch to Matches section after 5 seconds
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                                    if let index = listOfSections.firstIndex(of: .gameCreated) {
+                                        listOfSections.remove(at: index)
+                                        listOfSections.insert(.matches, at: index)
+                                        DataController.headers[.matches] = "Matches"
+                                        destVC.collectionView.reloadData()
+                                        
+                                        // Second transition: Matches to Live after another 5 seconds
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                                            if let matchIndex = listOfSections.firstIndex(of: .matches) {
+                                                listOfSections.remove(at: matchIndex)
+                                                listOfSections.insert(.live, at: matchIndex)
+                                                DataController.headers[.live] = "Matches"
+                                                destVC.collectionView.reloadData()
+                                            }
+                                        }
+                                    }
+                                }
+                
                
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
     }
+
 }
 

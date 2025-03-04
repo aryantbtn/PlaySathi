@@ -770,7 +770,7 @@
         <!--Notification View Controller-->
         <scene sceneID="SaK-sk-O60">
             <objects>
-                <viewController storyboardIdentifier="notification" id="c07-La-dzn" customClass="NotificationViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="noti" id="c07-La-dzn" customClass="NotificationViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g6C-xY-3Ba">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -831,7 +831,7 @@
         <!--Scoreboard View Controller-->
         <scene sceneID="bP7-4S-e6T">
             <objects>
-                <viewController storyboardIdentifier="score" id="g8I-wa-LPN" customClass="ScoreboardViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Score" id="g8I-wa-LPN" customClass="ScoreboardViewController" customModule="PlaySathi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yDU-ah-eib">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -903,15 +903,28 @@
                                     <constraint firstItem="VOj-r6-8sd" firstAttribute="top" secondItem="2Cb-w3-Jti" secondAttribute="bottom" constant="15" id="uI6-VK-Mix"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91K-Sz-QaL">
+                                <rect key="frame" x="156.66666666666666" y="763" width="80" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Update"/>
+                                <connections>
+                                    <action selector="updateButtonTapped:" destination="g8I-wa-LPN" eventType="touchUpInside" id="4Vt-4b-697"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="47l-i3-uCj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="91K-Sz-QaL" firstAttribute="centerX" secondItem="yDU-ah-eib" secondAttribute="centerX" id="7df-QT-Ml9"/>
+                            <constraint firstItem="47l-i3-uCj" firstAttribute="bottom" secondItem="91K-Sz-QaL" secondAttribute="bottom" constant="20" id="Jql-wn-CVe"/>
                             <constraint firstItem="jfs-qG-xO2" firstAttribute="top" secondItem="47l-i3-uCj" secondAttribute="top" constant="5" id="X7M-9F-per"/>
                             <constraint firstItem="47l-i3-uCj" firstAttribute="trailing" secondItem="jfs-qG-xO2" secondAttribute="trailing" constant="5" id="YYi-Fx-HNC"/>
                             <constraint firstItem="jfs-qG-xO2" firstAttribute="leading" secondItem="47l-i3-uCj" secondAttribute="leading" constant="5" id="xPz-Lm-Aff"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="updateButton" destination="91K-Sz-QaL" id="wGI-Cr-DMk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvm-dU-p1x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

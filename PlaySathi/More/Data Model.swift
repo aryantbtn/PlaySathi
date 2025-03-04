@@ -64,6 +64,7 @@ enum TypeOfSection {
     case gameCreated
     case venueBooked
     case matches
+    case live
 }
 
 struct CourtAvailability {

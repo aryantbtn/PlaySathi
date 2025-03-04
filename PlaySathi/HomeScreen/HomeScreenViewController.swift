@@ -26,6 +26,12 @@ class HomeScreenViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(showScoreboard),
+                name: NSNotification.Name("ShowScoreboard"),
+                object: nil
+            )
         super.viewDidLoad()
         Task {
             print("inside task")
@@ -44,7 +50,18 @@ class HomeScreenViewController: UIViewController {
         registerCells()
         self.tabBarController?.isTabBarHidden = true
     }
-    
+    @objc private func showScoreboard() {
+        let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "Score") as? ScoreboardViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
+    // Add this to deinit
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
 //    func printAllPlayers(){
 //        print("inside printAllPlayers")
 //        guard let playersFromSupabase = playersFromSupabase else {
@@ -64,6 +81,7 @@ class HomeScreenViewController: UIViewController {
         let fifthNib = UINib(nibName: PlayerSelectionCollectionViewCell.identifier, bundle: nil)
         let sixthNib = UINib(nibName: GameCardCollectionViewCell.identifier, bundle: nil)
         let seventhNib = UINib(nibName: MatchesCollectionViewCell.identifier, bundle: nil)
+        let eightNib = UINib(nibName: LiveCollectionViewCell.identifier, bundle: nil)
                 
         
         collectionView.register(firstNib, forCellWithReuseIdentifier: HomeScreenCollectionViewCell.identifier)
@@ -73,6 +91,7 @@ class HomeScreenViewController: UIViewController {
         collectionView.register(fifthNib, forCellWithReuseIdentifier: PlayerSelectionCollectionViewCell.identifier)
         collectionView.register(sixthNib, forCellWithReuseIdentifier: GameCardCollectionViewCell.identifier)
         collectionView.register(seventhNib, forCellWithReuseIdentifier: MatchesCollectionViewCell.identifier)
+        collectionView.register(eightNib, forCellWithReuseIdentifier: LiveCollectionViewCell.identifier)
         collectionView.register(SectionHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeaderCollectionReusableView")
         
         collectionView.setCollectionViewLayout(generateLayout(), animated: true)
@@ -83,7 +102,7 @@ class HomeScreenViewController: UIViewController {
     
     @IBAction func notificationButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
-        let notificationVC = storyboard.instantiateViewController(withIdentifier: "notification") as! NotificationViewController
+        let notificationVC = storyboard.instantiateViewController(withIdentifier: "noti") as! NotificationViewController
         self.navigationController?.pushViewController(notificationVC, animated: true)
     }
     
@@ -117,6 +136,8 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         case .gameCreated:
             1
         case .matches:
+            1
+        case .live:
             1
         }
     }
@@ -167,6 +188,11 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                        cell.dispaly3(with: indexPath)
                        cell.layer.cornerRadius = 8
                        return cell
+        case .live:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LiveCollectionViewCell.identifier, for: indexPath) as! LiveCollectionViewCell
+                       cell.di(with: indexPath)
+                       cell.layer.cornerRadius = 8
+                       return cell
         }
     }
     
@@ -188,6 +214,8 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             case .gameCreated:
                 section = self.generateSection6Layout()
             case .matches:
+                section = self.generateSection7Layout()
+            case .live:
                 section = self.generateSection7Layout()
             }
 
@@ -356,6 +384,9 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             case .matches:
                 headerView.headerLabel.text = DataController.headers[.matches]
                 headerView.button.setTitle("See All", for: .normal)
+            case .live:
+                headerView.headerLabel.text = DataController.headers[.live]
+                headerView.button.setTitle("See All", for: .normal)
             }
             
             return headerView
@@ -442,6 +473,8 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             
         case .matches:
             let gameEntry = DataController.headers
+        case .live:
+            let gameentry = DataController.headers
         }
     }
     
@@ -507,7 +540,11 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        collectionView.reloadData()
+    collectionView.reloadData()
+//        if let matchesIndex = listOfSections.firstIndex(of: .matches) {
+//                        listOfSections.remove(at: matchesIndex)
+//                collectionView.reloadData()
+//                    }
     }
 
     

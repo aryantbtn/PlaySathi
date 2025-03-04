@@ -2,10 +2,13 @@ import UIKit
 
 class ScoreboardViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var updateButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Scoreboard"
         setupScoreboardTable()
         setupGestureToDismissKeyboard()
+        updateButton.layer.cornerRadius = 10
     }
 
     func setupScoreboardTable() {
@@ -120,5 +123,14 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
+    }
+    
+    @IBAction func updateButtonTapped(_ sender: Any) {
+        if let navigationController = self.navigationController,
+           
+           let homeVC = navigationController.viewControllers.first as? HomeScreenViewController {
+            navigationController.popToRootViewController(animated: true)
+        }
+        
     }
 }

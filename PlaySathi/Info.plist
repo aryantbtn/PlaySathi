@@ -34,9 +34,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>PlaySathi uses your location to help you find nearby players and venues, even when the app is in the background.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>PlaySathi needs your location to help you find nearby players and venues.</string>
 </dict>
 </plist>
