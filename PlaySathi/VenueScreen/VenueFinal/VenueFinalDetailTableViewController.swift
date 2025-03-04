@@ -67,7 +67,7 @@ class VenueFinalDetailTableViewController: UITableViewController {
             if let destVC = navigationController?.viewControllers[1] as? CreateGameTableViewController {
                 destVC.venueNmae = DataController.venueData[indexPathForVenueFinal.row].name
                 destVC.selectedDate = selectedDay
-                destVC.time = selectedTime
+                destVC.time.text = selectedTime
                 
             }
             
