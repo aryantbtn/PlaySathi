@@ -1,149 +1,119 @@
 import UIKit
 import FSCalendar
 
-class HistoryViewController: UIViewController {
+class HistoryViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        1
+    }
     
-    private let calendar: FSCalendar = {
-        let calendar = FSCalendar()
-        calendar.translatesAutoresizingMaskIntoConstraints = false
-        calendar.scrollDirection = .horizontal
-        
-      
-        calendar.appearance.titleDefaultColor = .black
-        calendar.appearance.headerTitleColor = .black
-        calendar.appearance.weekdayTextColor = .darkGray
-        calendar.appearance.todayColor = .clear
-        calendar.appearance.titleTodayColor = .systemGreen
-        calendar.appearance.selectionColor = .systemGreen
-        
-       
-        calendar.appearance.weekdayFont = .systemFont(ofSize: 13, weight: .regular)
-        calendar.appearance.titleFont = .systemFont(ofSize: 15, weight: .regular)
-        
-        calendar.appearance.borderRadius = 0
-        calendar.appearance.headerMinimumDissolvedAlpha = 0.0
-        calendar.headerHeight = 0
-        calendar.appearance.borderSelectionColor = .clear
-        calendar.appearance.eventDefaultColor = .clear
-        calendar.appearance.eventSelectionColor = .clear
-        
-      
-        calendar.rowHeight = 40
-        calendar.weekdayHeight = 30
-        
-       
-        calendar.appearance.titleOffset = CGPoint(x: 0, y: 0)
-        calendar.placeholderType = .none
-        
-       
-        calendar.backgroundColor = .white
-        calendar.clipsToBounds = true
-        calendar.scrollEnabled = true
-        calendar.scope = .week
-        
-     
-        calendar.layer.borderWidth = 0
-        calendar.layer.cornerRadius = 0
-        
-        return calendar
-    }()
     
-    private let selectedDateLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 28, weight: .bold)
-        label.textColor = .black
-        return label
-    }()
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
     
-    private let matchesTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .clear
-        tableView.separatorStyle = .none
-        return tableView
-    }()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatchesCollectionViewCell.identifier, for: indexPath) as! MatchesCollectionViewCell
+        cell.dispaly3(with:indexPath)
+        cell.layer.cornerRadius = 8
+        return cell
+    }
+    
+    
+    @IBOutlet weak var collectionViewForHistory: UICollectionView!
 
+    var calendar: FSCalendar!
+    
+    let graphLayer = CAShapeLayer()
+    let dotLayer = CALayer()
+    let bpmLabel = UILabel()
+    let gradientLayer = CAGradientLayer()
+    
+    var graphPoints: [CGPoint] = []
+    var bpmValues: [Int] = [50, 70, 100, 90, 120, 160, 180] // Corresponding BPM values
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        setupCalendar()
-    }
-    
-    private func setupUI() {
-        view.backgroundColor = .white
         
-       
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        registerCells()
+        self.tabBarController?.isTabBarHidden = true
+        collectionViewForHistory.setCollectionViewLayout(generateLayout(), animated: true)
+        collectionViewForHistory.dataSource = self
+        collectionViewForHistory.delegate = self
         
-        view.addSubview(calendar)
-        view.addSubview(selectedDateLabel)
-        view.addSubview(matchesTableView)
         
-        NSLayoutConstraint.activate([
-           
-            calendar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            calendar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            calendar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            calendar.heightAnchor.constraint(equalToConstant: 85),
-            
-           
-            selectedDateLabel.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: 32),
-            selectedDateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            selectedDateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
-            matchesTableView.topAnchor.constraint(equalTo: selectedDateLabel.bottomAnchor, constant: 16),
-            matchesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            matchesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            matchesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-       
-        calendar.calendarWeekdayView.weekdayLabels.forEach { label in
-            label.font = .systemFont(ofSize: 13)
-            label.textColor = .darkGray
-   
-            label.textAlignment = .center
-        }
-    }
-    
-    private func setupCalendar() {
+        // Initialize FSCalendar
+        calendar = FSCalendar()
         calendar.delegate = self
         calendar.dataSource = self
-        calendar.select(Date())
-        updateSelectedDateLabel(Date())
+        calendar.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 300)
+        calendar.appearance.headerTitleColor = .accent
+        calendar.appearance.weekdayTextColor = .darkGray
+        calendar.appearance.todayColor = .accent
+        calendar.appearance.selectionColor = .accent
+        calendar.scope = .week
         
+        view.addSubview(calendar)
 
-        calendar.setCurrentPage(Date(), animated: false)
+    }
+    func registerCells() {
+        let firstNib = UINib(nibName: MatchesCollectionViewCell.identifier, bundle: nil)
+        collectionViewForHistory.register(firstNib, forCellWithReuseIdentifier: MatchesCollectionViewCell.identifier)
     }
     
-    private func updateSelectedDateLabel(_ date: Date) {
+    // Handle Date Selection
+    func calendar(_: FSCalendar, didSelect date: Date, at _: FSCalendarMonthPosition) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE — dd MMM yyyy"
-        selectedDateLabel.text = formatter.string(from: date)
+        formatter.dateFormat = "yyyy-MM-dd"
+        print("Selected date: \(formatter.string(from: date))")
+        if isLastDayOfTheWeek(selectedDate: date) {
+            moveToNextWeek()
+        }
     }
-}
-
-extension HistoryViewController: FSCalendarDelegate, FSCalendarDataSource {
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        updateSelectedDateLabel(date)
+    
+    
+    func generateLayout()->UICollectionViewLayout{
+        let layout = UICollectionViewCompositionalLayout {
+            (sectionIndex,enviroment)->NSCollectionLayoutSection? in let section:NSCollectionLayoutSection
+            section =  self.generateSectionLayout()
+            return section
+        }
+        return layout
+    }
+    
+    func generateSectionLayout()->NSCollectionLayoutSection{
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(120))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
-        if monthPosition == .previous || monthPosition == .next {
-            calendar.setCurrentPage(date, animated: true)
-        }
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading:8, bottom: 8, trailing: 8)
+        group.interItemSpacing = .fixed(2)
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        
+        return section
     }
     
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
-        if calendar.gregorian.isDateInToday(date) {
-            return .systemGreen
-        }
-        return nil
+    // Check if Selected Date is the Last Day of the Current Week
+    func isLastDayOfTheWeek(selectedDate: Date) -> Bool {
+        let calendar = Calendar.current
+        let weekday = calendar.component(.weekday, from: selectedDate)
+        
+        // Assuming Sunday is the last day (adjust if needed based on your locale)
+        return weekday == 7 // Sunday = 7
     }
     
-   
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
-        return .systemGreen.withAlphaComponent(0.3)
+    // Move Calendar to Next Week Automatically
+    func moveToNextWeek() {
+        let nextWeek = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: calendar.currentPage)!
+        calendar.setCurrentPage(nextWeek, animated: true)
     }
 }
 
-
+extension HistoryViewController: CAAnimationDelegate {
+    func animationDidStop(_: CAAnimation, finished flag: Bool) {
+        if flag {
+            bpmLabel.text = "108"
+        }
+    }
+}

@@ -75,13 +75,6 @@
                                     <constraint firstAttribute="width" constant="60" id="QV1-XI-DKF"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2h 15m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRu-81-Rbg">
-                                <rect key="frame" x="329" y="0.0" width="56" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -113,11 +106,6 @@
                 <constraint firstItem="ChS-ol-lDr" firstAttribute="top" secondItem="Exk-iJ-eFd" secondAttribute="top" id="s10-vt-b2M"/>
             </constraints>
             <size key="customSize" width="393" height="111"/>
-            <connections>
-                <outlet property="dateAndTime" destination="1SU-YK-147" id="J0a-5m-u1F"/>
-                <outlet property="playerSelected" destination="x0Y-gE-A4O" id="LuH-Ul-J5R"/>
-                <outlet property="venueName" destination="hPI-Qf-2Pu" id="TMR-2O-0WT"/>
-            </connections>
             <point key="canvasLocation" x="138.1679389312977" y="-8.0985915492957758"/>
         </collectionViewCell>
     </objects>
@@ -128,9 +116,6 @@
         <image name="location.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
