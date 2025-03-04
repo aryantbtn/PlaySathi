@@ -49,12 +49,14 @@ class SlotTableViewController: UITableViewController {
            headerView.addSubview(bookedBox)
            headerView.addSubview(bookedLabel)
            
-           NSLayoutConstraint.activate([
+        
+              NSLayoutConstraint.activate([
+                  bookedBox.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16), // Add leading spacing
+                  bookedBox.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+                  bookedLabel.leadingAnchor.constraint(equalTo: bookedBox.trailingAnchor, constant: 8),
+                  bookedLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
+              ])
               
-               bookedBox.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
-               bookedLabel.leadingAnchor.constraint(equalTo: bookedBox.trailingAnchor, constant: 8),
-               bookedLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
-           ])
            
            self.headerView = headerView
            headerView.isHidden = true
@@ -126,18 +128,18 @@ class SlotTableViewController: UITableViewController {
         }
     }
     func setupSlotCollectionView() {
-        let nib = UINib(nibName: AvailableTimeSlotCollectionViewCell.identifier, bundle: nil)
-        timeCollectionView.register(nib, forCellWithReuseIdentifier: AvailableTimeSlotCollectionViewCell.identifier)
-        timeCollectionView.delegate = self
-        timeCollectionView.dataSource = self
-        
-        if let flowLayout = timeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.minimumInteritemSpacing = 6
-            flowLayout.minimumLineSpacing = 5
-            flowLayout.itemSize = CGSize(width: 100, height: 40)
-            flowLayout.sectionInset = UIEdgeInsets(top:10 , left: 10, bottom: 0, right: 10)
-        }
-    }
+           let nib = UINib(nibName: AvailableTimeSlotCollectionViewCell.identifier, bundle: nil)
+           timeCollectionView.register(nib, forCellWithReuseIdentifier: AvailableTimeSlotCollectionViewCell.identifier)
+           timeCollectionView.delegate = self
+           timeCollectionView.dataSource = self
+           
+           if let flowLayout = timeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+               flowLayout.minimumInteritemSpacing = 6
+               flowLayout.minimumLineSpacing = 5
+               flowLayout.itemSize = CGSize(width: 100, height: 40)
+               flowLayout.sectionInset = UIEdgeInsets(top:10 , left: 10, bottom: 0, right: 10)
+           }
+       }
 
 
 }
@@ -163,6 +165,10 @@ extension SlotTableViewController: UICollectionViewDelegate, UICollectionViewDat
             cell.delegate = self
             cell.selectedTimeSlot = selectedTimeSlot
             cell.configureCell()
+            
+            cell.layer.cornerRadius = 8
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.gray.cgColor
             return cell
         } else if collectionView == courtsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberOfCourtsCollectionViewCell.identifier, for: indexPath) as! NumberOfCourtsCollectionViewCell
