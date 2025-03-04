@@ -95,7 +95,7 @@ class PlayerProfileViewController: UIViewController, UITableViewDelegate, UITabl
             self.navigationController?.popToViewController(targetVC, animated: true)
                     
             if let destVC = navigationController?.viewControllers[1] as? CreateGameTableViewController {
-                destVC.player = DataController.userData[indexPathForPlayerProfile.row].name
+                destVC.player = PlayerDataController.shared.userProfiles[indexPathForPlayerProfile.row].name
                 destVC.indexPath = indexPathForPlayerProfile.row
             }
                 

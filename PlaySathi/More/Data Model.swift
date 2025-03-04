@@ -32,30 +32,6 @@ struct Profile: Codable {
     }
 }
 
-struct User {
-    var id: UUID
-    var name: String
-    var profilePicture: String
-    var elitePoints: Int
-    var skillLevel: SkillLevel
-    var distance: Double
-    var location : String
-    
-}
-
-enum SkillLevel: String {
-        case beginner = "Beginner"
-        case intermediate = "Intermediate"
-        case advanced = "Advanced"
-}
-
-struct Achievement {
-    var achieveName: String
-    var achieveImage: UIImage
-    var dateOfAchievement: String
-}
-
-
 struct Venue {
     let id: UUID
     var name: String
@@ -74,18 +50,6 @@ struct Venue {
 }
 
 
-struct Game {
-    var title:String
-    var type : TypeofGame
-    var player : User
-    var venue: Venue
-}
-
-enum TypeofGame: String {
-    case singles
-    case doubles
-}
-
 class ScreenNavigation{
     static let navigate = ScreenNavigation()
     var check : String?
@@ -102,13 +66,9 @@ enum TypeOfSection {
     case matches
 }
 
-
-
-
 struct CourtAvailability {
     let courtId: String
     var availableTimeSlots: [String]
 }
-
 
 var listOfSections:[TypeOfSection] = [.createGame,.player,.venue]

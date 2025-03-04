@@ -82,7 +82,7 @@ class CreateGameTableViewController: UITableViewController {
                 destVC.venueNameForGameCard = venueNmae
                 destVC.dateForGameCard = selectedDate
                 destVC.timeForGameCard = selectedTime
-                destVC.playerforGameCard = DataController.userData[0].profilePicture
+                destVC.playerforGameCard = PlayerDataController.shared.userProfiles[0].playerImage
                 listOfSections.insert(.gameCreated, at: 1)
                 DataController.headers[.gameCreated] = "Created Game"
                

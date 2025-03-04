@@ -83,7 +83,7 @@ class HomeScreenViewController: UIViewController {
     
     @IBAction func notificationButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "tabPrince", bundle: nil)
-        let notificationVC = storyboard.instantiateViewController(withIdentifier: "notification") as! NotificationTableViewController
+        let notificationVC = storyboard.instantiateViewController(withIdentifier: "notification") as! NotificationViewController
         self.navigationController?.pushViewController(notificationVC, animated: true)
     }
     

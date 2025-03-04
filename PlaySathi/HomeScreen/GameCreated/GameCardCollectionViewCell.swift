@@ -17,7 +17,7 @@ class GameCardCollectionViewCell: UICollectionViewCell {
     
     func updateCreateGame(with indexpath: IndexPath){
         playerSelected.layer.cornerRadius = playerSelected.bounds.width/2
-        playerSelected.image  = UIImage(named : DataController.userData[indexpath.row].profilePicture)
+        playerSelected.image  = UIImage(named : PlayerDataController.shared.userProfiles[indexpath.row].playerImage)
         playerSelected.layer.borderWidth = 2
         playerSelected.layer.borderColor = UIColor(red: 46/255, green: 107/255, blue: 101/255, alpha: 1).cgColor
         host.layer.borderWidth = 2

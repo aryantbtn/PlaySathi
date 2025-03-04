@@ -18,9 +18,9 @@ class PlayerSection2TableViewCell: UITableViewCell {
     }
 
     func updatePlayerMatchStats(with indexPath: IndexPath) {
-        matchPlayed.text = "15"
-        winRate.text = "80"
-        elitePointEarned.text = String(DataController.userData[indexPath.row].elitePoints)
+        matchPlayed.text = "0"
+        winRate.text = "0"
+        elitePointEarned.text = String(PlayerDataController.shared.userProfiles[indexPath.row].elitePoint)
     }
     
 }

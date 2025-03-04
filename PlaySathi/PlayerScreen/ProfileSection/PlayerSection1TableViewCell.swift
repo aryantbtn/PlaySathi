@@ -18,13 +18,13 @@ class PlayerSection1TableViewCell: UITableViewCell {
     }
     
     func updatePlayerInfo(with indexPath: IndexPath) {
-        playerImageView.image = UIImage(named: DataController.userData[indexPath.row].profilePicture)
+        playerImageView.image = UIImage(named: PlayerDataController.shared.userProfiles[indexPath.row].playerImage)
         playerImageView.layer.cornerRadius = playerImageView.frame.size.width / 2
         playerImageView.layer.borderWidth = 3
         playerImageView.layer.borderColor = UIColor(red: 46/255, green: 107/255, blue: 101/255, alpha: 1).cgColor
         playerImageView.clipsToBounds = true
-        playerNameLabel.text = DataController.userData[indexPath.row].name
-        playerSkillLevel.text = DataController.userData[indexPath.row].skillLevel.rawValue
+        playerNameLabel.text = PlayerDataController.shared.userProfiles[indexPath.row].name
+        playerSkillLevel.text = PlayerDataController.shared.userProfiles[indexPath.row].skillLevel
     }
     
 }

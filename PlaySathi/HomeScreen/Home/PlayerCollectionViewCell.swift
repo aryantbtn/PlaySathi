@@ -14,7 +14,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var playerImage: UIImageView!
     @IBOutlet weak var playerName: UILabel!
     @IBOutlet weak var playerDistance: UILabel!
-    @IBOutlet weak var playerEP: UILabel!
+   
     
     
     func setup(with indexPath: IndexPath) {
@@ -24,7 +24,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
      playerImage.layer.borderWidth = 2
      playerImage.layer.borderColor = UIColor(red: 46/255, green: 107/255, blue: 101/255, alpha: 1).cgColor
 
-//        playerDistance.text = "Distance ~ " + DataController.userData[indexPath.row].distance.formatted() + " kms"
+        playerDistance.text = "Availbele:\(PlayerDataController.shared.userProfiles[indexPath.row].availableTime)"
 //        playerEP.text = " | " +  DataController.userData[indexPath.row].elitePoints.formatted() + " EP"
     }
 }

@@ -51,6 +51,7 @@ class SlotTableViewController: UITableViewController {
            
            NSLayoutConstraint.activate([
               
+            bookedBox.leadingAnchor.constraint(equalTo: headerView.leadingAnchor,constant: 16),
                bookedBox.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
                bookedLabel.leadingAnchor.constraint(equalTo: bookedBox.trailingAnchor, constant: 8),
                bookedLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
@@ -163,6 +164,9 @@ extension SlotTableViewController: UICollectionViewDelegate, UICollectionViewDat
             cell.delegate = self
             cell.selectedTimeSlot = selectedTimeSlot
             cell.configureCell()
+            cell.layer.cornerRadius = 8
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.gray.cgColor
             return cell
         } else if collectionView == courtsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberOfCourtsCollectionViewCell.identifier, for: indexPath) as! NumberOfCourtsCollectionViewCell
