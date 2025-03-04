@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Helpers
+import PostgREST
 class PlayerTableManager {
     static let shared = PlayerTableManager()
     
@@ -40,26 +42,33 @@ class PlayerTableManager {
 
     
     func fetchUsers() async -> [Profile] {
-        do {
-            guard let session = try? await client.auth.session else {
-                print("No active session found")
-                return []
-            }
-            let currentUserId = session.user.id
-            
-            let players:[Profile] = try await client
-                .from("Player")
-                .select()
-                .neq("id", value: currentUserId)
-                .execute()
-                .value
-            return players
-            } catch {
-            print("Error fetching player - \(error.localizedDescription)")
-                return []
-        }
-    }
-    
+           do {
+               // First check if we have a session
+               guard let session = try? await client.auth.session else {
+                   print("No active session found")
+                   return []
+               }
+               let currentUserId = session.user.id
+               
+               // Fix the response handling
+               let response: PostgrestResponse<[Profile]> = try await client
+                   .from("Player")
+                   .select()
+                   .neq("id", value: currentUserId)
+                   .execute()
+               
+               let players = response.value
+               print("Successfully fetched \(players.count) players")
+               return players
+               
+           } catch let error as PostgrestError {
+               print("Supabase error: \(error.message)")
+               return []
+           } catch {
+               print("Unexpected error: \(error)")
+               return []
+           }
+       }
     func insertUser(user:Profile) async{
         do{
             try await client.from("Player").insert(user).execute()
