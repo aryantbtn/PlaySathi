@@ -18,13 +18,13 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     
     
     func setup(with indexPath: IndexPath) {
-        playerImage.image = UIImage(named: DataController.userData[indexPath.row].profilePicture)
+        playerImage.image = UIImage(named: PlayerDataController.shared.userProfiles[indexPath.row].playerImage)
+        playerName.text = PlayerDataController.shared.userProfiles[indexPath.row].name
         playerImage.layer.cornerRadius = playerImage.bounds.width/2
-        playerImage.layer.borderWidth = 2
-        playerImage.layer.borderColor = UIColor(red: 46/255, green: 107/255, blue: 101/255, alpha: 1).cgColor
-        
-        playerName.text = DataController.userData[indexPath.row].name
-        playerDistance.text = "Distance ~ " + DataController.userData[indexPath.row].distance.formatted() + " kms"
-        playerEP.text = " | " +  DataController.userData[indexPath.row].elitePoints.formatted() + " EP"
+     playerImage.layer.borderWidth = 2
+     playerImage.layer.borderColor = UIColor(red: 46/255, green: 107/255, blue: 101/255, alpha: 1).cgColor
+
+//        playerDistance.text = "Distance ~ " + DataController.userData[indexPath.row].distance.formatted() + " kms"
+//        playerEP.text = " | " +  DataController.userData[indexPath.row].elitePoints.formatted() + " EP"
     }
 }

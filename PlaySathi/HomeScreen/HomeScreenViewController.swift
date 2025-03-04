@@ -21,12 +21,40 @@ class HomeScreenViewController: UIViewController {
     var venueTimeForGameEntry: String?
     var venueDateForGameEntry: String?
     
+    
+    var playersFromSupabase : [Profile]?
+    
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task {
+            print("inside task")
+            await PlayerDataController.shared.getUsers(completion: { pros in
+                self.playersFromSupabase = pros
+                PlayerDataController.shared.userProfiles = pros
+             //   self.printAllPlayers()
+
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            })
+           
+        }
+        
         registerCells()
         self.tabBarController?.isTabBarHidden = true
     }
+    
+//    func printAllPlayers(){
+//        print("inside printAllPlayers")
+//        guard let playersFromSupabase = playersFromSupabase else {
+//            print("No players fetched")
+//            return
+//        }
+//        for player in playersFromSupabase {
+//            print("\(player.email) - \(player.name) - \(player.contactNumber)")
+//        }
+//    }
     
     func registerCells() {
         let firstNib = UINib(nibName: HomeScreenCollectionViewCell.identifier, bundle: nil)
@@ -76,7 +104,8 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         switch listOfSections[section] {
         
         case .player:
-            DataController.userData.count
+         playersFromSupabase?.count ?? 0
+            
         case .venue:
             DataController.venueData.count
         case .createGame:
@@ -440,6 +469,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                 let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
                 if let vc = storyBoard.instantiateViewController(withIdentifier: "vscard") as? VenueSelectionCardViewController {
                     vc.courtBookedTitle = headerTitle
+                    vc.indexPathForVenue = vName
                     navigationController?.pushViewController(vc, animated: true)
                 }
                 
@@ -447,6 +477,7 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                 let storyBoard = UIStoryboard(name: "tabPrince", bundle: nil)
                 if let vc = storyBoard.instantiateViewController(withIdentifier: "requestId") as? PlayerRequestViewController {
                     vc.inviteSentTitle = headerTitle
+                    vc.indexPathForPlayers = pName
                     navigationController?.pushViewController(vc, animated: true)
                 }
                 

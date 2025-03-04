@@ -19,6 +19,10 @@ class PlayerDataController{
         return user
     }
     
+    func getUsers(completion:@escaping([Profile]) -> Void) async {
+        let players = await PlayerTableManager.shared.fetchUsers()
+        completion(players)
+    }
     func insertUser(newUser: Profile) async {
         await PlayerTableManager.shared.insertUser(user: newUser)
     }

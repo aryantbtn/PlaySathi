@@ -39,19 +39,17 @@ class PlayerTableManager {
         }
 
     
-    func fetchUsers() async->Profile? {
+    func fetchUsers() async -> [Profile] {
         do {
             let players:[Profile] = try await client
                 .from("Player")
                 .select()
-                
                 .execute()
                 .value
-            print(players)
-            return players.first
-        } catch {
+            return players
+            } catch {
             print("Error fetching player - \(error.localizedDescription)")
-            return nil
+                return []
         }
     }
     

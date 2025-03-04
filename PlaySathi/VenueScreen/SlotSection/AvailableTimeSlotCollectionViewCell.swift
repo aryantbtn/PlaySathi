@@ -32,6 +32,8 @@ class AvailableTimeSlotCollectionViewCell: UICollectionViewCell {
         currentTimeSlot = DataController.venueData[venueIndex].timeSlots[venueTimeSlotIndex]
         isCurrentSlotSelected = selectedTimeSlot == venueTimeSlotIndex
         timeSlot.setTitle(currentTimeSlot, for: .normal)
+        timeSlot.layer.cornerRadius = 8
+        timeSlot.clipsToBounds = true
         if isCurrentSlotSelected {
             timeSlot.backgroundColor = .systemGreen
         } else {

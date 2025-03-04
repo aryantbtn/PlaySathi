@@ -10,6 +10,8 @@ import UIKit
 class VenueSelectionCardViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
     @IBOutlet weak var collectionViewForCourtBooked: UICollectionView!
+    var indexPathForVenue : IndexPath?
+    
     var courtBookedTitle : String?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,7 @@ class VenueSelectionCardViewController: UIViewController,UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEntryCollectionViewCell.identifier, for: indexPath) as! GameEntryCollectionViewCell
-        cell.updateCourtBooked(with:indexPath)
+        cell.updateCourtBooked(with:indexPathForVenue!)
         cell.layer.cornerRadius = 8
         return cell
     }

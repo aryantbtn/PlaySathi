@@ -11,6 +11,7 @@ class PlayerRequestViewController: UIViewController,UICollectionViewDelegate,UIC
     
     @IBOutlet weak var collectionViewForInviteSent: UICollectionView!
     var inviteSentTitle : String?
+    var indexPathForPlayers : IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class PlayerRequestViewController: UIViewController,UICollectionViewDelegate,UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerSelectionCollectionViewCell.identifier, for: indexPath) as! PlayerSelectionCollectionViewCell
-        cell.updateInviteSent(with:indexPath)
+        cell.updateInviteSent(with:indexPathForPlayers!)
         cell.layer.cornerRadius = 8
         return cell
     }
