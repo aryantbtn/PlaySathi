@@ -79,6 +79,7 @@ class CreateGameTableViewController: UITableViewController {
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             if let destVC = navigationController?.viewControllers[0] as? HomeScreenViewController {
+                // Setup game card info
                 destVC.venueNameForGameCard = venueNmae
                 destVC.dateForGameCard = selectedDate
                 destVC.timeForGameCard = selectedTime
@@ -86,28 +87,42 @@ class CreateGameTableViewController: UITableViewController {
                 listOfSections.insert(.gameCreated, at: 1)
                 DataController.headers[.gameCreated] = "Created Game"
                 
-                
-               
-                
-                // Add timer to switch to Matches section after 5 seconds
+                // First transition after 5 seconds
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                                    if let index = listOfSections.firstIndex(of: .gameCreated) {
-                                        listOfSections.remove(at: index)
-                                        listOfSections.insert(.matches, at: index)
-                                        DataController.headers[.matches] = "Matches"
-                                        destVC.collectionView.reloadData()
-                                        
-                                        // Second transition: Matches to Live after another 5 seconds
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                                            if let matchIndex = listOfSections.firstIndex(of: .matches) {
-                                                listOfSections.remove(at: matchIndex)
-                                                listOfSections.insert(.live, at: matchIndex)
-                                                DataController.headers[.live] = "Matches"
-                                                destVC.collectionView.reloadData()
-                                            }
-                                        }
-                                    }
-                                }
+                    // Send first notification
+                    NotificationCenter.default.post(
+                        name: Notification.Name("GameNotification"),
+                        object: nil,
+                        userInfo: ["message": "Your game request has been accepted!"]
+                    )
+                    
+                    if let index = listOfSections.firstIndex(of: .gameCreated) {
+                        listOfSections.remove(at: index)
+                        listOfSections.insert(.matches, at: index)
+                        DataController.headers[.matches] = "Matches"
+                        destVC.collectionView.reloadData()
+                        
+                    }
+                        // Second transition after another 5 seconds
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                            // Send second notification
+                            NotificationCenter.default.post(
+                                name: Notification.Name("GameNotification"),
+                                object: nil,
+                                userInfo: ["message": "Your game is now live!"]
+                            )
+                            
+                            if let matchIndex = listOfSections.firstIndex(of: .matches) {
+                                listOfSections.remove(at: matchIndex)
+                                listOfSections.insert(.live, at: matchIndex)
+                                DataController.headers[.live] = "Matches"
+                                destVC.collectionView.reloadData()
+                            }
+                        }
+                    
+                }
+
+
                 
                
                 self.navigationController?.popToRootViewController(animated: true)
