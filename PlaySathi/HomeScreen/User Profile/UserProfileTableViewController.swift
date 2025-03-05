@@ -16,17 +16,15 @@ class UserProfileTableViewController: UITableViewController {
     @IBOutlet weak var elitePoints: UILabel!
     @IBOutlet weak var winRate: UILabel!
     @IBOutlet weak var image: UIImageView!
+    
     private var userProfile :  Profile?
     
-    var elitePoint: String?
+    var elite: String?
     var win : String?
-    var numberOfMatch : String?
+    var number : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        elitePoints.text = elitePoint
-        numberOfMatches.text = numberOfMatch
-        winRate.text = win
         
         
         // Load profile image from UserDefaults
@@ -76,16 +74,23 @@ class UserProfileTableViewController: UITableViewController {
     }
 
     
-    // Override to support conditional rearranging of the table view.
-
-
-
+    @IBAction func signOut(_ sender: UIButton) {
+        SupabaseAuthanticationManager.shared.signOut()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "Login")
+        self.navigationController?.pushViewController( vc,animated: true)
+       
+    }
+    
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
 
     override func viewWillAppear(_ animated: Bool) {
         image.layer.cornerRadius = image.bounds.width / 2
+        elitePoints.text = elite
+        numberOfMatches.text = number
+        winRate.text = win
     }
 
     

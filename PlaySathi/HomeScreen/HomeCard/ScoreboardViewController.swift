@@ -170,6 +170,10 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
            let homeVC = navigationController.viewControllers.first as? HomeScreenViewController {
             listOfSections.remove(at: 1)
             homeVC.collectionView.reloadData()
+            var userP : UserProfileTableViewController?
+            userP?.elite = "66"
+            userP?.win = "66"
+            userP?.number = "3"
             navigationController.popToRootViewController(animated: true)
         }
         

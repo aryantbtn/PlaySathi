@@ -3,7 +3,7 @@ import FSCalendar
 
 class HistoryViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        5
     }
     
     
@@ -53,6 +53,15 @@ class HistoryViewController: UIViewController, FSCalendarDelegate, FSCalendarDat
         calendar.scope = .week
         
         view.addSubview(calendar)
+        
+        //calendar.translatesAutoresizingMaskIntoConstraints = false
+        
+//        NSLayoutConstraint.activate([
+//            calendar.topAnchor.constraint(equalTo: .topAnchor),
+//            calendar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            calendar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            calendar.bottomAnchor.constraint(equalTo: collectionViewForHistory.topAnchor)
+//        ])
 
     }
     func registerCells() {
@@ -72,6 +81,7 @@ class HistoryViewController: UIViewController, FSCalendarDelegate, FSCalendarDat
  
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Hello")
         let historyVC = HistoryDetailViewController()
         navigationController?.pushViewController(historyVC, animated: true)
     }

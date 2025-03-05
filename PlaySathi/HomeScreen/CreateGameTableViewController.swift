@@ -102,7 +102,7 @@ class CreateGameTableViewController: UITableViewController {
                         DataController.headers[.matches] = "Matches"
                         destVC.collectionView.reloadData()
                         
-                    }
+                        
                         // Second transition after another 5 seconds
                         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                             // Send second notification
@@ -119,6 +119,7 @@ class CreateGameTableViewController: UITableViewController {
                                 destVC.collectionView.reloadData()
                             }
                         }
+                    }
                     
                 }
 
