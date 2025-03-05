@@ -15,7 +15,7 @@ class DataController{
 
     
     static var venueData: [Venue] = [
-        Venue(id: UUID(), name: "Sai Sports Academy", imageUrl: "v13", rating: 4.0, distanceInKm: 5, location: "Noida", numberOfCourts: ["Court1","Court2","Court3","Court4","Court5"], price: 230, amenities: ["Parking","Swimming Pool","Changing Room", "Water","Wifi","Camera","Restrooms"],openingTime: "FSER",closingTime: "2",
+        Venue(id: UUID(), name: "Sai Sports Academy", imageUrl: "v13", rating: 4.0, distanceInKm: 5, location: "Noida", numberOfCourts: ["Court1","Court2","Court3","Court4","Court5"], price: 200, amenities: ["Parking","Swimming Pool","Changing Room", "Water","Wifi","Camera","Restrooms"],openingTime: "FSER",closingTime: "2",
               timeSlots: ["2PM-3PM","6PM-8PM","9PM-10PM","5PM-6PM"],
               courtAvailability:[
             "Court1": ["2PM-3PM","6PM-8PM","9PM-10PM"],
@@ -33,7 +33,7 @@ class DataController{
                 "Court5": ["5PM-6PM","9PM-10PM"]
         ]),
         
-        Venue(id: UUID(), name: "CrowdFit Academy", imageUrl: "v8", rating: 4.0, distanceInKm: 5, location: "Noida",numberOfCourts : ["Court1","Court2","Court3","Court4"], price: 200, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "2",closingTime: "5",
+        Venue(id: UUID(), name: "CrowdFit Academy", imageUrl: "v8", rating: 4.0, distanceInKm: 5, location: "Noida",numberOfCourts : ["Court1","Court2","Court3","Court4"], price: 220, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "2",closingTime: "5",
               timeSlots: ["2PM-3PM","6PM-8PM","9PM-10PM","5PM-6PM"],
               courtAvailability: [
                 "Court3": ["6PM-8PM","9PM-10PM"],
@@ -41,7 +41,7 @@ class DataController{
                 "Court5": ["5PM-6PM","9PM-10PM"]
         ]),
         
-        Venue(id: UUID(), name: "rohini Sports Complex", imageUrl: "v9", rating: 4.0, distanceInKm: 5, location: "Noida", numberOfCourts: ["Court1","Court2","Court3","Court4"], price: 300, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "5 AM",closingTime: "7 PM",
+        Venue(id: UUID(), name: "Rohini Sports Complex", imageUrl: "v9", rating: 4.0, distanceInKm: 5, location: "Noida", numberOfCourts: ["Court1","Court2","Court3","Court4"], price: 200, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "5 AM",closingTime: "7 PM",
               timeSlots: ["2PM-3PM","6PM-8PM","9PM-10PM","5PM-6PM"],
               courtAvailability: [
                 "Court3": ["6PM-8PM","9PM-10PM"],
@@ -65,7 +65,7 @@ class DataController{
                 "Court5": ["5PM-6PM","9PM-10PM"]
         ]),
         
-        Venue(id: UUID(), name: "Delhi Academy", imageUrl: "v12", rating: 4.0, distanceInKm: 15, location: "Delhi", numberOfCourts: ["Court1","Court2","Court3","Court4"], price: 200, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "4 AM",closingTime: "8 PM",
+        Venue(id: UUID(), name: "Delhi Academy", imageUrl: "v12", rating: 4.0, distanceInKm: 15, location: "Delhi", numberOfCourts: ["Court1","Court2","Court3","Court4"], price: 250, amenities: ["Parking","Swimming Pool","Changing Room", "Water"],openingTime: "4 AM",closingTime: "8 PM",
               timeSlots: ["2PM-3PM","6PM-8PM","9PM-10PM","5PM-6PM"],
               courtAvailability: [
                 "Court3": ["6PM-8PM","9PM-10PM"],

@@ -83,18 +83,12 @@ class CreateGameTableViewController: UITableViewController {
                 destVC.venueNameForGameCard = venueNmae
                 destVC.dateForGameCard = selectedDate
                 destVC.timeForGameCard = selectedTime
-                destVC.playerforGameCard = PlayerDataController.shared.userProfiles[5].playerImage
+                destVC.playerforGameCard = "Image 1"
                 listOfSections.insert(.gameCreated, at: 1)
                 DataController.headers[.gameCreated] = "Created Game"
                 
                 // First transition after 5 seconds
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                    // Send first notification
-                    NotificationCenter.default.post(
-                        name: Notification.Name("GameNotification"),
-                        object: nil,
-                        userInfo: ["message": "Your game request has been accepted!"]
-                    )
                     
                     if let index = listOfSections.firstIndex(of: .gameCreated) {
                         listOfSections.remove(at: index)

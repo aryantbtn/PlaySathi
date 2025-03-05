@@ -6,6 +6,8 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var updateButton: UIButton!
     
+    var userP : UserProfileTableViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Scoreboard"
@@ -170,7 +172,7 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
            let homeVC = navigationController.viewControllers.first as? HomeScreenViewController {
             listOfSections.remove(at: 1)
             homeVC.collectionView.reloadData()
-            var userP : UserProfileTableViewController?
+           
             userP?.elite = "66"
             userP?.win = "66"
             userP?.number = "3"
