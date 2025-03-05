@@ -69,7 +69,13 @@ class HistoryViewController: UIViewController, FSCalendarDelegate, FSCalendarDat
             moveToNextWeek()
         }
     }
-    
+ 
+   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let historyVC = HistoryDetailViewController()
+        navigationController?.pushViewController(historyVC, animated: true)
+    }
+
     
     func generateLayout()->UICollectionViewLayout{
         let layout = UICollectionViewCompositionalLayout {

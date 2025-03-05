@@ -5,6 +5,7 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var image2: UIImageView!
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var updateButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Scoreboard"
@@ -16,9 +17,38 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
         image2.layer.cornerRadius = image2.bounds.width/2
         image2.layer.borderWidth = 2
         image2.layer.borderColor = UIColor.accent.cgColor
-        
-        updateButton.layer.cornerRadius = 10
+       
+              setupUpdateButton()
     }
+    private func setupUpdateButton() {
+            updateButton.backgroundColor = .accent
+            updateButton.layer.cornerRadius = 12
+            
+            // Update button text styling
+            updateButton.setTitle("Update", for: .normal) // Ensure title is set
+            updateButton.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+            updateButton.setTitleColor(.white, for: .normal)
+            
+            // Adjust padding
+            updateButton.contentEdgeInsets = UIEdgeInsets(top: 12, left: 24, bottom: 12, right: 24)
+            
+            // Add shadow effect
+            updateButton.layer.shadowColor = UIColor.black.cgColor
+            updateButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+            updateButton.layer.shadowRadius = 4
+            updateButton.layer.shadowOpacity = 0.1
+            
+            // Update button constraints
+            updateButton.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                updateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+                updateButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+                updateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+                updateButton.heightAnchor.constraint(equalToConstant: 54)
+            ])
+        }
+    
+
 
     func setupScoreboardTable() {
 
@@ -138,6 +168,8 @@ class ScoreboardViewController: UIViewController, UITextFieldDelegate {
         if let navigationController = self.navigationController,
            
            let homeVC = navigationController.viewControllers.first as? HomeScreenViewController {
+            listOfSections.remove(at: 1)
+            homeVC.collectionView.reloadData()
             navigationController.popToRootViewController(animated: true)
         }
         

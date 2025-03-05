@@ -87,11 +87,7 @@ class CreateGameTableViewController: UITableViewController {
                 DataController.headers[.gameCreated] = "Created Game"
                 
                 
-                NotificationCenter.default.post(
-                                    name: NSNotification.Name("GameAccepted"),
-                                    object: nil,
-                                    userInfo: ["playerName": player ?? "Player"]
-                                )
+               
                 
                 // Add timer to switch to Matches section after 5 seconds
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {

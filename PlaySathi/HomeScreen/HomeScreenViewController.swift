@@ -541,11 +541,9 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     
     override func viewWillAppear(_ animated: Bool) {
     collectionView.reloadData()
-//        if let matchesIndex = listOfSections.firstIndex(of: .matches) {
-//                        listOfSections.remove(at: matchesIndex)
-//                collectionView.reloadData()
-//                    }
+       
+                    }
     }
 
     
-}
+

@@ -18,9 +18,16 @@ class UserProfileTableViewController: UITableViewController {
     @IBOutlet weak var image: UIImageView!
     private var userProfile :  Profile?
     
+    var elitePoint: String?
+    var win : String?
+    var numberOfMatch : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        elitePoints.text = elitePoint
+        numberOfMatches.text = numberOfMatch
+        winRate.text = win
+        
         
         // Load profile image from UserDefaults
         if let imageData = UserDefaults.standard.data(forKey: "Image 5"),
