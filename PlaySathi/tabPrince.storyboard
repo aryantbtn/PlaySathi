@@ -417,8 +417,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Win" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y58-gz-rWK">
-                                                    <rect key="frame" x="151.33333333333334" y="99" width="30.666666666666657" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Win Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y58-gz-rWK">
+                                                    <rect key="frame" x="131" y="99" width="71" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -663,9 +663,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="J8d-PS-NXR"/>
                     <connections>
+                        <outlet property="elitePoints" destination="2cD-ST-xWx" id="5lO-H0-j8a"/>
                         <outlet property="image" destination="gYc-B1-Vhq" id="A0t-6D-wSV"/>
                         <outlet property="name" destination="xcF-rc-wFw" id="HAm-io-Ht2"/>
+                        <outlet property="numberOfMatches" destination="ymI-v4-YBA" id="NkN-LE-KMg"/>
                         <outlet property="skillLevel" destination="Ig8-lf-pnu" id="HMF-JN-PHw"/>
+                        <outlet property="winRate" destination="4wV-2B-D3a" id="Fbe-XT-OP2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lig-At-V83" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -923,6 +926,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="image1" destination="VOj-r6-8sd" id="Upa-1E-rc2"/>
+                        <outlet property="image2" destination="jT4-FY-brv" id="2Hm-et-PoQ"/>
                         <outlet property="updateButton" destination="91K-Sz-QaL" id="wGI-Cr-DMk"/>
                     </connections>
                 </viewController>

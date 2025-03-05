@@ -2,12 +2,21 @@ import UIKit
 
 class ScoreboardViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var image2: UIImageView!
+    @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var updateButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Scoreboard"
         setupScoreboardTable()
         setupGestureToDismissKeyboard()
+        image1.layer.borderWidth = 2
+        image1.layer.borderColor = UIColor.accent.cgColor
+        image1.layer.cornerRadius = image1.bounds.width/2
+        image2.layer.cornerRadius = image2.bounds.width/2
+        image2.layer.borderWidth = 2
+        image2.layer.borderColor = UIColor.accent.cgColor
+        
         updateButton.layer.cornerRadius = 10
     }
 

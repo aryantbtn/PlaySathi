@@ -10,8 +10,11 @@ import UIKit
 class UserProfileTableViewController: UITableViewController {
     @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var numberOfMatches: UILabel!
     @IBOutlet weak var skillLevel: UILabel!
     
+    @IBOutlet weak var elitePoints: UILabel!
+    @IBOutlet weak var winRate: UILabel!
     @IBOutlet weak var image: UIImageView!
     private var userProfile :  Profile?
     
@@ -20,7 +23,7 @@ class UserProfileTableViewController: UITableViewController {
 
         
         // Load profile image from UserDefaults
-        if let imageData = UserDefaults.standard.data(forKey: "userProfileImage"),
+        if let imageData = UserDefaults.standard.data(forKey: "Image 5"),
            let savedImage = UIImage(data: imageData) {
             image.image = savedImage
             image.layer.cornerRadius = image.bounds.width / 2
@@ -32,6 +35,9 @@ class UserProfileTableViewController: UITableViewController {
         Task {
             name.text = await PlayerTableManager.shared.fetchCurrentUser()?.name
             skillLevel.text = await PlayerTableManager.shared.fetchCurrentUser()?.skillLevel
+           elitePoints.text = "0"
+            winRate.text = "0"
+            numberOfMatches.text = "0"
         }
     }
 

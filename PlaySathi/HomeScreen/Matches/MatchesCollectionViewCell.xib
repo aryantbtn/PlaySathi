@@ -49,27 +49,27 @@
                                     <constraint firstAttribute="width" constant="18" id="yN4-Wm-72H"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28 January 2025 7:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1SU-YK-147">
-                                <rect key="frame" x="43" y="58.333333333333336" width="160.33333333333334" height="15.666666666666664"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 March 2025 2PM-3PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1SU-YK-147">
+                                <rect key="frame" x="43" y="58.333333333333336" width="158.33333333333334" height="15.666666666666664"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pink Sports Academy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPI-Qf-2Pu">
-                                <rect key="frame" x="43" y="78.333333333333329" width="132.33333333333334" height="15.666666666666671"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CrowdFit Academy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPI-Qf-2Pu">
+                                <rect key="frame" x="43.000000000000007" y="78.333333333333329" width="116.66666666666669" height="15.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 2" translatesAutoresizingMaskIntoConstraints="NO" id="x0Y-gE-A4O">
-                                <rect key="frame" x="304.66666666666669" y="28" width="60" height="60"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 1" translatesAutoresizingMaskIntoConstraints="NO" id="x0Y-gE-A4O">
+                                <rect key="frame" x="302.66666666666669" y="28" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="9Yf-1Z-7Lt"/>
                                     <constraint firstAttribute="height" constant="60" id="HZA-ca-ddS"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 5" translatesAutoresizingMaskIntoConstraints="NO" id="TcF-Th-MBd">
-                                <rect key="frame" x="244.66666666666663" y="28" width="60" height="60"/>
+                                <rect key="frame" x="242.66666666666663" y="28" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Klw-Lc-qKE"/>
                                     <constraint firstAttribute="width" constant="60" id="QV1-XI-DKF"/>
@@ -106,11 +106,15 @@
                 <constraint firstItem="ChS-ol-lDr" firstAttribute="top" secondItem="Exk-iJ-eFd" secondAttribute="top" id="s10-vt-b2M"/>
             </constraints>
             <size key="customSize" width="393" height="111"/>
+            <connections>
+                <outlet property="host" destination="TcF-Th-MBd" id="9gU-rA-grM"/>
+                <outlet property="player" destination="x0Y-gE-A4O" id="Sj1-2i-Sm0"/>
+            </connections>
             <point key="canvasLocation" x="138.1679389312977" y="-8.0985915492957758"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Image 2" width="106" height="107"/>
+        <image name="Image 1" width="231" height="228"/>
         <image name="Image 5" width="223" height="222"/>
         <image name="clock" catalog="system" width="128" height="123"/>
         <image name="location.circle" catalog="system" width="128" height="123"/>
