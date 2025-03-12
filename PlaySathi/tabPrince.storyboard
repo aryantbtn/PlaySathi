@@ -640,7 +640,7 @@
                                         <rect key="frame" x="20" y="712.66667175292969" width="353" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HP5-R0-wCc" id="9rc-9v-cyE">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZP3-23-daM">
@@ -679,7 +679,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lig-At-V83" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449.61832061068702" y="787.32394366197184"/>
+            <point key="canvasLocation" x="1192" y="816"/>
         </scene>
         <!--Point System View Controller-->
         <scene sceneID="s5Q-2Q-88m">
@@ -695,7 +695,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wh-lc-8kR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-625" y="1532"/>
+            <point key="canvasLocation" x="247" y="1775"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="pbu-bR-fpi">
@@ -742,7 +742,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tet-aE-24E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-515.26717557251902" y="2218.3098591549297"/>
+            <point key="canvasLocation" x="1192" y="1775"/>
         </scene>
         <!--Refferal View Controller-->
         <scene sceneID="tZj-zf-pmB">
@@ -758,7 +758,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FR6-PG-6Eg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="593" y="2222"/>
+            <point key="canvasLocation" x="2114" y="1775"/>
         </scene>
         <!--History Detail View Controller-->
         <scene sceneID="yrC-UX-vdM">
@@ -773,7 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raW-4o-HlZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="642" y="3051"/>
+            <point key="canvasLocation" x="-564" y="815"/>
         </scene>
         <!--Set View Controller-->
         <scene sceneID="7ih-x8-3gH">
@@ -789,7 +789,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fyc-iV-be6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589" y="2244"/>
+            <point key="canvasLocation" x="3185" y="1775"/>
         </scene>
         <!--Notification View Controller-->
         <scene sceneID="SaK-sk-O60">
@@ -804,7 +804,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIs-16-UAu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2639" y="2211"/>
+            <point key="canvasLocation" x="3914" y="27"/>
         </scene>
         <!--Created Game View Controller-->
         <scene sceneID="Agk-ZC-P6b">
@@ -850,7 +850,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btI-2L-qhf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="477" y="1494"/>
+            <point key="canvasLocation" x="385" y="815"/>
         </scene>
         <!--Scoreboard View Controller-->
         <scene sceneID="bP7-4S-e6T">
@@ -954,7 +954,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvm-dU-p1x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1406.8702290076335" y="1502.8169014084508"/>
+            <point key="canvasLocation" x="3024" y="27"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="sTb-hd-cEd">
@@ -994,7 +994,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgZ-p2-6zh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2441.9847328244273" y="1521.8309859154931"/>
+            <point key="canvasLocation" x="3915" y="815"/>
         </scene>
         <!--User Personal View Controller-->
         <scene sceneID="vlK-zU-FHf">
@@ -1010,7 +1010,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUU-sl-fT9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-596" y="771"/>
+            <point key="canvasLocation" x="-789" y="1775"/>
         </scene>
         <!--Player Request View Controller-->
         <scene sceneID="h6v-6C-X6k">
@@ -1057,7 +1057,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBQ-vp-gNd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1298" y="787"/>
+            <point key="canvasLocation" x="2114" y="815"/>
         </scene>
         <!--Venue Selection Card View Controller-->
         <scene sceneID="fWt-Ad-Wbt">
@@ -1103,7 +1103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDp-2w-AeX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="787"/>
+            <point key="canvasLocation" x="3025" y="815"/>
         </scene>
     </scenes>
     <resources>
@@ -1128,13 +1128,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
