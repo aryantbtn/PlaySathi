@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GameEntryCollectionViewCell" customModule="PlaySathi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="356" height="104"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="356" height="104"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJ2-je-9nT" customClass="CardView" customModule="PlaySathi" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="356" height="104"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Rishabh | 100 Elite Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z6-On-yCa">
+                                <rect key="frame" x="15" y="28" width="131.66666666666666" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.exclamationmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6Bc-78-msB">
+                                <rect key="frame" x="15.000000000000002" y="58.666666666666664" width="20.666666666666664" height="17.666666666666679"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="3XD-EY-djd"/>
+                                    <constraint firstAttribute="height" constant="18" id="KEv-iI-wH1"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YWW-WW-wpd">
+                                <rect key="frame" x="15" y="81" width="18" height="16.333333333333329"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="H6N-o0-2w8"/>
+                                    <constraint firstAttribute="width" constant="18" id="uhh-XR-qdw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 5" translatesAutoresizingMaskIntoConstraints="NO" id="VP8-PU-ZZc">
+                                <rect key="frame" x="233.33333333333337" y="20" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="NHY-cu-sob"/>
+                                    <constraint firstAttribute="height" constant="60" id="spc-pe-INC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beginner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bG-CX-9no">
+                                <rect key="frame" x="15" y="12" width="47" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28 January 2025 7:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G43-e4-Uar">
+                                <rect key="frame" x="38" y="56.999999999999993" width="160.33333333333334" height="15.666666666666664"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Say No To Stress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsR-92-mml">
+                                <rect key="frame" x="38" y="77.666666666666671" width="105" height="15.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.circle.dashed" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="H5N-U1-7gS">
+                                <rect key="frame" x="293.33333333333331" y="20.666666666666668" width="60" height="58.666666666666657"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="a16-bL-LAZ"/>
+                                    <constraint firstAttribute="width" constant="60" id="pl0-VZ-gF2"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Bc-78-msB" firstAttribute="leading" secondItem="cJ2-je-9nT" secondAttribute="leading" constant="15" id="50O-Ay-WoV"/>
+                            <constraint firstItem="YWW-WW-wpd" firstAttribute="top" secondItem="6Bc-78-msB" secondAttribute="bottom" constant="5" id="5pG-l5-ZAV"/>
+                            <constraint firstItem="6Bc-78-msB" firstAttribute="top" secondItem="0z6-On-yCa" secondAttribute="bottom" constant="15" id="IC2-7e-mmj"/>
+                            <constraint firstItem="YWW-WW-wpd" firstAttribute="leading" secondItem="cJ2-je-9nT" secondAttribute="leading" constant="15" id="T59-tA-mZJ"/>
+                            <constraint firstAttribute="width" constant="356" id="UTR-Um-0WP"/>
+                            <constraint firstItem="G43-e4-Uar" firstAttribute="top" secondItem="0z6-On-yCa" secondAttribute="bottom" constant="15" id="UrR-Vh-S6d"/>
+                            <constraint firstItem="VsR-92-mml" firstAttribute="top" secondItem="G43-e4-Uar" secondAttribute="bottom" constant="5" id="Vtv-CL-99D"/>
+                            <constraint firstItem="G43-e4-Uar" firstAttribute="leading" secondItem="6Bc-78-msB" secondAttribute="trailing" constant="5" id="Wa4-Ib-WMS"/>
+                            <constraint firstItem="VsR-92-mml" firstAttribute="leading" secondItem="YWW-WW-wpd" secondAttribute="trailing" constant="5" id="b5t-E4-7Gt"/>
+                            <constraint firstItem="7bG-CX-9no" firstAttribute="leading" secondItem="cJ2-je-9nT" secondAttribute="leading" constant="15" id="bcU-CW-wRp"/>
+                            <constraint firstItem="H5N-U1-7gS" firstAttribute="leading" secondItem="VP8-PU-ZZc" secondAttribute="trailing" id="ezk-70-tWA"/>
+                            <constraint firstItem="0z6-On-yCa" firstAttribute="top" secondItem="7bG-CX-9no" secondAttribute="bottom" constant="2" id="f4V-Jg-ZXx"/>
+                            <constraint firstItem="H5N-U1-7gS" firstAttribute="top" secondItem="cJ2-je-9nT" secondAttribute="top" constant="20" id="hcQ-jk-BbO"/>
+                            <constraint firstItem="0z6-On-yCa" firstAttribute="leading" secondItem="cJ2-je-9nT" secondAttribute="leading" constant="15" id="l1V-mq-k9l"/>
+                            <constraint firstItem="VP8-PU-ZZc" firstAttribute="top" secondItem="cJ2-je-9nT" secondAttribute="top" constant="20" id="lUf-oK-eQ4"/>
+                            <constraint firstItem="VP8-PU-ZZc" firstAttribute="leading" secondItem="G43-e4-Uar" secondAttribute="trailing" constant="35" id="neR-HJ-4bW"/>
+                            <constraint firstItem="7bG-CX-9no" firstAttribute="top" secondItem="cJ2-je-9nT" secondAttribute="top" constant="12" id="rD3-Mf-Toi"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cJ2-je-9nT" secondAttribute="trailing" id="8n7-0G-dRA"/>
+                <constraint firstItem="cJ2-je-9nT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="E9M-ii-ubk"/>
+                <constraint firstItem="cJ2-je-9nT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cT7-mF-5ee"/>
+                <constraint firstAttribute="bottom" secondItem="cJ2-je-9nT" secondAttribute="bottom" id="rcm-oT-zlb"/>
+            </constraints>
+            <size key="customSize" width="356" height="104"/>
+            <connections>
+                <outlet property="dateAndTime" destination="G43-e4-Uar" id="SHC-m2-3jr"/>
+                <outlet property="host" destination="VP8-PU-ZZc" id="KZc-nG-f1T"/>
+                <outlet property="venueName" destination="VsR-92-mml" id="VL0-5u-Zzu"/>
+            </connections>
+            <point key="canvasLocation" x="138.93129770992365" y="-10.563380281690142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Image 5" width="223" height="222"/>
+        <image name="calendar.badge.exclamationmark" catalog="system" width="128" height="109"/>
+        <image name="location" catalog="system" width="128" height="119"/>
+        <image name="questionmark.circle.dashed" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
